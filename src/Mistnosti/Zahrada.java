@@ -1,4 +1,7 @@
 package Mistnosti;
 
-public class Zahrada {
+public class Zahrada extends Mistnost{
+    public Zahrada(String nazev) {
+        super(nazev);
+    }
 }

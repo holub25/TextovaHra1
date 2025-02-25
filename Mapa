@@ -1,8 +1,8 @@
-Mistnosti.Hala;Mistnosti.Knihovna;Loznice 1;Loznice 2;Kuchyne;Mistnosti.Kancelar;Mistnosti.Zahrada;Mistnosti.Sklep
-Mistnosti.Knihovna;Mistnosti.Hala
-Loznice 1;Mistnosti.Hala
-Loznice 2;Mistnosti.Hala
-Kuchyne;Mistnosti.Hala
-Mistnosti.Kancelar;Mistnosti.Hala
-Mistnosti.Zahrada;Mistnosti.Hala
-Mistnosti.Sklep;Mistnosti.Hala
+Hala;Knihovna;Loznice 1;Loznice 2;Kuchyne;Kancelar;Zahrada;Sklep
+Knihovna;Hala
+Loznice 1;Hala
+Loznice 2;Hala
+Kuchyne;Hala
+Kancelar;Hala
+Zahrada;Hala
+Sklep;Hala

@@ -11,6 +11,14 @@ public abstract class Mistnost {
         this.sousedniMistnosti = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "Mistnost{" +
+                "nazev='" + nazev + '\'' +
+                ", sousedniMistnosti=" + sousedniMistnosti +
+                '}';
+    }
+
     public void pridatSouseda(String nazevMistnosti){
         this.sousedniMistnosti.add(nazevMistnosti);
     }
