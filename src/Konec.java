@@ -1,7 +1,7 @@
 public class Konec implements Command{
     @Override
     public String prikaz(String vstup) {
-        return "Konec hry";
+        return "Konec hry.";
     }
 
     @Override
