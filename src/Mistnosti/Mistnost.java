@@ -19,9 +19,16 @@ public abstract class Mistnost {
                 ", sousedniMistnosti=" + sousedniMistnosti +
                 '}';
     }
-
-
     public void setSousedniMistnosti(ArrayList<String> sousedniMistnosti) {
         this.sousedniMistnosti = sousedniMistnosti;
     }
+
+    public String getNazev() {
+        return nazev;
+    }
+
+    public ArrayList<String> getSousedniMistnosti() {
+        return sousedniMistnosti;
+    }
+
 }

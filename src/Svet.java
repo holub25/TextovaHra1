@@ -7,17 +7,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Svet {
+
+
     private ArrayList<Mistnost> mistnosti;
 
     public Svet() {
         this.mistnosti = new ArrayList<>();
+        nacteniMapy();
     }
     public ArrayList<String> rozdeleniSousedu(String radek,String nazev){
         String[] sousedi = radek.split(";");
         ArrayList<String> list = new ArrayList<>();
         for(int i = 0;i<sousedi.length;i++){
             if(!sousedi[i].equalsIgnoreCase(nazev)){
-                list.add(sousedi[i]);
+                list.add(sousedi[i].toLowerCase());
             }
         }
         return list;
@@ -29,8 +32,8 @@ public class Svet {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine())!=null){
-                String nazev = line.split(";")[0];
-                switch (nazev.toLowerCase()){
+                String nazev = line.split(";")[0].toLowerCase();
+                switch (nazev){
                     case "hala":
                         mistnosti.add(new Hala(nazev,rozdeleniSousedu(line,nazev)));
                         break;
