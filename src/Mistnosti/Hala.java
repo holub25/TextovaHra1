@@ -1,8 +1,11 @@
 package Mistnosti;
 
-public class Hala extends Mistnost {
-    public Hala(String nazev) {
-        super(nazev);
-    }
+import java.util.ArrayList;
 
+public class Hala extends Mistnost {
+
+
+    public Hala(String nazev, ArrayList<String> sousedi) {
+        super(nazev, sousedi);
+    }
 }

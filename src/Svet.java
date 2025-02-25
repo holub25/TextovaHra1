@@ -12,6 +12,16 @@ public class Svet {
     public Svet() {
         this.mistnosti = new ArrayList<>();
     }
+    public ArrayList<String> rozdeleniSousedu(String radek,String nazev){
+        String[] sousedi = radek.split(";");
+        ArrayList<String> list = new ArrayList<>();
+        for(int i = 0;i<sousedi.length;i++){
+            if(!sousedi[i].equalsIgnoreCase(nazev)){
+                list.add(sousedi[i]);
+            }
+        }
+        return list;
+    }
 
     public void nacteniMapy(){
         try {
@@ -22,21 +32,30 @@ public class Svet {
                 String nazev = line.split(";")[0];
                 switch (nazev.toLowerCase()){
                     case "hala":
-                        mistnosti.add(new Hala(nazev));
+                        mistnosti.add(new Hala(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "kuchyne":
-                        mistnosti.add(new Kuchyn(nazev));
+                        mistnosti.add(new Kuchyn(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "kancelar":
-                        mistnosti.add(new Kancelar(nazev));
+                        mistnosti.add(new Kancelar(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "loznice 1":
-                        mistnosti.add(new Loznice1(nazev));
+                        mistnosti.add(new Loznice1(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "loznice 2":
-                        mistnosti.add(new Loznice2(nazev));
+                        mistnosti.add(new Loznice2(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "sklep":
-                        mistnosti.add(new Sklep(nazev));
+                        mistnosti.add(new Sklep(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "zahrada":
-                        mistnosti.add(new Zahrada(nazev));
+                        mistnosti.add(new Zahrada(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
                     case "knihovna":
-                        mistnosti.add(new Knihovna(nazev));
+                        mistnosti.add(new Knihovna(nazev,rozdeleniSousedu(line,nazev)));
+                        break;
+
                 }
             }
         } catch (FileNotFoundException e) {
@@ -46,32 +65,7 @@ public class Svet {
         }
 
     }
-
     public ArrayList<Mistnost> getMistnosti() {
         return mistnosti;
-    }
-
-    public Mistnost vytvoreniMistnosti(String nazev){
-        switch (nazev.toLowerCase()){
-            case "hala":
-                return new Hala("Hala");
-            case "kuchyne":
-                return new Kuchyn("Kuchyně");
-            case "kancelar":
-                return new Kancelar("Kancelář");
-            case "loznice 1":
-                return new Loznice1("Ložnice 1");
-            case "loznice 2":
-                return new Loznice2("Ložnice 2");
-            case "sklep":
-                return new Sklep("Sklep");
-            case "zahrada":
-                return new Zahrada("Zahrada");
-            case "knihovna":
-                return new Knihovna("Knihovna");
-            default:
-                System.out.println("Chybna mistnost");
-        }
-        return null;
     }
 }

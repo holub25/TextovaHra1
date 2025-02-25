@@ -6,9 +6,10 @@ public abstract class Mistnost {
     protected String nazev;
     protected ArrayList<String> sousedniMistnosti;
 
-    public Mistnost(String nazev) {
+    public Mistnost(String nazev,ArrayList<String> sousedi) {
         this.nazev = nazev;
         this.sousedniMistnosti = new ArrayList<>();
+        setSousedniMistnosti(sousedi);
     }
 
     @Override
@@ -19,7 +20,8 @@ public abstract class Mistnost {
                 '}';
     }
 
-    public void pridatSouseda(String nazevMistnosti){
-        this.sousedniMistnosti.add(nazevMistnosti);
+
+    public void setSousedniMistnosti(ArrayList<String> sousedniMistnosti) {
+        this.sousedniMistnosti = sousedniMistnosti;
     }
 }

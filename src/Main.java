@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Svet svet = new Svet();
         svet.nacteniMapy();
-        System.out.println(svet.getMistnosti().get(0));
+        System.out.println(svet.getMistnosti());
 
     }
 }
