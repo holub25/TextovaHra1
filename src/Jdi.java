@@ -1,6 +1,7 @@
 import Commands.Command;
 import Mistnosti.Mistnost;
 
+
 public class Jdi implements Command {
 
     private Hra hra;

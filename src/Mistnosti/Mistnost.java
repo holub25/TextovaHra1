@@ -1,14 +1,19 @@
 package Mistnosti;
 
+
+import Predmety.Predmet;
+
 import java.util.ArrayList;
 
 public abstract class Mistnost {
     protected String nazev;
     protected ArrayList<String> sousedniMistnosti;
+    protected ArrayList<Predmet> predmetyVMistnosti;
 
     public Mistnost(String nazev,ArrayList<String> sousedi) {
         this.nazev = nazev;
         this.sousedniMistnosti = new ArrayList<>();
+        this.predmetyVMistnosti = new ArrayList<>();
         setSousedniMistnosti(sousedi);
     }
 
