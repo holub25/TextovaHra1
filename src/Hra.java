@@ -1,3 +1,5 @@
+import Commands.Command;
+import Commands.Konec;
 import Mistnosti.Mistnost;
 
 import java.util.HashMap;
@@ -5,7 +7,7 @@ import java.util.Scanner;
 
 public class Hra {
     private boolean exit = false;
-    private HashMap<String,Command> prikazy;
+    private HashMap<String, Command> prikazy;
     private Scanner sc = new Scanner(System.in);
     private Mistnost momentalniMistnost;
 

@@ -1,11 +1,13 @@
-public class Konec implements Command{
+package Commands;
+
+public class Vzit implements Command{
     @Override
     public String prikaz(String vstup) {
-        return "Konec hry.";
+        return "";
     }
 
     @Override
     public boolean exit() {
-        return true;
+        return false;
     }
 }

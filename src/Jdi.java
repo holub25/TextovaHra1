@@ -1,11 +1,12 @@
+import Commands.Command;
 import Mistnosti.Mistnost;
 
-public class Jdi implements Command{
+public class Jdi implements Command {
 
     private Hra hra;
     private Svet svet;
 
-    public Jdi(Hra hra,Svet svet) {
+    public Jdi(Hra hra, Svet svet) {
         this.hra = hra;
         this.svet = svet;
     }
