@@ -6,6 +6,6 @@ public class Konec implements Command{
 
     @Override
     public boolean exit() {
-        return false;
+        return true;
     }
 }
