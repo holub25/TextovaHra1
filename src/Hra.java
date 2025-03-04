@@ -10,6 +10,7 @@ public class Hra {
     private HashMap<String, Command> prikazy;
     private Scanner sc = new Scanner(System.in);
     private Mistnost momentalniMistnost;
+    private Hrac hrac;
 
     public Hra(Mistnost momentalniMistnost) {
         this.exit = false;
