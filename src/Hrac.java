@@ -11,4 +11,7 @@ public class Hrac {
         this.inventory = inventory;
         this.aktualniMistnost = aktualniMistnost;
     }
+    public String nastaveniJmena(){
+        return null;
+    }
 }
