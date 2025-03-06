@@ -1,3 +1,5 @@
+package zbytek;
+
 import Predmety.Predmet;
 
 import java.util.ArrayList;
@@ -11,10 +13,10 @@ public class InventoryPlayer {
         this.velikost = velikost;
     }
 
-    public String pridaniPredmetu(){
-        return null;
+    public void pridaniPredmetu(Predmet predmet){
+        predmety.add(predmet);
     }
-    public String odebraniPredmetu(){
-        return null;
+    public void odebraniPredmetu(Predmet predmet){
+        predmety.remove(predmet);
     }
 }

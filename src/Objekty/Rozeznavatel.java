@@ -6,8 +6,8 @@ import Predmety.Predmet;
 import java.util.ArrayList;
 
 public class Rozeznavatel extends Objekt{
-    public Rozeznavatel(ArrayList<Predmet> predmetyVObjektu, Mistnost polohaObjektu) {
-        super(predmetyVObjektu, polohaObjektu);
+    public Rozeznavatel(String nazev, Mistnost polohaObjektu) {
+        super(nazev, polohaObjektu);
     }
 
     public String rozeznatLatku(){

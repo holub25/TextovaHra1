@@ -2,7 +2,7 @@ package Commands;
 
 public class OtevritInv implements Command{
     @Override
-    public String prikaz(String vstup) {
+    public String prikaz(Object vstup) {
         return "";
     }
 

@@ -1,3 +1,5 @@
+package zbytek;
+
 public class Strana {
     private String obsah;
     private int cisloStrany;

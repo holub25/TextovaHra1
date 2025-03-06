@@ -20,6 +20,9 @@ public abstract class Postava {
     public String komunikace(){
         return null;
     }
+    public String nahraniPopisu(){
+        return null;
+    }
     public String nahraniTextu(){
         return null;
     }

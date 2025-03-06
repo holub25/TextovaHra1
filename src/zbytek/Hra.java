@@ -1,3 +1,5 @@
+package zbytek;
+
 import Commands.Command;
 import Commands.Konec;
 import Mistnosti.Mistnost;

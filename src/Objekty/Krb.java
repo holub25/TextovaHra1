@@ -6,7 +6,7 @@ import Predmety.Predmet;
 import java.util.ArrayList;
 
 public class Krb extends Objekt{
-    public Krb(ArrayList<Predmet> predmetyVObjektu, Mistnost polohaObjektu) {
-        super(predmetyVObjektu, polohaObjektu);
+    public Krb(String nazev, Mistnost polohaObjektu) {
+        super(nazev, polohaObjektu);
     }
 }

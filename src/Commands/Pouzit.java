@@ -2,7 +2,7 @@ package Commands;
 
 public class Pouzit implements Command {
     @Override
-    public String prikaz(String vstup) {
+    public String prikaz(Object vstup) {
         return "";
     }
 

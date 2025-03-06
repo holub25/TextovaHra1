@@ -1,6 +1,6 @@
 package Commands;
 
 public interface Command {
-    String prikaz(String vstup);
+    String prikaz(Object vstup);
     boolean exit();
 }

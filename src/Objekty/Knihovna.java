@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Knihovna extends Objekt{
 
     private ArrayList<Kniha> knihy;
-    public Knihovna(ArrayList<Predmet> predmetyVObjektu, Mistnost polohaObjektu) {
-        super(predmetyVObjektu, polohaObjektu);
+    public Knihovna(String nazev, Mistnost polohaObjektu) {
+        super(nazev, polohaObjektu);
     }
 
     public void pridatKnihu(){

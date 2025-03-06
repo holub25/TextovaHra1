@@ -2,7 +2,7 @@ package Commands;
 
 public class Zpet implements Command{
     @Override
-    public String prikaz(String vstup) {
+    public String prikaz(Object vstup) {
         return "";
     }
 

@@ -1,4 +1,9 @@
+package zbytek;
+
 import Mistnosti.*;
+import Objekty.Krb;
+import Postavy.Morgan;
+import Predmety.LahvickaFPrasky;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -66,7 +71,16 @@ public class Svet {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+    }
+    public void nahraniObsahu(){
+        for(int i = 0;i<mistnosti.size();i++){
+            switch (mistnosti.get(i).getNazev()){
+                case "hala":
+                    mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
+                    mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatObjekt(new Krb());
+            }
+        }
     }
     public ArrayList<Mistnost> getMistnosti() {
         return mistnosti;

@@ -12,4 +12,16 @@ public abstract class Predmet {
         this.poloha = poloha;
         this.sebrana = sebrana;
     }
+
+    public String getNazev() {
+        return nazev;
+    }
+
+    public Mistnost getPoloha() {
+        return poloha;
+    }
+
+    public boolean isSebrana() {
+        return sebrana;
+    }
 }

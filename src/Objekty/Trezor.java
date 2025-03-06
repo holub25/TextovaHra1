@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Trezor extends Objekt{
 
     private int kod;
-    public Trezor(ArrayList<Predmet> predmetyVObjektu, Mistnost polohaObjektu) {
-        super(predmetyVObjektu, polohaObjektu);
+    public Trezor(String nazev, Mistnost polohaObjektu) {
+        super(nazev, polohaObjektu);
     }
 
     public String otevreniTrezoru(){

@@ -6,15 +6,17 @@ import Predmety.Predmet;
 import java.util.ArrayList;
 
 public abstract class Objekt {
+    protected String nazev;
     protected ArrayList<Predmet> predmetyVObjektu;
     protected Mistnost polohaObjektu;
 
-    public Objekt(ArrayList<Predmet> predmetyVObjektu, Mistnost polohaObjektu) {
-        this.predmetyVObjektu = predmetyVObjektu;
+    public Objekt(String nazev, Mistnost polohaObjektu) {
+        this.nazev = nazev;
+        this.predmetyVObjektu = new ArrayList<>();
         this.polohaObjektu = polohaObjektu;
     }
 
-    public void pridatPredmet(){
-
+    public void pridatPredmet(Predmet predmet){
+        predmetyVObjektu.add(predmet);
     }
 }

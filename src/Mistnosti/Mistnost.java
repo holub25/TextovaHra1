@@ -20,14 +20,16 @@ public abstract class Mistnost {
         this.predmetyVMistnosti = new ArrayList<>();
         setSousedniMistnosti(sousedi);
     }
-    public void pridatPredmet(){
+    public void pridatPredmet(Predmet predmet){
+        predmetyVMistnosti.add(predmet);
 
     }
-    public void pridatPostavu(){
+    public void pridatPostavu(Postava postava){
+        this.postava = postava;
 
     }
-    public void pridatObjekt(){
-
+    public void pridatObjekt(Objekt objekt){
+        this.objekt = objekt;
     }
 
 
@@ -40,6 +42,26 @@ public abstract class Mistnost {
     }
     public void setSousedniMistnosti(ArrayList<String> sousedniMistnosti) {
         this.sousedniMistnosti = sousedniMistnosti;
+    }
+
+    public void setNazev(String nazev) {
+        this.nazev = nazev;
+    }
+
+    public ArrayList<Predmet> getPredmetyVMistnosti() {
+        return predmetyVMistnosti;
+    }
+
+    public void setPredmetyVMistnosti(ArrayList<Predmet> predmetyVMistnosti) {
+        this.predmetyVMistnosti = predmetyVMistnosti;
+    }
+
+    public Postava getPostava() {
+        return postava;
+    }
+
+    public void setPostava(Postava postava) {
+        this.postava = postava;
     }
 
     public String getNazev() {

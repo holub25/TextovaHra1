@@ -1,3 +1,5 @@
+package zbytek;
+
 import Mistnosti.Mistnost;
 
 public class Hrac {
@@ -11,6 +13,19 @@ public class Hrac {
         this.inventory = inventory;
         this.aktualniMistnost = aktualniMistnost;
     }
+
+    public String getJmeno() {
+        return jmeno;
+    }
+
+    public InventoryPlayer getInventory() {
+        return inventory;
+    }
+
+    public Mistnost getAktualniMistnost() {
+        return aktualniMistnost;
+    }
+
     public String nastaveniJmena(){
         return null;
     }
