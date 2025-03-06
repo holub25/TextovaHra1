@@ -22,14 +22,15 @@ public abstract class Mistnost {
     }
     public void pridatPredmet(Predmet predmet){
         predmetyVMistnosti.add(predmet);
-
     }
     public void pridatPostavu(Postava postava){
         this.postava = postava;
-
     }
     public void pridatObjekt(Objekt objekt){
         this.objekt = objekt;
+    }
+    public void odebratPredmet(Predmet predmet){
+        predmetyVMistnosti.remove(predmet);
     }
 
 

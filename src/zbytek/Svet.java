@@ -22,6 +22,7 @@ public class Svet {
     public Svet() {
         this.mistnosti = new ArrayList<>();
         nacteniMapy();
+        nahraniObsahu();
     }
     public ArrayList<String> rozdeleniSousedu(String radek,String nazev){
         String[] sousedi = radek.split(";");
@@ -80,27 +81,27 @@ public class Svet {
             switch (mistnosti.get(i).getNazev()){
                 case "hala":
                     mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
-                    mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i)));
                 case "kuchyne":
                     mistnosti.get(i).pridatPredmet(new LahvickaHouby("Houby",mistnosti.get(i),false));
-                    mistnosti.get(i).pridatPostavu(new Anna("Anna",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Anna("Anna",mistnosti.get(i),1));
                 case "kancelar":
-                    mistnosti.get(i).pridatPostavu(new Stuart("Stuart",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Stuart("Stuart",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Rozeznavatel("Rozeznavatel",mistnosti.get(i)));
                 case "loznice 1":
-                    mistnosti.get(i).pridatPostavu(new Elenora("Elenora",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Elenora("Elenora",mistnosti.get(i),1));
                 case "loznice 2":
-                    mistnosti.get(i).pridatPostavu(new Jack("Jack",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Jack("Jack",mistnosti.get(i),1));
                 case "sklep":
                     mistnosti.get(i).pridatPredmet(new Dlato("Dlato",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
                     mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i)));
                 case "zahrada":
-                    mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Dira("Dira",mistnosti.get(i)));
                 case "knihovna":
-                    mistnosti.get(i).pridatPostavu(new Ben("Ben",mistnosti.get(i),mistnosti.get(i).getPostava().nahraniPopisu(),1));
+                    mistnosti.get(i).pridatPostavu(new Ben("Ben",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new KnihovnaObj("Knihovna",mistnosti.get(i)));
             }
         }

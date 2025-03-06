@@ -3,7 +3,7 @@ package Postavy;
 import Mistnosti.Mistnost;
 
 public class Ben extends Postava{
-    public Ben(String jmeno, Mistnost poloha, String popis,int faze) {
-        super(jmeno, poloha, popis, faze);
+    public Ben(String jmeno, Mistnost poloha, int faze) {
+        super(jmeno, poloha,  faze);
     }
 }

@@ -24,4 +24,9 @@ public abstract class Predmet {
     public boolean isSebrana() {
         return sebrana;
     }
+
+    @Override
+    public String toString() {
+        return ""+nazev;
+    }
 }
