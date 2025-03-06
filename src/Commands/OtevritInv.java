@@ -1,9 +1,18 @@
 package Commands;
 
+import zbytek.Hra;
+
+
 public class OtevritInv implements Command{
+    private Hra hra;
+
+    public OtevritInv(Hra hra) {
+        this.hra = hra;
+    }
+
     @Override
     public String prikaz(Object vstup) {
-        return "";
+        return ""+hra.getHrac().getInventory().toString();
     }
 
     @Override

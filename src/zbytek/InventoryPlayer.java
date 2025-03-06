@@ -8,8 +8,8 @@ public class InventoryPlayer {
     private ArrayList<Predmet> predmety;
     private int velikost;
 
-    public InventoryPlayer(ArrayList<Predmet> predmety, int velikost) {
-        this.predmety = predmety;
+    public InventoryPlayer(int velikost) {
+        this.predmety = new ArrayList<>();
         this.velikost = velikost;
     }
 
@@ -18,5 +18,20 @@ public class InventoryPlayer {
     }
     public void odebraniPredmetu(Predmet predmet){
         predmety.remove(predmet);
+    }
+
+    public ArrayList<Predmet> getPredmety() {
+        return predmety;
+    }
+
+    public int getVelikost() {
+        return velikost;
+    }
+
+    @Override
+    public String toString() {
+        return "InventoryPlayer{" +
+                "predmety=" + predmety +
+                '}';
     }
 }

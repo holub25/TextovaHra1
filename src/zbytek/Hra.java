@@ -2,6 +2,8 @@ package zbytek;
 
 import Commands.Command;
 import Commands.Konec;
+import Commands.OtevritInv;
+import Commands.Vzit;
 import Mistnosti.Mistnost;
 
 import java.util.HashMap;
@@ -18,11 +20,14 @@ public class Hra {
         this.exit = false;
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
+        hrac = new Hrac("",10,momentalniMistnost);
     }
 
     public void inicializace(Svet svet){
         prikazy.put("jdi",new Jdi(this,svet));
         prikazy.put("konec",new Konec());
+        prikazy.put("vzit",new Vzit(this,hrac));
+        prikazy.put("inventory",new OtevritInv(this));
     }
 
     public void konzole(){
@@ -42,6 +47,7 @@ public class Hra {
     public void start(Svet svet){
         inicializace(svet);
         System.out.println("VÍTEJ");
+        hrac.nastaveniJmena();
         try{
             do {
                 konzole();
@@ -54,6 +60,10 @@ public class Hra {
 
     public Mistnost getMomentalniMistnost() {
         return momentalniMistnost;
+    }
+
+    public Hrac getHrac() {
+        return hrac;
     }
 
     public void setMomentalniMistnost(Mistnost momentalniMistnost) {
