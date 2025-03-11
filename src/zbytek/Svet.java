@@ -80,6 +80,7 @@ public class Svet {
                     mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),new KusStranky("Stranka",mistnosti.get(i),false)));
+                    mistnosti.get(i).getObjekt().pridaniPredmetu(new KusStranky("Kus stranky",mistnosti.get(i),false));
                     break;
                 case "kuchyne":
                     mistnosti.get(i).pridatPredmet(new LahvickaHouby("Houby",mistnosti.get(i),false));
@@ -99,6 +100,7 @@ public class Svet {
                     mistnosti.get(i).pridatPredmet(new Dlato("Dlato",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
                     mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Denik("Denik",mistnosti.get(i),false)));
+                    mistnosti.get(i).getObjekt().pridaniPredmetu(new Denik("Deník",mistnosti.get(i),false));
                     break;
                 case "zahrada":
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));

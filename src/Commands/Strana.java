@@ -10,4 +10,9 @@ public class Strana implements Command{
     public boolean exit() {
         return false;
     }
+
+    @Override
+    public boolean povoleniPruz() {
+        return false;
+    }
 }

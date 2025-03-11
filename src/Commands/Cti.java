@@ -10,4 +10,9 @@ public class Cti implements Command{
     public boolean exit() {
         return false;
     }
+
+    @Override
+    public boolean povoleniPruz() {
+        return true;
+    }
 }

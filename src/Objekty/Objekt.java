@@ -17,6 +17,30 @@ public abstract class Objekt {
         this.predmetyVObjektu.add(predmet);
     }
 
+    public String getNazev() {
+        return nazev;
+    }
+
+    public void setNazev(String nazev) {
+        this.nazev = nazev;
+    }
+
+    public ArrayList<Predmet> getPredmetyVObjektu() {
+        return predmetyVObjektu;
+    }
+
+    public void pridaniPredmetu(Predmet predmet){
+        predmetyVObjektu.add(predmet);
+    }
+
+    public Mistnost getPolohaObjektu() {
+        return polohaObjektu;
+    }
+
+    public void setPolohaObjektu(Mistnost polohaObjektu) {
+        this.polohaObjektu = polohaObjektu;
+    }
+
     public void pridatPredmet(Predmet predmet){
         predmetyVObjektu.add(predmet);
     }

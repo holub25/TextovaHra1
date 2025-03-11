@@ -10,4 +10,9 @@ public class Konec implements Command {
     public boolean exit() {
         return true;
     }
+
+    @Override
+    public boolean povoleniPruz() {
+        return true;
+    }
 }

@@ -28,13 +28,17 @@ public class Hra {
         prikazy.put("vzit",new Vzit(this,hrac));
         prikazy.put("inventory",new OtevritInv(this));
         prikazy.put("mluv",new Mluv(this));
+        prikazy.put("pouzit",new Pouzit(this));
+        prikazy.put("prozkoumat",new Prozkoumat(this));
+        prikazy.put("zpet",new Zpet(this));
     }
+
 
     public void konzole() {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
-            if(prikazy.containsKey(prikaz.split(" ")[0])){
+            if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz())){
                 if(prikaz.split(" ").length>1){
                     System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(prikaz.split(" ")[1]));
                 }else {
@@ -42,7 +46,7 @@ public class Hra {
                 }
                 exit = prikazy.get(prikaz.split(" ")[0]).exit();
             }else {
-                System.out.println("Příkaz nenalezen");
+                System.out.println("Příkaz nenalezen, nebo nelze použít");
             }
         }catch (IOException e){
             System.out.println("chyba!!!");
@@ -61,6 +65,10 @@ public class Hra {
             //System.out.println(e.getMessage());
         }
 
+    }
+
+    public HashMap<String, Command> getPrikazy() {
+        return prikazy;
     }
 
     public Mistnost getMomentalniMistnost() {
