@@ -32,6 +32,9 @@ public abstract class Mistnost {
     public void odebratPredmet(Predmet predmet){
         predmetyVMistnosti.remove(predmet);
     }
+    public String popis(){
+        return "V "+nazev+" je: "+postava.getJmeno()+" + "+objekt+" + "+predmetyVMistnosti.toString();
+    }
 
 
     @Override

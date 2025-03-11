@@ -22,6 +22,7 @@ public class Jdi implements Command {
                 if (aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())) {
                     hra.setMomentalniMistnost(mistnost);
                     return "Přešel jsi do " + nazev;
+
                 } else {
                     return "Nemůžete do této místnosti, nejsou propojené.";
                 }

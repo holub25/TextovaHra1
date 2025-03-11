@@ -3,10 +3,7 @@ package zbytek;
 import Mistnosti.*;
 import Objekty.*;
 import Postavy.*;
-import Predmety.Dlato;
-import Predmety.LahvickaFPrasky;
-import Predmety.LahvickaHouby;
-import Predmety.Lopata;
+import Predmety.*;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -78,31 +75,39 @@ public class Svet {
     }
     public void nahraniObsahu(){
         for(int i = 0;i<mistnosti.size();i++){
-            switch (mistnosti.get(i).getNazev()){
+            switch (mistnosti.get(i).getNazev().toLowerCase()){
                 case "hala":
                     mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),1));
-                    mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i)));
+                    mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),new KusStranky("Stranka",mistnosti.get(i),false)));
+                    break;
                 case "kuchyne":
                     mistnosti.get(i).pridatPredmet(new LahvickaHouby("Houby",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPostavu(new Anna("Anna",mistnosti.get(i),1));
+                    break;
                 case "kancelar":
                     mistnosti.get(i).pridatPostavu(new Stuart("Stuart",mistnosti.get(i),1));
-                    mistnosti.get(i).pridatObjekt(new Rozeznavatel("Rozeznavatel",mistnosti.get(i)));
+                    mistnosti.get(i).pridatObjekt(new Rozeznavatel("Rozeznavatel",mistnosti.get(i),null));
+                    break;
                 case "loznice 1":
                     mistnosti.get(i).pridatPostavu(new Elenora("Elenora",mistnosti.get(i),1));
+                    break;
                 case "loznice 2":
                     mistnosti.get(i).pridatPostavu(new Jack("Jack",mistnosti.get(i),1));
+                    break;
                 case "sklep":
                     mistnosti.get(i).pridatPredmet(new Dlato("Dlato",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
-                    mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i)));
+                    mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Denik("Denik",mistnosti.get(i),false)));
+                    break;
                 case "zahrada":
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));
-                    mistnosti.get(i).pridatObjekt(new Dira("Dira",mistnosti.get(i)));
+                    mistnosti.get(i).pridatObjekt(new Dira("Dira",mistnosti.get(i),null));
+                    break;
                 case "knihovna":
                     mistnosti.get(i).pridatPostavu(new Ben("Ben",mistnosti.get(i),1));
-                    mistnosti.get(i).pridatObjekt(new KnihovnaObj("Knihovna",mistnosti.get(i)));
+                    mistnosti.get(i).pridatObjekt(new KnihovnaObj("Knihovna",mistnosti.get(i),null));
+                    break;
             }
         }
     }

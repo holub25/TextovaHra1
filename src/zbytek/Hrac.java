@@ -9,11 +9,13 @@ public class Hrac {
     private String jmeno;
     private InventoryPlayer inventory;
     private Mistnost aktualniMistnost;
+    private boolean pruzkum;
 
     public Hrac(String jmeno, int velikostInv, Mistnost aktualniMistnost) {
         this.jmeno = jmeno;
         this.inventory = new InventoryPlayer(velikostInv);
         this.aktualniMistnost = aktualniMistnost;
+        this.pruzkum = false;
     }
 
     public String getJmeno() {

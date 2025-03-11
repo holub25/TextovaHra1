@@ -1,11 +1,9 @@
 package zbytek;
 
-import Commands.Command;
-import Commands.Konec;
-import Commands.OtevritInv;
-import Commands.Vzit;
+import Commands.*;
 import Mistnosti.Mistnost;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -20,6 +18,7 @@ public class Hra {
         this.exit = false;
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
+        System.out.println(momentalniMistnost.getNazev());
         hrac = new Hrac("",10,momentalniMistnost);
     }
 
@@ -28,26 +27,32 @@ public class Hra {
         prikazy.put("konec",new Konec());
         prikazy.put("vzit",new Vzit(this,hrac));
         prikazy.put("inventory",new OtevritInv(this));
+        prikazy.put("mluv",new Mluv(this));
     }
 
-    public void konzole(){
-        System.out.print(">> ");
-        String prikaz = sc.nextLine().toLowerCase();
-        if(prikazy.containsKey(prikaz.split(" ")[0])){
-            if(prikaz.split(" ").length>1){
-                System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(prikaz.split(" ")[1]));
+    public void konzole() {
+        try {
+            System.out.print(">> ");
+            String prikaz = sc.nextLine().toLowerCase();
+            if(prikazy.containsKey(prikaz.split(" ")[0])){
+                if(prikaz.split(" ").length>1){
+                    System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(prikaz.split(" ")[1]));
+                }else {
+                    System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(null));
+                }
+                exit = prikazy.get(prikaz.split(" ")[0]).exit();
             }else {
-                System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(null));
+                System.out.println("Příkaz nenalezen");
             }
-            exit = prikazy.get(prikaz.split(" ")[0]).exit();
-        }else {
-            System.out.println("Příkaz nenalezen");
+        }catch (IOException e){
+            System.out.println("chyba!!!");
         }
+
     }
     public void start(Svet svet){
         inicializace(svet);
         System.out.println("VÍTEJ");
-        hrac.nastaveniJmena();
+        System.out.println(hrac.nastaveniJmena());
         try{
             do {
                 konzole();
