@@ -19,7 +19,7 @@ public class Hra {
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
         System.out.println(momentalniMistnost.getNazev());
-        hrac = new Hrac("",10,momentalniMistnost);
+        hrac = new Hrac("",10,momentalniMistnost,1);
     }
 
     public void inicializace(Svet svet){
@@ -31,6 +31,8 @@ public class Hra {
         prikazy.put("pouzit",new Pouzit(this));
         prikazy.put("prozkoumat",new Prozkoumat(this));
         prikazy.put("zpet",new Zpet(this));
+        prikazy.put("cti",new Cti(this));
+        prikazy.put("strana",new Strana(this));
     }
 
 
@@ -38,9 +40,13 @@ public class Hra {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
-            if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz())){
+            if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz()) && (!hrac.isCte() || prikazy.get(prikaz.split(" ")[0]).cteni())){
                 if(prikaz.split(" ").length>1){
-                    System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(prikaz.split(" ")[1]));
+                    if(prikaz.split(" ")[0].equalsIgnoreCase("strana")&&hrac.isCte()==false){
+                        System.out.println("Nelze pouzit");
+                    }else {
+                        System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(prikaz.split(" ")[1]));
+                    }
                 }else {
                     System.out.println(prikazy.get(prikaz.split(" ")[0]).prikaz(null));
                 }
@@ -56,7 +62,7 @@ public class Hra {
     public void start(Svet svet){
         inicializace(svet);
         System.out.println("VÍTEJ");
-        System.out.println(hrac.nastaveniJmena());
+        //System.out.println(hrac.nastaveniJmena());
         try{
             do {
                 konzole();

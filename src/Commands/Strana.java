@@ -1,9 +1,18 @@
 package Commands;
 
+import zbytek.Hra;
+
 public class Strana implements Command{
+    private Hra hra;
+
+    public Strana(Hra hra) {
+        this.hra = hra;
+    }
+
     @Override
     public String prikaz(Object vstup) {
-        return "";
+        String plusMinus = (String) vstup;
+        return hra.getHrac().getCtenaKniha().zobrazeniStrany(plusMinus);
     }
 
     @Override
@@ -13,6 +22,11 @@ public class Strana implements Command{
 
     @Override
     public boolean povoleniPruz() {
-        return false;
+        return true;
+    }
+
+    @Override
+    public boolean cteni() {
+        return true;
     }
 }

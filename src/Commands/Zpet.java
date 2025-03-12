@@ -25,4 +25,9 @@ public class Zpet implements Command{
     public boolean povoleniPruz() {
         return true;
     }
+
+    @Override
+    public boolean cteni() {
+        return true;
+    }
 }

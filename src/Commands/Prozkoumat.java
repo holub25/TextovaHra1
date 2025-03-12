@@ -43,4 +43,9 @@ public class Prozkoumat implements Command{
     public boolean povoleniPruz() {
         return false;
     }
+
+    @Override
+    public boolean cteni() {
+        return false;
+    }
 }

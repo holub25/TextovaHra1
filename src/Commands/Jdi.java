@@ -1,7 +1,9 @@
-package zbytek;
+package Commands;
 
 import Commands.Command;
 import Mistnosti.Mistnost;
+import zbytek.Hra;
+import zbytek.Svet;
 
 
 public class Jdi implements Command {
@@ -38,6 +40,11 @@ public class Jdi implements Command {
 
     @Override
     public boolean povoleniPruz() {
+        return false;
+    }
+
+    @Override
+    public boolean cteni() {
         return false;
     }
 }

@@ -7,4 +7,5 @@ public interface Command {
     String prikaz(Object vstup) throws IOException;
     boolean exit();
     boolean povoleniPruz();
+    boolean cteni();
 }

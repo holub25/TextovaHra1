@@ -2,29 +2,57 @@ package zbytek;
 
 import Mistnosti.Mistnost;
 import Objekty.Objekt;
+import Predmety.Kniha;
 
 import java.util.Scanner;
 
 public class Hrac {
 
     private String jmeno;
+    private int fazeHrace;
     private InventoryPlayer inventory;
     private Mistnost aktualniMistnost;
     private boolean pruzkum;
+    private boolean cte;
+    private Kniha ctenaKniha;
     private Objekt prozObjekt;
 
-    public Hrac(String jmeno, int velikostInv, Mistnost aktualniMistnost) {
+    public Hrac(String jmeno, int velikostInv, Mistnost aktualniMistnost,int fazeHrace) {
         this.jmeno = jmeno;
         this.inventory = new InventoryPlayer(velikostInv);
         this.aktualniMistnost = aktualniMistnost;
         this.pruzkum = false;
+        this.cte = false;
+        this.fazeHrace = fazeHrace;
     }
 
     public String getJmeno() {
         return jmeno;
     }
 
+    public int getFazeHrace() {
+        return fazeHrace;
+    }
 
+    public void setFazeHrace(int fazeHrace) {
+        this.fazeHrace = fazeHrace;
+    }
+
+    public boolean isCte() {
+        return cte;
+    }
+
+    public void setCte(boolean cte) {
+        this.cte = cte;
+    }
+
+    public Kniha getCtenaKniha() {
+        return ctenaKniha;
+    }
+
+    public void setCtenaKniha(Kniha ctenaKniha) {
+        this.ctenaKniha = ctenaKniha;
+    }
 
     public InventoryPlayer getInventory() {
         return inventory;

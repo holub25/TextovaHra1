@@ -16,7 +16,7 @@ public class Svet {
 
     private ArrayList<Mistnost> mistnosti;
 
-    public Svet() {
+    public Svet() throws IOException {
         this.mistnosti = new ArrayList<>();
         nacteniMapy();
         nahraniObsahu();
@@ -73,7 +73,7 @@ public class Svet {
             throw new RuntimeException(e);
         }
     }
-    public void nahraniObsahu(){
+    public void nahraniObsahu() throws IOException {
         for(int i = 0;i<mistnosti.size();i++){
             switch (mistnosti.get(i).getNazev().toLowerCase()){
                 case "hala":
@@ -109,8 +109,22 @@ public class Svet {
                 case "knihovna":
                     mistnosti.get(i).pridatPostavu(new Ben("Ben",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new KnihovnaObj("Knihovna",mistnosti.get(i),null));
+                    Objekt obj = mistnosti.get(i).getObjekt();
+                    if (obj instanceof KnihovnaObj knihovna) {
+                        System.out.println("IIIIIIIIIII");
+                        knihovna.pridaniKnihy(new Kniha("Kniha1", mistnosti.get(i), false));
+                        knihovna.pridaniKnihy(new Kniha("Kniha2", mistnosti.get(i), false));
+                        knihovna.pridaniKnihy(new Kniha("Kniha3", mistnosti.get(i), false));
+                        knihovna.pridaniKnihy(new Kniha("Kniha4", mistnosti.get(i), false));
+                        knihovna.pridaniKnihy(new Kniha("Kniha5", mistnosti.get(i), false));
+                        //knihovna.vypis();
+                        System.out.println("PRIDANO");
+                    }
                     break;
+
+
             }
+
         }
     }
     public ArrayList<Mistnost> getMistnosti() {

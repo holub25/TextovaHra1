@@ -40,4 +40,9 @@ public class Vzit implements Command{
     public boolean povoleniPruz() {
         return true;
     }
+
+    @Override
+    public boolean cteni() {
+        return false;
+    }
 }
