@@ -11,6 +11,8 @@ public abstract class Mistnost {
     protected String nazev;
     protected ArrayList<String> sousedniMistnosti;
     protected ArrayList<Predmet> predmetyVMistnosti;
+    protected ArrayList<String> pouzitelnePredmety;
+
     protected Postava postava;
     protected Objekt objekt;
 
@@ -18,6 +20,7 @@ public abstract class Mistnost {
         this.nazev = nazev;
         this.sousedniMistnosti = new ArrayList<>();
         this.predmetyVMistnosti = new ArrayList<>();
+        this.pouzitelnePredmety = new ArrayList<>();
         setSousedniMistnosti(sousedi);
     }
     public void pridatPredmet(Predmet predmet){
@@ -35,7 +38,17 @@ public abstract class Mistnost {
     public String popis(){
         return "V "+nazev+" je: "+postava.getJmeno()+" + "+objekt+" + "+predmetyVMistnosti.toString();
     }
+    public void pridatPouzitelnePred(String nazev){
+        pouzitelnePredmety.add(nazev);
+    }
 
+    public ArrayList<String> getPouzitelnePredmety() {
+        return pouzitelnePredmety;
+    }
+
+    public void setPouzitelnePredmety(ArrayList<String> pouzitelnePredmety) {
+        this.pouzitelnePredmety = pouzitelnePredmety;
+    }
 
     @Override
     public String toString() {

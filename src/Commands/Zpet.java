@@ -10,7 +10,7 @@ public class Zpet implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) {
+    public String prikaz(String vstup) {
         hra.getHrac().setPruzkum(false);
         hra.getHrac().setProzObjekt(null);
         return "Prestal jste prozkoumavat ";

@@ -15,16 +15,15 @@ public class Prozkoumat implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) throws IOException {
+    public String prikaz(String vstup) throws IOException {
         FileReader fileReader = new FileReader("PopisObjekty");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
-        String nazev = (String) vstup;
         while ((line = bufferedReader.readLine())!=null){
             if(hra.getMomentalniMistnost().getObjekt() == null){
                 return "V teto mistnosti není objekt";
             }
-            else if(hra.getMomentalniMistnost().getObjekt().getNazev().equalsIgnoreCase(nazev) && line.split(";")[0].equalsIgnoreCase(nazev)){
+            else if(hra.getMomentalniMistnost().getObjekt().getNazev().equalsIgnoreCase(vstup) && line.split(";")[0].equalsIgnoreCase(vstup)){
                 hra.getHrac().setPruzkum(true);
                 hra.getHrac().setProzObjekt(hra.getMomentalniMistnost().getObjekt());
                 return line.split(";")[1];

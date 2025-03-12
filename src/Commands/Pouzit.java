@@ -3,7 +3,6 @@ package Commands;
 import zbytek.Hra;
 
 public class Pouzit implements Command {
-    private boolean prozkoumani;
     private Hra hra;
 
     public Pouzit(Hra hra) {
@@ -11,13 +10,34 @@ public class Pouzit implements Command {
     }
 
     @Override
-    public String prikaz(Object vstup) {
-        return "JDE TO";
+    public String prikaz(String vstup) {
+        for(int i = 0;i<hra.getMomentalniMistnost().getPouzitelnePredmety().size();i++){
+            if(hra.getMomentalniMistnost().getPouzitelnePredmety().get(i).equalsIgnoreCase(vstup)){
+                for(int b = 0;b<hra.getHrac().getInventory().getPredmety().size();b++){
+                    if(hra.getHrac().getInventory().getPredmety().get(b).getNazev().equalsIgnoreCase(vstup)){
+                        return "Muzes";
+                    }
+                }
+                return "Předmět nemáte u sebe";
+
+
+            }
+
+        }
+        for(int i = 0;i<hra.getMomentalniMistnost().getObjekt().getPouzitelnePredmety().size();i++){
+            if(hra.getMomentalniMistnost().getObjekt().getPouzitelnePredmety().get(i).equalsIgnoreCase(vstup)){
+                for(int b = 0;b<hra.getHrac().getInventory().getPredmety().size();b++){
+                    if(hra.getHrac().getInventory().getPredmety().get(b).getNazev().equalsIgnoreCase(vstup)){
+                        return "Muzes";
+                    }
+
+                }
+                return "Předmět nemáte u sebe";
+            }
+        }
+        return "Předmět zde nemůžete použít";
     }
 
-    public boolean isProzkoumani() {
-        return prozkoumani;
-    }
 
     @Override
     public boolean exit() {

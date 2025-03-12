@@ -13,4 +13,11 @@ public class Sklep extends Mistnost{
         return null;
     }
 
+    public boolean isUzamcen() {
+        return uzamcen;
+    }
+
+    public void setUzamcen(boolean uzamcen) {
+        this.uzamcen = uzamcen;
+    }
 }

@@ -33,6 +33,7 @@ public class Hra {
         prikazy.put("zpet",new Zpet(this));
         prikazy.put("cti",new Cti(this));
         prikazy.put("strana",new Strana(this));
+        prikazy.put("pouzit",new Pouzit(this));
     }
 
 

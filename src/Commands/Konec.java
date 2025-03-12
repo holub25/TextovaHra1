@@ -2,7 +2,7 @@ package Commands;
 
 public class Konec implements Command {
     @Override
-    public String prikaz(Object vstup) {
+    public String prikaz(String vstup) {
         return "Konec hry.";
     }
 

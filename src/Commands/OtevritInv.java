@@ -11,7 +11,7 @@ public class OtevritInv implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) {
+    public String prikaz(String vstup) {
         return ""+hra.getHrac().getInventory().toString();
     }
 

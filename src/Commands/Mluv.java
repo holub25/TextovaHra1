@@ -18,15 +18,14 @@ public class Mluv implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) throws IOException {
+    public String prikaz(String vstup) throws IOException {
         FileReader fileReader = new FileReader("Scenar");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
-        String jmeno = (String) vstup;
         int cisloOtazky = zvoleniOtazky();
         while ((line = bufferedReader.readLine())!=null){
             String[] rozdeleni = line.split(";",4);
-            if(jmeno.equalsIgnoreCase(rozdeleni[0]) && faze()==Integer.parseInt(rozdeleni[1]) && jmeno.equalsIgnoreCase(hra.getMomentalniMistnost().getPostava().getJmeno()) && Integer.parseInt(rozdeleni[2])==cisloOtazky){
+            if(vstup.equalsIgnoreCase(rozdeleni[0]) && faze()==Integer.parseInt(rozdeleni[1]) && vstup.equalsIgnoreCase(hra.getMomentalniMistnost().getPostava().getJmeno()) && Integer.parseInt(rozdeleni[2])==cisloOtazky){
                 return rozdeleni[3];
             }
         }

@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface Command {
-    String prikaz(Object vstup) throws IOException;
+    String prikaz(String vstup) throws IOException;
     boolean exit();
     boolean povoleniPruz();
     boolean cteni();

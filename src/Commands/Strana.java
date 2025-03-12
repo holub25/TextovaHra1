@@ -10,9 +10,8 @@ public class Strana implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) {
-        String plusMinus = (String) vstup;
-        return hra.getHrac().getCtenaKniha().zobrazeniStrany(plusMinus);
+    public String prikaz(String vstup) {
+        return hra.getHrac().getCtenaKniha().zobrazeniStrany(vstup);
     }
 
     @Override

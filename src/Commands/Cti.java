@@ -13,17 +13,16 @@ public class Cti implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) {
-        String nazev = (String) vstup;
+    public String prikaz(String vstup) {
         for(int i = 0;i<hra.getMomentalniMistnost().getPredmetyVMistnosti().size();i++){
-            if(hra.getMomentalniMistnost().getPredmetyVMistnosti().get(i) instanceof Kniha && nazev.equalsIgnoreCase(hra.getMomentalniMistnost().getPredmetyVMistnosti().get(i).getNazev())){
+            if(hra.getMomentalniMistnost().getPredmetyVMistnosti().get(i) instanceof Kniha && vstup.equalsIgnoreCase(hra.getMomentalniMistnost().getPredmetyVMistnosti().get(i).getNazev())){
                 return ((Kniha) hra.getMomentalniMistnost().getPredmetyVMistnosti().get(i)).zobrazeniStrany("+");
             }
         }
         Objekt objekt = hra.getMomentalniMistnost().getObjekt();
         if(objekt instanceof KnihovnaObj knihovna){
             for(int i = 0;i<knihovna.getKnihy().size();i++){
-                if(hra.getHrac().isPruzkum() == true && nazev.equalsIgnoreCase(knihovna.getKnihy().get(i).getNazev())){
+                if(hra.getHrac().isPruzkum() == true && vstup.equalsIgnoreCase(knihovna.getKnihy().get(i).getNazev())){
                     hra.getHrac().setCte(true);
                     hra.getHrac().setCtenaKniha(knihovna.getKnihy().get(i));
                     return knihovna.getKnihy().get(i).zobrazeniStrany("+");

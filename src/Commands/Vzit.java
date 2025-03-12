@@ -16,11 +16,11 @@ public class Vzit implements Command{
     }
 
     @Override
-    public String prikaz(Object vstup) {
+    public String prikaz(String vstup) {
          Mistnost aktualniMistnost = hra.getMomentalniMistnost();
          for(int i = 0;i<aktualniMistnost.getPredmetyVMistnosti().size();i++){
              System.out.println("KON");
-             if(aktualniMistnost.getPredmetyVMistnosti().get(i).getNazev().equalsIgnoreCase((String) vstup)){
+             if(aktualniMistnost.getPredmetyVMistnosti().get(i).getNazev().equalsIgnoreCase(vstup)){
                  hrac.getInventory().pridaniPredmetu(aktualniMistnost.getPredmetyVMistnosti().get(i));
                  aktualniMistnost.odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
                  return "Sebral jsi "+vstup;

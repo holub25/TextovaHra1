@@ -2,6 +2,7 @@ package Commands;
 
 import Commands.Command;
 import Mistnosti.Mistnost;
+import Mistnosti.Sklep;
 import zbytek.Hra;
 import zbytek.Svet;
 
@@ -16,15 +17,19 @@ public class Jdi implements Command {
         this.svet = svet;
     }
     @Override
-    public String prikaz(Object nazev) {
+    public String prikaz(String nazev) {
         Mistnost aktualniMistnost = hra.getMomentalniMistnost();
         for (int i = 0; i < svet.getMistnosti().size(); i++) {
             Mistnost mistnost = svet.getMistnosti().get(i);
-            if (mistnost.getNazev().equalsIgnoreCase((String) nazev)) {
-                if (aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())) {
+            if (mistnost.getNazev().equalsIgnoreCase(nazev)) {
+                if(mistnost instanceof Sklep sklep){
+                    if(sklep.isUzamcen()){
+                        return "Sklep je uzamcen";
+                    }
+                }
+                else if (aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())) {
                     hra.setMomentalniMistnost(mistnost);
                     return "Přešel jsi do " + nazev;
-
                 } else {
                     return "Nemůžete do této místnosti, nejsou propojené.";
                 }
