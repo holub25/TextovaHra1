@@ -19,7 +19,7 @@ public class Hra {
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
         System.out.println(momentalniMistnost.getNazev());
-        hrac = new Hrac("",10,momentalniMistnost,1);
+        hrac = new Hrac("",2,momentalniMistnost,1);
     }
 
     public void inicializace(Svet svet){

@@ -21,9 +21,12 @@ public class Vzit implements Command{
          for(int i = 0;i<aktualniMistnost.getPredmetyVMistnosti().size();i++){
              System.out.println("KON");
              if(aktualniMistnost.getPredmetyVMistnosti().get(i).getNazev().equalsIgnoreCase(vstup)){
-                 hrac.getInventory().pridaniPredmetu(aktualniMistnost.getPredmetyVMistnosti().get(i));
-                 aktualniMistnost.odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
-                 return "Sebral jsi "+vstup;
+                 if(hrac.getInventory().kontrolaVelikosti()){
+                     hrac.getInventory().pridaniPredmetu(aktualniMistnost.getPredmetyVMistnosti().get(i));
+                     aktualniMistnost.odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
+                     return "Sebral jsi "+vstup;
+                 }
+                 return "Váš inventory je plný";
              }else {
                  return "V mistnosti není "+vstup;
              }

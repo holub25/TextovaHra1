@@ -12,6 +12,12 @@ public class InventoryPlayer {
         this.predmety = new ArrayList<>();
         this.velikost = velikost;
     }
+    public boolean kontrolaVelikosti(){
+        if(predmety.size()==velikost){
+            return false;
+        }
+        return true;
+    }
 
     public void pridaniPredmetu(Predmet predmet){
         predmety.add(predmet);
