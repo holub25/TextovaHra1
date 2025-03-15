@@ -22,7 +22,7 @@ public class Jdi implements Command {
         for (int i = 0; i < svet.getMistnosti().size(); i++) {
             Mistnost mistnost = svet.getMistnosti().get(i);
             if (mistnost.getNazev().equalsIgnoreCase(nazev)) {
-                if(mistnost instanceof Sklep sklep){
+                if(mistnost instanceof Sklep sklep && aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())){
                     if(sklep.isUzamcen()){
                         if(hra.getHrac().getFazeHrace()==3){
                             if(hra.getPrikazy().get("mluv") instanceof Mluv mluv){
@@ -33,7 +33,7 @@ public class Jdi implements Command {
                         return "Sklep je uzamcen";
                     }
                 }
-                else if (aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())) {
+                if (aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())) {
                     hra.setMomentalniMistnost(mistnost);
                     return "Přešel jsi do " + nazev;
                 } else {
