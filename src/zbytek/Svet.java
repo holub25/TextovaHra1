@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class Svet {
 
-
     private ArrayList<Mistnost> mistnosti;
 
     public Svet() throws IOException {
@@ -49,10 +48,10 @@ public class Svet {
                     case "kancelar":
                         mistnosti.add(new Kancelar(nazev,rozdeleniSousedu(line,nazev)));
                         break;
-                    case "loznice 1":
+                    case "loznice1":
                         mistnosti.add(new Loznice1(nazev,rozdeleniSousedu(line,nazev)));
                         break;
-                    case "loznice 2":
+                    case "loznice2":
                         mistnosti.add(new Loznice2(nazev,rozdeleniSousedu(line,nazev)));
                         break;
                     case "sklep":
@@ -93,11 +92,11 @@ public class Svet {
                     mistnosti.get(i).getObjekt().pridatPozitelnePred("Houby");
                     mistnosti.get(i).getObjekt().pridatPozitelnePred("Prasky");
                     break;
-                case "loznice 1":
+                case "loznice1":
                     mistnosti.get(i).pridatPostavu(new Elenora("Elenora",mistnosti.get(i),1));
                     mistnosti.get(i).pridatPouzitelnePred("Dlato");
                     break;
-                case "loznice 2":
+                case "loznice2":
                     mistnosti.get(i).pridatPostavu(new Jack("Jack",mistnosti.get(i),1));
                     break;
                 case "sklep":
@@ -124,8 +123,6 @@ public class Svet {
                         knihovna.pridaniKnihy(new Kniha("Kniha5", mistnosti.get(i), false));
                     }
                     break;
-
-
             }
 
         }

@@ -1,5 +1,6 @@
 package Commands;
 
+import Predmety.Klice;
 import zbytek.Hra;
 
 public class Pouzit implements Command {
@@ -36,6 +37,15 @@ public class Pouzit implements Command {
             }
         }
         return "Předmět zde nemůžete použít";
+    }
+
+    public String pouzitelnePredmety(String vstup,int i){
+        switch (vstup.toLowerCase()){
+            case "klice":
+                if(hra.getHrac().getInventory().getPredmety().get(i) instanceof Klice klice){
+
+                }
+        }
     }
 
 

@@ -13,6 +13,8 @@ public class Zpet implements Command{
     public String prikaz(String vstup) {
         hra.getHrac().setPruzkum(false);
         hra.getHrac().setProzObjekt(null);
+        hra.getHrac().setCte(false);
+        hra.getHrac().setCtenaKniha(null);
         return "Prestal jste prozkoumavat ";
     }
 

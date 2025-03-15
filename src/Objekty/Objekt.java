@@ -49,6 +49,10 @@ public abstract class Objekt {
     public void pridaniPredmetu(Predmet predmet){
         predmetyVObjektu.add(predmet);
     }
+    public void odebratPredmet(Predmet predmet){
+        predmetyVObjektu.remove(predmet);
+    }
+
 
     public Mistnost getPolohaObjektu() {
         return polohaObjektu;
@@ -58,7 +62,4 @@ public abstract class Objekt {
         this.polohaObjektu = polohaObjektu;
     }
 
-    public void pridatPredmet(Predmet predmet){
-        predmetyVObjektu.add(predmet);
-    }
 }

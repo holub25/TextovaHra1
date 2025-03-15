@@ -2,6 +2,7 @@ package zbytek;
 
 import Commands.*;
 import Mistnosti.Mistnost;
+import Postavy.Ben;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,13 +14,16 @@ public class Hra {
     private Scanner sc = new Scanner(System.in);
     private Mistnost momentalniMistnost;
     private Hrac hrac;
+    private Svet svet;
 
-    public Hra(Mistnost momentalniMistnost) {
+    public Hra(Mistnost momentalniMistnost,Svet svet) {
         this.exit = false;
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
+        this.svet = svet;
         System.out.println(momentalniMistnost.getNazev());
         hrac = new Hrac("",2,momentalniMistnost,1);
+        nastaveniPostav();
     }
 
     public void inicializace(Svet svet){
@@ -36,8 +40,11 @@ public class Hra {
         prikazy.put("pouzit",new Pouzit(this));
     }
 
+    public Svet getSvet() {
+        return svet;
+    }
 
-    public void konzole() {
+    public void konzole() throws Exception {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
@@ -55,8 +62,8 @@ public class Hra {
             }else {
                 System.out.println("Příkaz nenalezen, nebo nelze použít");
             }
-        }catch (IOException e){
-            System.out.println("chyba!!!");
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
     }
@@ -71,7 +78,13 @@ public class Hra {
         }catch (Exception e){
             //System.out.println(e.getMessage());
         }
-
+    }
+    public void nastaveniPostav(){
+        for (int i = 0;i<svet.getMistnosti().size();i++){
+            if(svet.getMistnosti().get(i).getPostava() instanceof Ben ben){
+                ben.setHra(this);
+            }
+        }
     }
 
     public HashMap<String, Command> getPrikazy() {

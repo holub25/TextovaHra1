@@ -20,7 +20,10 @@ public class Vzit implements Command{
          Mistnost aktualniMistnost = hra.getMomentalniMistnost();
          for(int i = 0;i<aktualniMistnost.getPredmetyVMistnosti().size();i++){
              System.out.println("KON");
-             if(aktualniMistnost.getPredmetyVMistnosti().get(i).getNazev().equalsIgnoreCase(vstup)){
+             if(aktualniMistnost.getPredmetyVMistnosti().size() == 0){
+                 return "Mistnost je prázdná";
+             }
+             else if(aktualniMistnost.getPredmetyVMistnosti().get(i).getNazev().equalsIgnoreCase(vstup)){
                  if(hrac.getInventory().kontrolaVelikosti()){
                      hrac.getInventory().pridaniPredmetu(aktualniMistnost.getPredmetyVMistnosti().get(i));
                      aktualniMistnost.odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
@@ -29,6 +32,22 @@ public class Vzit implements Command{
                  return "Váš inventory je plný";
              }else {
                  return "V mistnosti není "+vstup;
+             }
+         }
+         for (int i = 0;i<aktualniMistnost.getObjekt().getPredmetyVObjektu().size();i++){
+             System.out.println("KON");
+             if(aktualniMistnost.getPredmetyVMistnosti().size() == 0){
+                 return "Objekt je prázdná";
+             }
+             else if(aktualniMistnost.getObjekt().getPredmetyVObjektu().get(i).getNazev().equalsIgnoreCase(vstup)){
+                 if(hrac.getInventory().kontrolaVelikosti()){
+                     hrac.getInventory().pridaniPredmetu(aktualniMistnost.getObjekt().getPredmetyVObjektu().get(i));
+                     aktualniMistnost.getObjekt().odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
+                     return "Sebral jsi "+vstup;
+                 }
+                 return "Váš inventory je plný";
+             }else {
+                 return "V objektu není "+vstup;
              }
          }
         return "KON2";

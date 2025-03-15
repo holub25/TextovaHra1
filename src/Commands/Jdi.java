@@ -24,6 +24,12 @@ public class Jdi implements Command {
             if (mistnost.getNazev().equalsIgnoreCase(nazev)) {
                 if(mistnost instanceof Sklep sklep){
                     if(sklep.isUzamcen()){
+                        if(hra.getHrac().getFazeHrace()==3){
+                            if(hra.getPrikazy().get("mluv") instanceof Mluv mluv){
+                                mluv.zvyseniFaze();
+                                mluv.zvyseniFazeHrac();
+                            }
+                        }
                         return "Sklep je uzamcen";
                     }
                 }

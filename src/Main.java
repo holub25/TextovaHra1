@@ -9,10 +9,10 @@ public class Main {
     public static void main(String[] args) {
         try {
             Svet svet = new Svet();
-            Hra hra = new Hra(svet.getMistnosti().get(0));
+            Hra hra = new Hra(svet.getMistnosti().get(0),svet);
             hra.start(svet);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
