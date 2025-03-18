@@ -53,6 +53,10 @@ public class Hrac {
     public void setCtenaKniha(Kniha ctenaKniha) {
         this.ctenaKniha = ctenaKniha;
     }
+    public void zvyseniFazeHrac(){
+        this.setFazeHrace(this.getFazeHrace()+1);
+        System.out.println("FAZE HRACE: "+this.getFazeHrace());
+    }
 
     public InventoryPlayer getInventory() {
         return inventory;

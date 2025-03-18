@@ -2,7 +2,9 @@ package Commands;
 
 import Objekty.KnihovnaObj;
 import Objekty.Objekt;
+import Objekty.Trezor;
 import Predmety.Kniha;
+import Predmety.Predmet;
 import zbytek.Hra;
 
 public class Cti implements Command{
@@ -20,6 +22,10 @@ public class Cti implements Command{
             }
         }
         Objekt objekt = hra.getMomentalniMistnost().getObjekt();
+        return objektyKniha(objekt,vstup);
+    }
+
+    public String objektyKniha(Objekt objekt,String vstup){
         if(objekt instanceof KnihovnaObj knihovna){
             for(int i = 0;i<knihovna.getKnihy().size();i++){
                 if(hra.getHrac().isPruzkum() == true && vstup.equalsIgnoreCase(knihovna.getKnihy().get(i).getNazev())){
@@ -29,7 +35,29 @@ public class Cti implements Command{
                 }
             }
         }
+        else {
+            for (int i = 0;i<objekt.getPredmetyVObjektu().size();i++){
+                if(objekt.getPredmetyVObjektu().get(i) instanceof Kniha kniha && objekt.getPredmetyVObjektu().get(i).getNazev().equalsIgnoreCase(vstup)){
+                    hra.getHrac().setCte(true);
+                    hra.getHrac().setCtenaKniha(kniha);
+                    System.out.println("JDE");
+                    otevreniInformaci(objekt.getPredmetyVObjektu().get(i));
+                    /*if(objekt.getPredmetyVObjektu().get(i).getNazev().equalsIgnoreCase("Denik")&&hra.getHrac().getFazeHrace()){
+
+                    }*/
+                    System.out.println("FAZE HRACE: "+hra.getHrac().getFazeHrace());
+                    System.out.println("FAZE Postav" + hra.getSvet().getMistnosti().get(1).getPostava().getFaze());
+                    return kniha.zobrazeniStrany("+");
+                }
+            }
+        }
         return "Kniha nenalezena";
+    }
+    public void otevreniInformaci(Predmet predmet){
+        if(predmet.getNazev().equalsIgnoreCase("denik")&&hra.getHrac().getFazeHrace()==4){
+            hra.getHrac().zvyseniFazeHrac();
+            System.out.println(hra.getHrac().getFazeHrace());
+        }
     }
 
     @Override

@@ -26,8 +26,8 @@ public class Jdi implements Command {
                     if(sklep.isUzamcen()){
                         if(hra.getHrac().getFazeHrace()==3){
                             if(hra.getPrikazy().get("mluv") instanceof Mluv mluv){
-                                mluv.zvyseniFaze();
-                                mluv.zvyseniFazeHrac();
+                                //mluv.zvyseniFaze();
+                                hra.getHrac().zvyseniFazeHrac();
                             }
                         }
                         return "Sklep je uzamcen";

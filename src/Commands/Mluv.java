@@ -99,18 +99,15 @@ public class Mluv implements Command{
             }
         }
     }
-    public void zvyseniFazeHrac(){
-        hra.getHrac().setFazeHrace(hra.getHrac().getFazeHrace()+1);
-        System.out.println("FAZE HRACE: "+hra.getHrac().getFazeHrace());
-    }
+
     public void zjisteni(String jmeno,int cisloOtazky){
-        if(jmeno.equalsIgnoreCase("Elenora")&&faze()==1){
+        if(jmeno.equalsIgnoreCase("Elenora")&&/*faze()==1*/hra.getHrac().getFazeHrace()==1){
             zvyseniFaze();
             hra.getHrac().setFazeHrace(2);
-        }else if(jmeno.equalsIgnoreCase("Jack")&&faze()==2&&cisloOtazky==22&&hra.getHrac().getFazeHrace()==2){
-            zvyseniFazeHrac();
+        }else if(jmeno.equalsIgnoreCase("Jack")/*&&faze()==2*/&&cisloOtazky==22&&hra.getHrac().getFazeHrace()==2){
+            hra.getHrac().zvyseniFazeHrac();
             zvyseniFaze();
-        }else if(jmeno.equalsIgnoreCase("Ben")&&faze()==4&&cisloOtazky==44){
+        }else if(jmeno.equalsIgnoreCase("Ben")/*&&faze()==4*/&&cisloOtazky==44&&hra.getHrac().getFazeHrace() == 4){
             if(hra.getMomentalniMistnost().getPostava() instanceof Ben ben){
                 ben.predaniKlice();
             }

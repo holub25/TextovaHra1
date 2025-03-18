@@ -102,8 +102,8 @@ public class Svet {
                 case "sklep":
                     mistnosti.get(i).pridatPredmet(new Dlato("Dlato",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
-                    mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Denik("Denik",mistnosti.get(i),false)));
-                    mistnosti.get(i).getObjekt().pridaniPredmetu(new Denik("Deník",mistnosti.get(i),false));
+                    mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Kniha("Denik",mistnosti.get(i),false),4444,false));
+                    //mistnosti.get(i).getObjekt().pridaniPredmetu(new Denik("Denik",mistnosti.get(i),false));
                     break;
                 case "zahrada":
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));

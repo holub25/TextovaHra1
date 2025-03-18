@@ -1,6 +1,7 @@
 package Commands;
 
 import Objekty.Objekt;
+import Objekty.Trezor;
 import zbytek.Hra;
 
 import java.io.BufferedReader;
@@ -22,14 +23,28 @@ public class Prozkoumat implements Command{
         while ((line = bufferedReader.readLine())!=null){
             if(hra.getMomentalniMistnost().getObjekt() == null){
                 return "V teto mistnosti není objekt";
-            }
-            else if(hra.getMomentalniMistnost().getObjekt().getNazev().equalsIgnoreCase(vstup) && line.split(";")[0].equalsIgnoreCase(vstup)){
+            }else if(objektoveAktivity(vstup)&&hra.getMomentalniMistnost().getObjekt().getNazev().equalsIgnoreCase(vstup) && line.split(";")[0].equalsIgnoreCase(vstup)){
                 hra.getHrac().setPruzkum(true);
                 hra.getHrac().setProzObjekt(hra.getMomentalniMistnost().getObjekt());
                 return line.split(";")[1];
             }
         }
         return "Objekt nenalezen";
+    }
+    public boolean objektoveAktivity(String vstup){
+        switch (vstup.toLowerCase()){
+            case "trezor":
+                if(hra.getMomentalniMistnost().getObjekt() instanceof Trezor trezor){
+                    return trezor.otevreniTrezoru();
+                }
+            case "krb":
+                return true;
+            case "dira":
+                return true;
+            case "knihovna":
+                return true;
+        }
+        return false;
     }
 
 
