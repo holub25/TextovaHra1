@@ -28,6 +28,7 @@ public class Prozkoumat implements Command{
             }else if(objektoveAktivity(vstup)&&hra.getMomentalniMistnost().getObjekt().getNazev().equalsIgnoreCase(vstup) && line.split(";")[0].equalsIgnoreCase(vstup)){
                 hra.getHrac().setPruzkum(true);
                 hra.getHrac().setProzObjekt(hra.getMomentalniMistnost().getObjekt());
+                objektNalez(vstup);
                 return line.split(";")[1];
             }
         }
@@ -55,6 +56,16 @@ public class Prozkoumat implements Command{
 
         }
         return false;
+    }
+    public void objektNalez(String vstup){
+        for(int i = 0;i<hra.getSvet().getMistnosti().size();i++){
+            if(vstup.equalsIgnoreCase("Dira")){
+                if(hra.getMomentalniMistnost().getPostava().getFaze()>=5){
+                    hra.zvednoutFazeKonPost(hra.getMomentalniMistnost().getPostava().getJmeno(),6);
+                }
+            }
+        }
+
     }
 
 

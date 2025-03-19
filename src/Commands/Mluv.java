@@ -128,6 +128,8 @@ public class Mluv implements Command{
             else if(hra.getSvet().getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
                 if(jmeno.equalsIgnoreCase("Alfred")&&hra.getSvet().getMistnosti().get(i).getPostava().getFaze()==4){
                     hra.getSvet().getMistnosti().get(i).getPostava().zmenaFaze();
+                } else if (jmeno.equalsIgnoreCase("Alfred")&&hra.getSvet().getMistnosti().get(i).getPostava().getFaze()==6) {
+                    hra.zvednoutFazeKonPost("Anna",5);
                 }
             }
         }
