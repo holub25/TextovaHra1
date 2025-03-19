@@ -2,6 +2,7 @@ package Predmety;
 
 import Commands.Strana;
 import Mistnosti.Mistnost;
+import zbytek.Hrac;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -29,13 +30,16 @@ public class Kniha extends Predmet{
         }
     }
     private int stranka = 0;
-    public String zobrazeniStrany(String vstup){
+    public String zobrazeniStrany(String vstup, Hrac hrac){
         if(vstup.equals("+")){
             stranka++;
         }else if(vstup.equals("-")){
             stranka--;
         }else {
 
+        }
+        if(stranka == 2&&hrac.getFazeHrace()==6&&hrac.getCtenaKniha().nazev.equalsIgnoreCase("kniha2")){
+            hrac.zvyseniFazeHrac();
         }
         if(stranka == 0){
             stranka = 1;

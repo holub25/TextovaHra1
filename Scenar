@@ -1,29 +1,37 @@
-Jack;1;11;Richard měl velké dluhy. Snažil jsem se ho přesvědčit, aby to řešil, ale vždycky to jen oddaloval.\nNevím, proč by se rozhodl něco takového udělat teď... Možná už prostě neviděl jinou možnost.
-Ben;1;11;Můj syn... Měl své problémy, to je pravda. Ale sebevražda? Nemyslím si. A i kdyby, dluhy ho tížily čím dál víc. Možná už nemohl dál.
-Elenora;1;11;Richard si vedl svůj tajný deník. Neřekl mi o něm, ale vím, že ho měl. Možná tam najdete něco, co vám pomůže pochopit, co se vlastně stalo.
-Morgan;1;11;Richard mi často svěřoval své obavy. Měl obrovské finanční potíže, věřitelé na něj tlačili. Možná už neviděl jinou cestu ven.
-Stuart;1;11;Richard si u mě vyzvedával léky pravidelně, ale nikdy se nezmínil o něčem takovém.\n Na druhou stranu, stres a dluhy... Každého to může dohnat k zoufalství.
-Anna;1;11;Nechci mluvit špatně o mrtvém, ale Richard se v poslední době nechoval dobře. Vypadal vyčerpaně, ustaraně... Kdo ví, co se mu honilo hlavou?
-Alfred;1;11;Já nevím nic, pane. Ale slyšel jsem, že měl Richard pořád nějaké dluhy. A říkám vám, lidi kvůli tomu dělají šílené věci.
-Jack;2;22;Deník? To mě překvapuje… Když jsme byli děti, měl vždycky tajemství, ale deník?\nMožná ho měl schovaný někde v pracovně nebo ve sklepě. Tam jsme si jako malí hrávali a býval tam starý trezor
-Ben;2;22;Richard měl deník? Hm… nevím o tom, ale pokud ano, možná do něj psal o svých problémech.\nMěl jich víc, než si kdo dovedl představit. Ale kde by ho mohl mít… to netuším
-Elenora;2;22;Ano, vím o něm. Richard si do něj zapisoval myšlenky, plány… ale nikdy mi neřekl, kam ho schovává.\nJen vím, že si na něj dával pozor, jako by v něm bylo něco opravdu důležitého
-Morgan;2;22;Deník? To je nové. Ale Richard měl ve zvyku zaznamenávat si různé věci… \nPokud v něm psal o svých finančních problémech, mohlo by to být zajímavé. Jen pochybuji, že ho nechal jen tak někde ležet.
-Stuart;2;22;Netuším, že by si Richard psal deník. Jestli ano, možná by v něm mohlo být něco o jeho zdraví… nebo o jiných věcech. Ale nikdy se mi o něm nezmínil
-Anna;2;22;Deník? Opravdu? To jsem nevěděla. Ale Richard byl dost opatrný na to, aby nikomu neprozradil, kde ho schovává.\n Možná v jeho pokoji, nebo někde, kde měl jistotu, že ho nikdo nenajde.
-Alfred;2;22;Já… já o žádném deníku nic nevím. Ale viděl jsem ho párkrát jít do sklepa, možná tam něco schovával… ale to je jen moje domněnka.
-Jack;4;44;Co já vím, klíč od sklepa vždycky měla Anna, zkus se jí zeptat.
-Ben;4;44;Klíč nemám, ale vezmi si tenhle svazek, třeba tam najdeš ten správný.
-Elenora;4;44;Omlouvám se, ale netuším, kde ten klíč je. Do sklepa nechodím.
-Morgan;4;44;Nepamatuji si, že bych někdy viděl ten klíč. Možná bude někde v domě?
-Stuart;4;44;Klíč? To vážně netuším, nikdy jsem neměl důvod tam chodit.
-Anna;4;44;Měla jsem ten klíč, ale pár dní zpátky si ho vzal Richard a už mi ho nevrátil.
-Alfred;4;44;Sklep? No, občas jsem tam musel pro nářadí, ale kde je klíč, to netuším.
-Jack;5;55;Já? Byl jsem ve svém pokoji. Spal jsem déle než obvykle, včera jsem měl těžkou hlavu. Když jsem vstal, šel jsem si dát kávu. Nic zvláštního jsem neviděl.
-Ben;5;55;Ráno? To víte, v mém věku člověk vstává časně. Seděl jsem v knihovně a četl si noviny. Potřebuju klid, abych si uspořádal myšlenky.
-Elenora;5;55;Byla jsem v ložnici. Přemýšlela jsem... o spoustě věcí. Nechtěla jsem s nikým mluvit, tak jsem se zdržela tam.
-Morgan;5;55;Celé dopoledne jsem pracoval ve své kanceláři. Měl jsem nějaké papírování, nic zajímavého. A ne, neslyšel jsem nic neobvyklého.
-Stuart;5;55;Jako obvykle jsem kontroloval své záznamy a připravoval léky. Pak jsem měl krátkou procházku po zahradě, abych si vyčistil hlavu.
-Anna;5;55;Byla jsem v kuchyni, jako každé ráno. Připravovala jsem snídani a pak začala s obědem. Nebylo na tom nic divného
-Alfred;5;55;Já? Venku, v zahradě! Musím se starat o květiny a trávník. Práce na zahradě nikdy nekončí, mladíku.
+Jack;1;11;0;Richard měl velké dluhy. Snažil jsem se ho přesvědčit, aby to řešil, ale vždycky to jen oddaloval. Nevím, proč by se rozhodl něco takového udělat teď... \nMožná už prostě neviděl jinou možnost.
+Ben;1;11;0;Můj syn... Měl své problémy, to je pravda. Ale sebevražda? Nemyslím si. A i kdyby, dluhy ho tížily čím dál víc. Možná už nemohl dál.
+Elenora;1;11;0;Richard si vedl svůj tajný deník. Neřekl mi o něm, ale vím, že ho měl. Možná tam najdete něco, co vám pomůže pochopit, co se vlastně stalo.
+Morgan;1;11;0;Richard mi často svěřoval své obavy. Měl obrovské finanční potíže, věřitelé na něj tlačili. Možná už neviděl jinou cestu ven.
+Stuart;1;11;0;Richard si u mě vyzvedával léky pravidelně, ale nikdy se nezmínil o něčem takovém. Na druhou stranu, stres a dluhy... Každého to může dohnat k zoufalství.
+Anna;1;11;0;Nechci mluvit špatně o mrtvém, ale Richard se v poslední době nechoval dobře. Vypadal vyčerpaně, ustaraně... Kdo ví, co se mu honilo hlavou?
+Alfred;1;11;0;Já nevím nic, pane. Ale slyšel jsem, že měl Richard pořád nějaké dluhy. A říkám vám, lidi kvůli tomu dělají šílené věci.
+Jack;2;22;0;Deník? To mě překvapuje… Když jsme byli děti, měl vždycky tajemství, ale deník? \nMožná ho měl schovaný někde v pracovně nebo ve sklepě. Tam jsme si jako malí hrávali a býval tam starý trezor.
+Ben;2;22;0;Richard měl deník? Hm… nevím o tom, ale pokud ano, možná do něj psal o svých problémech. Měl jich víc, než si kdo dovedl představit. Ale kde by ho mohl mít… to netuším.
+Elenora;2;22;0;Ano, vím o něm. Richard si do něj zapisoval myšlenky, plány… ale nikdy mi neřekl, kam ho schovává. \nJen vím, že si na něj dával pozor, jako by v něm bylo něco opravdu důležitého.
+Morgan;2;22;0;Deník? To je nové. Ale Richard měl ve zvyku zaznamenávat si různé věci… \nPokud v něm psal o svých finančních problémech, mohlo by to být zajímavé. Jen pochybuji, že ho nechal jen tak někde ležet.
+Stuart;2;22;0;Netuším, že by si Richard psal deník. Jestli ano, možná by v něm mohlo být něco o jeho zdraví… nebo o jiných věcech. Ale nikdy se mi o něm nezmínil.
+Anna;2;22;0;Deník? Opravdu? To jsem nevěděla. Ale Richard byl dost opatrný na to, aby nikomu neprozradil, \nkde ho schovává. Možná v jeho pokoji, nebo někde, kde měl jistotu, že ho nikdo nenajde.
+Alfred;2;22;0;Já… já o žádném deníku nic nevím. Ale viděl jsem ho párkrát jít do sklepa, možná tam něco schovával… ale to je jen moje domněnka.
+Jack;4;44;0;Co já vím, klíč od sklepa vždycky měla Anna, zkus se jí zeptat.
+Ben;4;44;0;Klíč nemám, ale vezmi si tenhle svazek, třeba tam najdeš ten správný.
+Elenora;4;44;0;Omlouvám se, ale netuším, kde ten klíč je. Do sklepa nechodím.
+Morgan;4;44;0;Nepamatuji si, že bych někdy viděl ten klíč. Možná bude někde v domě?
+Stuart;4;44;0;Klíč? To vážně netuším, nikdy jsem neměl důvod tam chodit.
+Anna;4;44;0;Měla jsem ten klíč, ale pár dní zpátky si ho vzal Richard a už mi ho nevrátil.
+Alfred;4;44;0;Sklep? No, občas jsem tam musel pro nářadí, ale kde je klíč, to netuším.
+Jack;5;55;0;Já? Byl jsem ve svém pokoji. Spal jsem déle než obvykle, včera jsem měl těžkou hlavu. Když jsem vstal, šel jsem si dát kávu. Nic zvláštního jsem neviděl.
+Ben;5;55;0;Ráno? To víte, v mém věku člověk vstává časně. Seděl jsem v knihovně a četl si noviny. Potřebuju klid, abych si uspořádal myšlenky.
+Elenora;5;55;0;Byla jsem v ložnici. Přemýšlela jsem... o spoustě věcí. Nechtěla jsem s nikým mluvit, tak jsem se zdržela tam.
+Morgan;5;55;0;Celé dopoledne jsem pracoval ve své kanceláři. Měl jsem nějaké papírování, nic zajímavého. A ne, neslyšel jsem nic neobvyklého.
+Stuart;5;55;0;Jako obvykle jsem kontroloval své záznamy a připravoval léky. Pak jsem měl krátkou procházku po zahradě, abych si vyčistil hlavu.
+Anna;5;55;0;Byla jsem v kuchyni, jako každé ráno. Připravovala jsem snídani a pak začala s obědem. Nebylo na tom nic divného.
+Alfred;5;55;0;Já? Venku, v zahradě! Musím se starat o květiny a trávník. Práce na zahradě nikdy nekončí, mladíku.
+Jack;6;66;0;Slyšel jsem nějaké roztříštění skla. Znělo to, jako by se někdo hádal. Myslím, že to bylo mezi Richardem a Elenorou. \nPak jsem viděl Elenoru vycházet z jejich ložnice. Vypadala rozrušeně.
+Ben;6;66;0;Včera večer jsem byl ve své pracovně a četl si. Nic neobvyklého jsem neviděl, ale slyšel jsem, jak se někdo pohyboval po chodbě.
+Elenora;6;66;0;Večer jsem byla v ložnici a snažila se Richarda vyhnout. Už delší dobu jsme se hádali, tak jsem se raději zavřela v pokoji. \nViděla jsem ale z okna Alfreda jak něco zakopává na zahradě.
+Morgan;6;66;0;Byl jsem unavený, takže jsem šel brzy spát.
+Stuart;6;66;0;Včera večer jsem si v pracovně připravoval léky a řešil nějaké záznamy. \nNic zvláštního jsem neviděl, jenom dr. Morgana jak něco pálí v krbu.
+Anna;6;66;0;Celý večer jsem strávila v kuchyni. Připravovala jsem večeři a pak uklízela. Nevím o ničem neobvyklém.
+Alfred;6;66;0;Já jsem byl na zahradě a staral se o rostliny, takže uvnitř jsem moc času netrávil.
+
 

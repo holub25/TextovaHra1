@@ -6,20 +6,17 @@ import Predmety.Klice;
 import zbytek.Hra;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Mluv implements Command{
 
     private Hra hra;
     private String[] rozdeleni;
-    private HashSet<String>  otazky;
+    private LinkedHashSet<String>  otazky;
 
     public Mluv(Hra hra) {
         this.hra = hra;
-        otazky = new HashSet<>();
+        otazky = new LinkedHashSet<>();
     }
 
     @Override
@@ -32,9 +29,9 @@ public class Mluv implements Command{
         String line;
         int cisloOtazky = zvoleniOtazky();
         while ((line = bufferedReader.readLine())!=null){
-            String[] rozdeleni = line.split(";",4);
+            String[] rozdeleni = line.split(";",5);
             if(vstup.equalsIgnoreCase(rozdeleni[0]) /*&& faze()<=Integer.parseInt(rozdeleni[1])*/ && vstup.equalsIgnoreCase(hra.getMomentalniMistnost().getPostava().getJmeno()) && cisloOtazky==Integer.parseInt(line.split(";")[2])){
-                rozdeleni[3] = rozdeleni[3].replace("\\n","\n");
+                rozdeleni[4] = rozdeleni[4].replace("\\n","\n");
                 zjisteni(vstup,cisloOtazky);
                 System.out.println("FAZE: "+faze());
                 /*if(vstup.equalsIgnoreCase("Elenora")&&faze()==1){
@@ -43,7 +40,7 @@ public class Mluv implements Command{
                 }else if(vstup.equalsIgnoreCase("Jack")&&faze()==2&&cisloOtazky==22&&hra.getHrac().getFazeHrace()==2){
                     zvyseniFazeHrac();
                 }*/
-                return rozdeleni[3];
+                return rozdeleni[4];
             }
         }
         bufferedReader.close();
@@ -53,19 +50,7 @@ public class Mluv implements Command{
     //(faze()==Integer.parseInt(rozdeleni[1])||faze()==Integer.parseInt(rozdeleni[1])+1||faze()==Integer.parseInt(rozdeleni[1])-1)
     public int zvoleniOtazky() throws IOException {
         Scanner sc = new Scanner(System.in);
-        FileReader fileReader = new FileReader("Otazky");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        int i = 1;
-        while ((line = bufferedReader.readLine())!=null){
-            if(Integer.parseInt(line.split(";")[1]) == hra.getHrac().getFazeHrace()){
-                otazky.add(line.split(";")[3]);
-            }
-        }
-        ArrayList<String> list = new ArrayList<>(otazky);
-        for(int c = 0;c<otazky.size();c++){
-            System.out.println(c+1+". "+list.get(c));
-        }
+        ArrayList<String> list = nahraniOtazek();
         System.out.print("Zvolte otazku (cislo): \n>> ");
         int id = 0;
         try{
@@ -73,10 +58,10 @@ public class Mluv implements Command{
             FileReader fileReader1 = new FileReader("Otazky");
             BufferedReader bufferedReader1 = new BufferedReader(fileReader1);
             String line1;
-            for(int v = 0;v<otazky.size();v++){
+            for(int v = 0;v<list.size();v++){
                 if(odpoved == v+1){
                     while ((line1 = bufferedReader1.readLine())!=null){
-                        if(list.get(v).equalsIgnoreCase(line1.split(";")[3])){
+                        if(list.get(v).equalsIgnoreCase(line1.split(";")[4])){
                             id = Integer.parseInt(line1.split(";")[2]);
                         }
                     }
@@ -85,8 +70,7 @@ public class Mluv implements Command{
         }catch (InputMismatchException e){
             System.out.println("Zadavej pouze pismena");
         }
-        bufferedReader.close();
-        fileReader.close();
+        otazky.clear();
         return id;
     }
     public int faze(){
@@ -111,6 +95,32 @@ public class Mluv implements Command{
             if(hra.getMomentalniMistnost().getPostava() instanceof Ben ben){
                 ben.predaniKlice();
             }
+        }
+    }
+    public ArrayList<String> nahraniOtazek() throws IOException {
+        FileReader fileReader = new FileReader("Otazky");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+        while ((line = bufferedReader.readLine())!=null){
+            if(Integer.parseInt(line.split(";")[1]) == hra.getHrac().getFazeHrace()){
+                //otazky.add(line.split(";")[4]);
+                jednotliveOtazky(line);
+            }
+        }
+        ArrayList<String> list = new ArrayList<>(otazky);
+        for(int c = 0;c<otazky.size();c++){
+            System.out.println(c+1+". "+list.get(c));
+        }
+        bufferedReader.close();
+        fileReader.close();
+        return list;
+    }
+    public void jednotliveOtazky(String line){
+        if(line.split(";")[0].equalsIgnoreCase(hra.getMomentalniMistnost().getPostava().getJmeno())&&Integer.parseInt(line.split(";")[3])==hra.getMomentalniMistnost().getPostava().getFaze()){
+            otazky.add(line.split(";")[4]);
+        }else if(line.split(";")[0].equalsIgnoreCase("All")&&hra.getHrac().getFazeHrace()==Integer.parseInt(line.split(";")[1])){
+            otazky.add(line.split(";")[4]);
+            System.out.println("VELIKOST OTAZEK JE: "+otazky.size());
         }
     }
 

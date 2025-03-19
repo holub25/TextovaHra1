@@ -88,7 +88,7 @@ public class Svet {
                     break;
                 case "kancelar":
                     mistnosti.get(i).pridatPostavu(new Stuart("Stuart",mistnosti.get(i),1));
-                    mistnosti.get(i).pridatObjekt(new Rozeznavatel("Rozeznavatel",mistnosti.get(i),null));
+                    mistnosti.get(i).pridatObjekt(new Rozeznavatel("Rozeznavatel",mistnosti.get(i),null,this));
                     mistnosti.get(i).getObjekt().pridatPozitelnePred("Houby");
                     mistnosti.get(i).getObjekt().pridatPozitelnePred("Prasky");
                     break;

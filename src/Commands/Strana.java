@@ -11,7 +11,7 @@ public class Strana implements Command{
 
     @Override
     public String prikaz(String vstup) {
-        return hra.getHrac().getCtenaKniha().zobrazeniStrany(vstup);
+        return hra.getHrac().getCtenaKniha().zobrazeniStrany(vstup,hra.getHrac());
     }
 
     @Override

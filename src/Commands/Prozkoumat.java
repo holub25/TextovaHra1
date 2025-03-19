@@ -1,6 +1,7 @@
 package Commands;
 
 import Objekty.Objekt;
+import Objekty.Rozeznavatel;
 import Objekty.Trezor;
 import zbytek.Hra;
 
@@ -37,12 +38,15 @@ public class Prozkoumat implements Command{
                 if(hra.getMomentalniMistnost().getObjekt() instanceof Trezor trezor){
                     return trezor.otevreniTrezoru();
                 }
+            case "rozeznavatel":
+                return true;
             case "krb":
                 return true;
             case "dira":
                 return true;
             case "knihovna":
                 return true;
+
         }
         return false;
     }
