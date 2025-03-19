@@ -16,8 +16,8 @@ public abstract class Postava {
         this.text = nahraniTextu();
     }
 
-    public int zmenaFaze(){
-        return faze++;
+    public void zmenaFaze(){
+        this.faze = faze+1;
     }
 
     public String getJmeno() {

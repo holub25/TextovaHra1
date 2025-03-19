@@ -31,6 +31,7 @@ public class Cti implements Command{
                 if(hra.getHrac().isPruzkum() == true && vstup.equalsIgnoreCase(knihovna.getKnihy().get(i).getNazev())){
                     hra.getHrac().setCte(true);
                     hra.getHrac().setCtenaKniha(knihovna.getKnihy().get(i));
+                    otevreniInformaci(((KnihovnaObj) objekt).getKnihy().get(i));
                     return knihovna.getKnihy().get(i).zobrazeniStrany("+",hra.getHrac());
                 }
             }
@@ -40,10 +41,7 @@ public class Cti implements Command{
                 if(objekt.getPredmetyVObjektu().get(i) instanceof Kniha kniha && objekt.getPredmetyVObjektu().get(i).getNazev().equalsIgnoreCase(vstup)){
                     hra.getHrac().setCte(true);
                     hra.getHrac().setCtenaKniha(kniha);
-                    System.out.println("JDE");
                     otevreniInformaci(objekt.getPredmetyVObjektu().get(i));
-                    System.out.println("FAZE HRACE: "+hra.getHrac().getFazeHrace());
-                    System.out.println("FAZE Postav" + hra.getSvet().getMistnosti().get(1).getPostava().getFaze());
                     return kniha.zobrazeniStrany("+",hra.getHrac());
                 }
             }
@@ -52,6 +50,9 @@ public class Cti implements Command{
     }
     public void otevreniInformaci(Predmet predmet){
         if(predmet.getNazev().equalsIgnoreCase("denik")&&hra.getHrac().getFazeHrace()==4){
+            hra.getHrac().zvyseniFazeHrac();
+            System.out.println(hra.getHrac().getFazeHrace());
+        }else if(predmet.getNazev().equalsIgnoreCase("kniha2")&&hra.getHrac().getFazeHrace()==6){
             hra.getHrac().zvyseniFazeHrac();
             System.out.println(hra.getHrac().getFazeHrace());
         }

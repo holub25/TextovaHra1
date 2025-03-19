@@ -22,7 +22,7 @@ public class Hra {
         this.momentalniMistnost = momentalniMistnost;
         this.svet = svet;
         System.out.println(momentalniMistnost.getNazev());
-        hrac = new Hrac("",2,momentalniMistnost,1);
+        hrac = new Hrac("",5,momentalniMistnost,1);
         nastaveniPostav();
     }
 
@@ -83,6 +83,17 @@ public class Hra {
         for (int i = 0;i<svet.getMistnosti().size();i++){
             if(svet.getMistnosti().get(i).getPostava() instanceof Ben ben){
                 ben.setHra(this);
+            }
+        }
+    }
+    public void zvednoutFazeKonPost(String jmeno){
+        for(int i = 0;i<svet.getMistnosti().size();i++){
+            if(svet.getMistnosti().get(i).getPostava()==null){
+                System.out.println("KONTROL funguje");
+            }
+            else if(svet.getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
+                svet.getMistnosti().get(i).getPostava().zmenaFaze();
+                System.out.println("Faze postavy nova: "+svet.getMistnosti().get(i).getPostava().getFaze()+svet.getMistnosti().get(i).getPostava().getJmeno());
             }
         }
     }

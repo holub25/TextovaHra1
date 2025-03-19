@@ -34,6 +34,7 @@ public class Rozeznavatel extends Objekt{
             cislo2 = rd.nextInt(500)+1;
             System.out.println("Příklad: "+cislo1+" + "+cislo2+"\n>> ");
             odpoved = sc.nextLine();
+            odpoved = ""+(cislo1+cislo2);
             if(odpoved.equalsIgnoreCase("zpet")){
                 return "Ukončil jste rozeznávání";
             }
@@ -50,6 +51,7 @@ public class Rozeznavatel extends Objekt{
                 }
             }
             System.out.println("Odpoved je spatna");
+            //SMAZAT
         }
         return "";
     }

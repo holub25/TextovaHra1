@@ -2,10 +2,7 @@ package Commands;
 
 import Mistnosti.Sklep;
 import Objekty.Rozeznavatel;
-import Predmety.Klice;
-import Predmety.LahvickaFPrasky;
-import Predmety.LahvickaHouby;
-import Predmety.Predmet;
+import Predmety.*;
 import zbytek.Hra;
 
 import java.io.IOException;
@@ -65,6 +62,17 @@ public class Pouzit implements Command {
                     odpoved = rozeznavatel.rozpoznatLatku(vstup,hra.getHrac());
                     System.out.println("FAZE POSTAV: "+hra.getMomentalniMistnost().getPostava().getFaze());
                 }
+            }
+        } else if (vstup.equalsIgnoreCase("dlato")) {
+            if(predmet.getNazev().equalsIgnoreCase(vstup)){
+                for(int b = 0;b<hra.getHrac().getInventory().getPredmety().size();b++){
+                    if(hra.getHrac().getInventory().getPredmety().get(b).getNazev().equalsIgnoreCase("Omitka")){
+                        return "Již omítku máš";
+                    }
+                }
+                hra.getHrac().getInventory().pridaniPredmetu(new Omitka("Omitka",hra.getMomentalniMistnost(),false));
+                odpoved = "Zíksla si omítku";
+
             }
         }
         return odpoved;
