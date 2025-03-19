@@ -89,6 +89,7 @@ public class Mluv implements Command{
     }
 
     public void zjisteni(String jmeno,int cisloOtazky) throws Exception {
+        specialniAkce(jmeno);
         if(jmeno.equalsIgnoreCase("Elenora")&&hra.getHrac().getFazeHrace()==1){
             zvyseniFaze();
             hra.getHrac().setFazeHrace(2);
@@ -101,20 +102,33 @@ public class Mluv implements Command{
             }
         }
         else if(cisloOtazky==77&&hra.getHrac().getFazeHrace()==7){
-            /*else if(jmeno.equalsIgnoreCase("Jack")&&cisloOtazky==77&&hra.getHrac().getFazeHrace()==7){
-            hra.zvednoutFazeKonPost("Elenora");
-        } else if(jmeno.equalsIgnoreCase("Elenora")&&cisloOtazky==77&&hra.getHrac().getFazeHrace()==7){
-            hra.zvednoutFazeKonPost("Alfred");
-        } else if (jmeno) {
+            zjisteniPozdniFaze(jmeno);
+        }else {
 
-        }*/
-            switch (jmeno.toLowerCase()){
-                case "jack":
-                    hra.zvednoutFazeKonPost("Elenora");
-                    break;
-                case "elenora":
-                    hra.zvednoutFazeKonPost("Alfred");
-                    break;
+        }
+    }
+    public void zjisteniPozdniFaze(String jmeno){
+        switch (jmeno.toLowerCase()){
+            case "jack":
+                hra.zvednoutFazeKonPost("Elenora",4);
+                break;
+            case "elenora":
+                hra.zvednoutFazeKonPost("Alfred",4);
+                break;
+            case "ben":
+                hra.zvednoutFazeKonPost("Anna",4);
+                break;
+        }
+    }
+    public void specialniAkce(String jmeno){
+        for(int i = 0;i<hra.getSvet().getMistnosti().size();i++){
+            if(hra.getSvet().getMistnosti().get(i).getPostava() == null){
+                System.out.println("LIKE");
+            }
+            else if(hra.getSvet().getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
+                if(jmeno.equalsIgnoreCase("Alfred")&&hra.getSvet().getMistnosti().get(i).getPostava().getFaze()==4){
+                    hra.getSvet().getMistnosti().get(i).getPostava().zmenaFaze();
+                }
             }
         }
     }
@@ -124,7 +138,6 @@ public class Mluv implements Command{
         String line;
         while ((line = bufferedReader.readLine())!=null){
             if(Integer.parseInt(line.split(";")[1]) <= hra.getHrac().getFazeHrace()){
-                //System.out.println("POCET");
                 jednotliveOtazky(line);
             }
         }
@@ -141,10 +154,8 @@ public class Mluv implements Command{
             otazky.add(line.split(";")[4]);
             System.out.println("TU TO JDE");
         }else if(line.split(";")[0].equalsIgnoreCase("All")&&hra.getHrac().getFazeHrace()>=Integer.parseInt(line.split(";")[1])){
-            //System.out.println("FAZE HRACE OTAZ: "+hra.getHrac().getFazeHrace());
             otazky.add(line.split(";")[4]);
             System.out.println("TU TO JDE 222");
-            //System.out.println("VELIKOST OTAZEK JE: "+otazky.size());
         }
     }
 

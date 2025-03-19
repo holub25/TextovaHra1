@@ -54,4 +54,5 @@ public class Klice extends Predmet {
         }
         return false;
     }
+
 }

@@ -27,11 +27,10 @@ public class Vzit implements Command{
                  if(hrac.getInventory().kontrolaVelikosti()){
                      hrac.getInventory().pridaniPredmetu(aktualniMistnost.getPredmetyVMistnosti().get(i));
                      aktualniMistnost.odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
+                     aktualniMistnost.pokusvypis();
                      return "Sebral jsi "+vstup;
                  }
                  return "Váš inventory je plný";
-             }else {
-                 return "V mistnosti není "+vstup;
              }
          }
          for (int i = 0;i<aktualniMistnost.getObjekt().getPredmetyVObjektu().size();i++){
@@ -46,11 +45,9 @@ public class Vzit implements Command{
                      return "Sebral jsi "+vstup;
                  }
                  return "Váš inventory je plný";
-             }else {
-                 return "V objektu není "+vstup;
              }
          }
-        return "KON2";
+        return "Predmet nenalezen";
     }
 
     @Override

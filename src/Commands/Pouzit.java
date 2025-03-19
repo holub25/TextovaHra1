@@ -56,7 +56,7 @@ public class Pouzit implements Command {
                     }
                 }
             }
-        } else if (vstup.equalsIgnoreCase("prasky")||vstup.equalsIgnoreCase("houby")) {
+        } else if (vstup.equalsIgnoreCase("prasky")||vstup.equalsIgnoreCase("houby")||vstup.equalsIgnoreCase("omitka")) {
             if(predmet.getNazev().equalsIgnoreCase(vstup)){
                 if(hra.getHrac().isPruzkum()&&hra.getHrac().getProzObjekt() instanceof Rozeznavatel rozeznavatel){
                     odpoved = rozeznavatel.rozpoznatLatku(vstup,hra.getHrac());
@@ -64,15 +64,12 @@ public class Pouzit implements Command {
                 }
             }
         } else if (vstup.equalsIgnoreCase("dlato")) {
-            if(predmet.getNazev().equalsIgnoreCase(vstup)){
-                for(int b = 0;b<hra.getHrac().getInventory().getPredmety().size();b++){
-                    if(hra.getHrac().getInventory().getPredmety().get(b).getNazev().equalsIgnoreCase("Omitka")){
-                        return "Již omítku máš";
-                    }
-                }
-                hra.getHrac().getInventory().pridaniPredmetu(new Omitka("Omitka",hra.getMomentalniMistnost(),false));
-                odpoved = "Zíksla si omítku";
-
+            if(predmet instanceof Dlato dlato){
+                odpoved = dlato.pouzitDlata();
+            }
+        } else if(vstup.equalsIgnoreCase("lopata")){
+            if(predmet instanceof Lopata lopata){
+                odpoved = lopata.pouzitiLopata();
             }
         }
         return odpoved;

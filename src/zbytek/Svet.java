@@ -91,6 +91,7 @@ public class Svet {
                     mistnosti.get(i).pridatObjekt(new Rozeznavatel("Rozeznavatel",mistnosti.get(i),null,this));
                     mistnosti.get(i).getObjekt().pridatPozitelnePred("Houby");
                     mistnosti.get(i).getObjekt().pridatPozitelnePred("Prasky");
+                    mistnosti.get(i).getObjekt().pridatPozitelnePred("Omitka");
                     break;
                 case "loznice1":
                     mistnosti.get(i).pridatPostavu(new Elenora("Elenora",mistnosti.get(i),1));
@@ -104,6 +105,7 @@ public class Svet {
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
                     mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Kniha("Denik",mistnosti.get(i),false),4444,false));
                     //mistnosti.get(i).getObjekt().pridaniPredmetu(new Denik("Denik",mistnosti.get(i),false));
+                    mistnosti.get(i).pokusvypis();
                     break;
                 case "zahrada":
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));

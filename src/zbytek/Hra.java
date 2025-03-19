@@ -3,6 +3,8 @@ package zbytek;
 import Commands.*;
 import Mistnosti.Mistnost;
 import Postavy.Ben;
+import Predmety.Dlato;
+import Predmety.Lopata;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,6 +26,7 @@ public class Hra {
         System.out.println(momentalniMistnost.getNazev());
         hrac = new Hrac("",5,momentalniMistnost,1);
         nastaveniPostav();
+        nastaveniPredmetu();
     }
 
     public void inicializace(Svet svet){
@@ -86,13 +89,26 @@ public class Hra {
             }
         }
     }
-    public void zvednoutFazeKonPost(String jmeno){
+    public void nastaveniPredmetu(){
+        for(int i = 0;i<svet.getMistnosti().size();i++){
+            for(int b = 0;b<svet.getMistnosti().get(i).getPredmetyVMistnosti().size();b++){
+                if(svet.getMistnosti().get(i).getPredmetyVMistnosti().get(b) instanceof Dlato dlato){
+                    dlato.setHra(this);
+                } else if (svet.getMistnosti().get(i).getPredmetyVMistnosti().get(b) instanceof Lopata lopata) {
+                    lopata.setHra(this);
+                }
+            }
+        }
+    }
+    public void zvednoutFazeKonPost(String jmeno,int faze){
         for(int i = 0;i<svet.getMistnosti().size();i++){
             if(svet.getMistnosti().get(i).getPostava()==null){
                 System.out.println("KONTROL funguje");
             }
             else if(svet.getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
-                svet.getMistnosti().get(i).getPostava().zmenaFaze();
+                if(faze>svet.getMistnosti().get(i).getPostava().getFaze()){
+                    svet.getMistnosti().get(i).getPostava().setFaze(faze);
+                }
                 System.out.println("Faze postavy nova: "+svet.getMistnosti().get(i).getPostava().getFaze()+svet.getMistnosti().get(i).getPostava().getJmeno());
             }
         }

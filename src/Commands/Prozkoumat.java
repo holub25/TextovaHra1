@@ -1,5 +1,6 @@
 package Commands;
 
+import Objekty.Dira;
 import Objekty.Objekt;
 import Objekty.Rozeznavatel;
 import Objekty.Trezor;
@@ -43,7 +44,12 @@ public class Prozkoumat implements Command{
             case "krb":
                 return true;
             case "dira":
-                return true;
+                if(hra.getMomentalniMistnost().getObjekt() instanceof Dira dira){
+                    if(dira.isVykopana()){
+                        return true;
+                    }
+                    return false;
+                }
             case "knihovna":
                 return true;
 
