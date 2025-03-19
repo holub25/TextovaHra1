@@ -1,9 +1,6 @@
 package Commands;
 
-import Objekty.Dira;
-import Objekty.Objekt;
-import Objekty.Rozeznavatel;
-import Objekty.Trezor;
+import Objekty.*;
 import zbytek.Hra;
 
 import java.io.BufferedReader;
@@ -43,7 +40,13 @@ public class Prozkoumat implements Command{
             case "rozeznavatel":
                 return true;
             case "krb":
-                return true;
+                if(hra.getMomentalniMistnost().getObjekt() instanceof Krb krb){
+                    if(krb.pruzkum()){
+                        hra.zvednoutFazeKonPost("Morgan",5);
+                        return krb.pruzkum();
+                    }
+                    return krb.pruzkum();
+                }
             case "dira":
                 if(hra.getMomentalniMistnost().getObjekt() instanceof Dira dira){
                     if(dira.isVykopana()){

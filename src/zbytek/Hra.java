@@ -2,6 +2,7 @@ package zbytek;
 
 import Commands.*;
 import Mistnosti.Mistnost;
+import Objekty.Krb;
 import Postavy.Ben;
 import Predmety.Dlato;
 import Predmety.Lopata;
@@ -27,6 +28,7 @@ public class Hra {
         hrac = new Hrac("",5,momentalniMistnost,1);
         nastaveniPostav();
         nastaveniPredmetu();
+        nastaveniObjektu();
     }
 
     public void inicializace(Svet svet){
@@ -89,6 +91,13 @@ public class Hra {
             }
         }
     }
+    public void nastaveniObjektu(){
+        for(int i = 0;i<svet.getMistnosti().size();i++){
+            if(svet.getMistnosti().get(i).getObjekt() instanceof Krb krb){
+                krb.setHra(this);
+            }
+        }
+    }
     public void nastaveniPredmetu(){
         for(int i = 0;i<svet.getMistnosti().size();i++){
             for(int b = 0;b<svet.getMistnosti().get(i).getPredmetyVMistnosti().size();b++){
@@ -112,6 +121,17 @@ public class Hra {
                 System.out.println("Faze postavy nova: "+svet.getMistnosti().get(i).getPostava().getFaze()+svet.getMistnosti().get(i).getPostava().getJmeno());
             }
         }
+    }
+    public int fazePostavy(String jmeno){
+        for(int i = 0;i<svet.getMistnosti().size();i++){
+            if(svet.getMistnosti().get(i).getPostava()==null){
+
+            }
+            else if(svet.getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
+                return svet.getMistnosti().get(i).getPostava().getFaze();
+            }
+        }
+        return 0;
     }
 
     public HashMap<String, Command> getPrikazy() {

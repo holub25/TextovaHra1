@@ -118,6 +118,9 @@ public class Mluv implements Command{
             case "ben":
                 hra.zvednoutFazeKonPost("Anna",4);
                 break;
+            case "stuart":
+                hra.zvednoutFazeKonPost("Morgan",4);
+                break;
         }
     }
     public void specialniAkce(String jmeno){
@@ -126,10 +129,16 @@ public class Mluv implements Command{
                 System.out.println("LIKE");
             }
             else if(hra.getSvet().getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
-                if(jmeno.equalsIgnoreCase("Alfred")&&hra.getSvet().getMistnosti().get(i).getPostava().getFaze()==4){
+                int fazePostavy = hra.getSvet().getMistnosti().get(i).getPostava().getFaze();
+                if(jmeno.equalsIgnoreCase("Alfred")&&fazePostavy==4){
                     hra.getSvet().getMistnosti().get(i).getPostava().zmenaFaze();
-                } else if (jmeno.equalsIgnoreCase("Alfred")&&hra.getSvet().getMistnosti().get(i).getPostava().getFaze()==6) {
+                } else if (jmeno.equalsIgnoreCase("Alfred")&&fazePostavy==6&&hra.fazePostavy("Anna")==5) {
+                    hra.zvednoutFazeKonPost("Anna",6);
+                } else if (jmeno.equalsIgnoreCase("Anna")&&fazePostavy==4) {
                     hra.zvednoutFazeKonPost("Anna",5);
+                    if(hra.fazePostavy("Alfred")==6&&fazePostavy==5){
+                        hra.zvednoutFazeKonPost("Anna",6);
+                    }
                 }
             }
         }

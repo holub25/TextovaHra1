@@ -11,6 +11,7 @@ public abstract class Objekt {
     protected Mistnost polohaObjektu;
     protected ArrayList<String> pouzitelnePredmety;
 
+
     public Objekt(String nazev, Mistnost polohaObjektu, Predmet predmet) {
         this.nazev = nazev;
         this.predmetyVObjektu = new ArrayList<>();
