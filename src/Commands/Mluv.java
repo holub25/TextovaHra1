@@ -132,13 +132,22 @@ public class Mluv implements Command{
                 int fazePostavy = hra.getSvet().getMistnosti().get(i).getPostava().getFaze();
                 if(jmeno.equalsIgnoreCase("Alfred")&&fazePostavy==4){
                     hra.getSvet().getMistnosti().get(i).getPostava().zmenaFaze();
-                } else if (jmeno.equalsIgnoreCase("Alfred")&&fazePostavy==6&&hra.fazePostavy("Anna")==5) {
-                    hra.zvednoutFazeKonPost("Anna",6);
-                } else if (jmeno.equalsIgnoreCase("Anna")&&fazePostavy==4) {
-                    hra.zvednoutFazeKonPost("Anna",5);
-                    if(hra.fazePostavy("Alfred")==6&&fazePostavy==5){
+                } else if (jmeno.equalsIgnoreCase("Alfred")&&fazePostavy==6/*&&hra.fazePostavy("Anna")==5*/) {
+                    if(hra.fazePostavy("Anna")==5){
                         hra.zvednoutFazeKonPost("Anna",6);
                     }
+                } else if (jmeno.equalsIgnoreCase("Anna")&&fazePostavy>=4&&fazePostavy<6) {
+                    hra.zvednoutFazeKonPost(jmeno,5);
+                    fazePostavy = 5;
+                    if(hra.fazePostavy("Alfred")==6&&fazePostavy==5){
+                        hra.zvednoutFazeKonPost(jmeno,6);
+                    }
+                } else if(jmeno.equalsIgnoreCase("Anna")&&fazePostavy==6){
+                    System.out.println("66666666666666666666");
+                    hra.zvednoutFazeKonPost("Stuart",5);
+                } else if (jmeno.equalsIgnoreCase("Stuart")&&fazePostavy==5) {
+                    hra.zvednoutFazeKonPost(jmeno,6);
+                    System.out.println("MUYES ");
                 }
             }
         }

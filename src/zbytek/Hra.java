@@ -43,17 +43,23 @@ public class Hra {
         prikazy.put("cti",new Cti(this));
         prikazy.put("strana",new Strana(this));
         prikazy.put("pouzit",new Pouzit(this));
+        prikazy.put("vyhodit",new Vyhodit(this));
     }
 
     public Svet getSvet() {
         return svet;
     }
 
-    public void konzole() throws Exception {
+    public String konzole() throws Exception {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
-            if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz()) && (!hrac.isCte() || prikazy.get(prikaz.split(" ")[0]).cteni())){
+            System.out.println(soucetFazi());
+            if(soucetFazi()==33){
+                obvineni();
+                return "";
+            }
+            else if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz()) && (!hrac.isCte() || prikazy.get(prikaz.split(" ")[0]).cteni())){
                 if(prikaz.split(" ").length>1){
                     if(prikaz.split(" ")[0].equalsIgnoreCase("strana")&&hrac.isCte()==false){
                         System.out.println("Nelze pouzit");
@@ -70,6 +76,7 @@ public class Hra {
         }catch (Exception e){
             e.printStackTrace();
         }
+        return "";
 
     }
     public void start(Svet svet){
@@ -117,8 +124,9 @@ public class Hra {
             else if(svet.getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
                 if(faze>svet.getMistnosti().get(i).getPostava().getFaze()){
                     svet.getMistnosti().get(i).getPostava().setFaze(faze);
+                    System.out.println(svet.getMistnosti().get(i).getPostava().getJmeno()+svet.getMistnosti().get(i).getPostava().getFaze());
                 }
-                System.out.println("Faze postavy nova: "+svet.getMistnosti().get(i).getPostava().getFaze()+svet.getMistnosti().get(i).getPostava().getJmeno());
+                //System.out.println("Faze postavy nova: "+svet.getMistnosti().get(i).getPostava().getFaze()+svet.getMistnosti().get(i).getPostava().getJmeno());
             }
         }
     }
@@ -133,7 +141,27 @@ public class Hra {
         }
         return 0;
     }
+    public int soucetFazi(){
+        int soucet = 0;
+        for(int i = 0;i<svet.getMistnosti().size();i++){
+            if(svet.getMistnosti().get(i).getPostava()==null){
 
+            } else {
+                soucet = soucet+svet.getMistnosti().get(i).getPostava().getFaze();
+            }
+        }
+        return soucet;
+    }
+    public String obvineni(){
+        Scanner sc = new Scanner(System.in);
+        String odpoved = sc.nextLine();
+        exit = true;
+        if(odpoved.equalsIgnoreCase("Anna")){
+            return "Gratuluji vyhrál jste";
+        }else {
+            return "Bohuzel jste obvinil špatného";
+        }
+    }
     public HashMap<String, Command> getPrikazy() {
         return prikazy;
     }
