@@ -18,11 +18,6 @@ public class KnihovnaObj extends Objekt{
         kniha.nahraniStran(kniha.getNazev());
         knihy.add(kniha);
     }
-    /*public void vypis() throws IOException {
-        for(int i = 0;i<knihy.size();i++){
-            knihy.get(i).nahraniStran(knihy.get(i).getNazev());
-        }
-    }*/
 
     public ArrayList<Kniha> getKnihy() {
         return knihy;

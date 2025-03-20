@@ -36,8 +36,6 @@ public class InventoryPlayer {
 
     @Override
     public String toString() {
-        return "InventoryPlayer{" +
-                "predmety=" + predmety +
-                '}';
+        return "Predmety v inv- "+predmety;
     }
 }

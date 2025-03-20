@@ -21,9 +21,6 @@ public abstract class Predmet {
         return poloha;
     }
 
-    public boolean isSebrana() {
-        return sebrana;
-    }
 
     @Override
     public String toString() {

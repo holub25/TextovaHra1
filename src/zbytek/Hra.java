@@ -54,8 +54,7 @@ public class Hra {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
-            System.out.println(soucetFazi());
-            if(soucetFazi()==33){
+            if(soucetFazi()==34){
                 obvineni();
                 return "";
             }
@@ -154,6 +153,7 @@ public class Hra {
     }
     public String obvineni(){
         Scanner sc = new Scanner(System.in);
+        System.out.print("Již máte všechny důkázy k odhalení vraha. Napište jméno\n>> ");
         String odpoved = sc.nextLine();
         exit = true;
         if(odpoved.equalsIgnoreCase("Anna")){

@@ -5,7 +5,6 @@ import Mistnosti.Mistnost;
 public abstract class Postava {
     protected String jmeno;
     protected Mistnost poloha;
-    protected String popis;
     protected String text;
     protected int faze;
 
@@ -36,21 +35,6 @@ public abstract class Postava {
         this.poloha = poloha;
     }
 
-    public String getPopis() {
-        return popis;
-    }
-
-    public void setPopis(String popis) {
-        this.popis = popis;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
 
     public int getFaze() {
         return faze;
@@ -60,12 +44,6 @@ public abstract class Postava {
         this.faze = faze;
     }
 
-    public String komunikace(){
-        return null;
-    }
-    public String nahraniPopisu(){
-        return "JJ";
-    }
     public String nahraniTextu(){
         return null;
     }

@@ -19,15 +19,12 @@ public class Ben extends Postava{
 
     public void predaniKlice(){
         if(hra.getHrac().getInventory().getPredmety().size()==0){
-            System.out.println("PRIDANO");
             hra.getHrac().getInventory().pridaniPredmetu(new Klice("Klice",null,true));
         }else {
             for(int i = 0;i<hra.getHrac().getInventory().getPredmety().size();i++){
-                System.out.println("JDE1");
                 if(hra.getHrac().getInventory().getPredmety().get(i).getNazev().equalsIgnoreCase("Klice")){
                     System.out.println("Klíče již máš");
                 }else {
-                    System.out.println("JDE2");
                     hra.getHrac().getInventory().pridaniPredmetu(new Klice("Klice",null,true));
                 }
             }

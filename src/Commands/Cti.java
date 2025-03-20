@@ -14,6 +14,7 @@ public class Cti implements Command{
         this.hra = hra;
     }
 
+
     @Override
     public String prikaz(String vstup) {
         for(int i = 0;i<hra.getMomentalniMistnost().getPredmetyVMistnosti().size();i++){
@@ -51,10 +52,8 @@ public class Cti implements Command{
     public void otevreniInformaci(Predmet predmet){
         if(predmet.getNazev().equalsIgnoreCase("denik")&&hra.getHrac().getFazeHrace()==4){
             hra.getHrac().zvyseniFazeHrac();
-            System.out.println(hra.getHrac().getFazeHrace());
         }else if(predmet.getNazev().equalsIgnoreCase("kniha2")&&hra.getHrac().getFazeHrace()==6){
             hra.getHrac().zvyseniFazeHrac();
-            System.out.println(hra.getHrac().getFazeHrace());
         }
     }
 

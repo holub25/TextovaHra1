@@ -13,7 +13,6 @@ public class Kniha extends Predmet{
 
     protected HashMap<Integer, String> strany;
     protected String nazev;
-    protected int pocetStran;
     public Kniha(String nazev, Mistnost poloha, boolean sebrana) {
         super(nazev, poloha, sebrana);
         this.strany = new HashMap<>();
@@ -52,20 +51,11 @@ public class Kniha extends Predmet{
         }
     }
 
-    public HashMap<Integer, String> getStrany() {
-        return strany;
-    }
 
     @Override
     public String getNazev() {
         return nazev;
     }
 
-    public int getPocetStran() {
-        return pocetStran;
-    }
 
-    /*public int getStranka() {
-        return stranka;
-    }*/
 }

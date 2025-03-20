@@ -23,16 +23,21 @@ public abstract class Objekt {
         pouzitelnePredmety.add(nazev);
     }
 
-    public void setPredmetyVObjektu(ArrayList<Predmet> predmetyVObjektu) {
-        this.predmetyVObjektu = predmetyVObjektu;
-    }
 
     public ArrayList<String> getPouzitelnePredmety() {
         return pouzitelnePredmety;
     }
 
-    public void setPouzitelnePredmety(ArrayList<String> pouzitelnePredmety) {
-        this.pouzitelnePredmety = pouzitelnePredmety;
+
+    @Override
+    public String toString() {
+        if(this instanceof KnihovnaObj knihovnaObj){
+            System.out.println("JDE");
+            return "V "+nazev+" se nachází "+knihovnaObj.getKnihy();
+        }else {
+            return "V "+nazev+" se nachází "+predmetyVObjektu;
+        }
+
     }
 
     public String getNazev() {
@@ -54,13 +59,5 @@ public abstract class Objekt {
         predmetyVObjektu.remove(predmet);
     }
 
-
-    public Mistnost getPolohaObjektu() {
-        return polohaObjektu;
-    }
-
-    public void setPolohaObjektu(Mistnost polohaObjektu) {
-        this.polohaObjektu = polohaObjektu;
-    }
 
 }

@@ -26,7 +26,7 @@ public class Prozkoumat implements Command{
                 hra.getHrac().setPruzkum(true);
                 hra.getHrac().setProzObjekt(hra.getMomentalniMistnost().getObjekt());
                 objektNalez(vstup);
-                return line.split(";")[1];
+                return line.split(";")[1]+"\n"+hra.getMomentalniMistnost().getObjekt().toString();
             }
         }
         return "Objekt nenalezen";

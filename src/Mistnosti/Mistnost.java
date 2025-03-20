@@ -35,14 +35,11 @@ public abstract class Mistnost {
     public void odebratPredmet(Predmet predmet){
         predmetyVMistnosti.remove(predmet);
     }
-    public void pokusvypis(){
+    /*public void pokusvypis(){
         for(int i = 0;i<predmetyVMistnosti.size();i++){
             System.out.println(predmetyVMistnosti.get(i));
         }
-    }
-    public String popis(){
-        return "V "+nazev+" je: "+postava.getJmeno()+" + "+objekt+" + "+predmetyVMistnosti.toString();
-    }
+    }*/
     public void pridatPouzitelnePred(String nazev){
         pouzitelnePredmety.add(nazev);
     }
@@ -51,17 +48,20 @@ public abstract class Mistnost {
         return pouzitelnePredmety;
     }
 
-    public void setPouzitelnePredmety(ArrayList<String> pouzitelnePredmety) {
-        this.pouzitelnePredmety = pouzitelnePredmety;
-    }
 
     @Override
     public String toString() {
-        return "Mistnost{" +
-                "nazev='" + nazev + '\'' +
-                ", sousedniMistnosti=" + sousedniMistnosti +
-                '}';
+        String postava1 = "Nikdo";
+        String objekt1 = "Žádný";
+
+        if(objekt!=null){
+            objekt1 = objekt.getNazev();
+        }if (postava!=null) {
+            postava1 = postava.getJmeno();
+        }
+        return "V mistnosti se nachází "+predmetyVMistnosti+"\nJe zde "+postava1+"\nA objekt "+objekt1;
     }
+
     public void setSousedniMistnosti(ArrayList<String> sousedniMistnosti) {
         this.sousedniMistnosti = sousedniMistnosti;
     }
@@ -74,9 +74,6 @@ public abstract class Mistnost {
         return predmetyVMistnosti;
     }
 
-    public void setPredmetyVMistnosti(ArrayList<Predmet> predmetyVMistnosti) {
-        this.predmetyVMistnosti = predmetyVMistnosti;
-    }
 
     public Postava getPostava() {
         return postava;

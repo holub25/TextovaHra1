@@ -60,7 +60,6 @@ public class Pouzit implements Command {
             if(predmet.getNazev().equalsIgnoreCase(vstup)){
                 if(hra.getHrac().isPruzkum()&&hra.getHrac().getProzObjekt() instanceof Rozeznavatel rozeznavatel){
                     odpoved = rozeznavatel.rozpoznatLatku(vstup,hra.getHrac());
-                    System.out.println("FAZE POSTAV: "+hra.getMomentalniMistnost().getPostava().getFaze());
                 }
             }
         } else if (vstup.equalsIgnoreCase("dlato")) {

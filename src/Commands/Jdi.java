@@ -26,7 +26,6 @@ public class Jdi implements Command {
                     if(sklep.isUzamcen()){
                         if(hra.getHrac().getFazeHrace()==3){
                             if(hra.getPrikazy().get("mluv") instanceof Mluv mluv){
-                                //mluv.zvyseniFaze();
                                 hra.getHrac().zvyseniFazeHrac();
                             }
                         }
@@ -35,7 +34,7 @@ public class Jdi implements Command {
                 }
                 if (aktualniMistnost.getSousedniMistnosti().contains(mistnost.getNazev())) {
                     hra.setMomentalniMistnost(mistnost);
-                    return "Přešel jsi do " + nazev;
+                    return "Přešel jsi do " + nazev+"\n"+ mistnost.toString();
                 } else {
                     return "Nemůžete do této místnosti, nejsou propojené.";
                 }

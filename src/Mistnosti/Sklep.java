@@ -9,9 +9,6 @@ public class Sklep extends Mistnost{
         super(nazev,sousedi);
         this.uzamcen = true;
     }
-    public String odemknout(){
-        return null;
-    }
 
     public boolean isUzamcen() {
         return uzamcen;

@@ -34,7 +34,7 @@ public class Trezor extends Objekt{
                 }
                 int ciselnaOdpoved = Integer.parseInt(odpoved);
                 if (ciselnaOdpoved == kod) {
-                    reseni = true;
+                    //reseni = true;
                     otevren = true;
                     System.out.println("Zadal jste správný kód");
                     return true;

@@ -48,7 +48,6 @@ public class Klice extends Predmet {
                 return true;
             } else {
                 System.out.println("Spatna odpoved");
-                //SMAZAT
                 return false;
             }
         }
