@@ -55,7 +55,6 @@ public class Hrac {
     }
     public void zvyseniFazeHrac(){
         this.setFazeHrace(this.getFazeHrace()+1);
-        System.out.println("FAZE HRACE: "+this.getFazeHrace());
     }
 
     public InventoryPlayer getInventory() {
@@ -94,12 +93,12 @@ public class Hrac {
         this.prozObjekt = prozObjekt;
     }
 
-    public String nastaveniJmena(){
+    /*public String nastaveniJmena(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Zadej jmeno: ");
         String jmeno = sc.nextLine();
         this.jmeno = jmeno;
         return "Vaše jmeno je: "+jmeno;
-    }
+    }*/
 
 }
