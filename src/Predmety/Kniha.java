@@ -22,12 +22,15 @@ public class Kniha extends Predmet{
         FileReader fileReader = new FileReader("Knihy");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
+        String radek;
         while ((line = bufferedReader.readLine())!=null){
             if(line.split(";")[0].equalsIgnoreCase(nazev)){
-                strany.put(Integer.parseInt(line.split(";")[1]),line.split(";")[2]);
+                radek = line.split(";")[2].replace("\\n","\n");
+                strany.put(Integer.parseInt(line.split(";")[1]),radek);
             }
         }
     }
+
     private int stranka = 0;
     public String zobrazeniStrany(String vstup, Hrac hrac){
         if(vstup.equals("+")){
@@ -35,12 +38,16 @@ public class Kniha extends Predmet{
         }else if(vstup.equals("-")){
             stranka--;
         }else {
-
+            return "Muzete zadat pouze +/-";
         }
         if(stranka == 2&&hrac.getFazeHrace()==6&&hrac.getCtenaKniha().nazev.equalsIgnoreCase("kniha2")){
             hrac.zvyseniFazeHrac();
         }
-        if(stranka == 0){
+        /*if(strany.get(stranka)==null){
+            System.out.println(strany.get(stranka));
+            return "Stranka nenalezena";
+        }*/
+         if(stranka == 0){
             stranka = 1;
             return "Jste na první straně";
         }else if(stranka==strany.size()+1&&stranka!=1){
@@ -49,8 +56,12 @@ public class Kniha extends Predmet{
         }else {
             return strany.get(stranka);
         }
+
     }
 
+    public void setStranka(int stranka) {
+        this.stranka = stranka;
+    }
 
     @Override
     public String getNazev() {

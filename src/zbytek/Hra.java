@@ -19,12 +19,13 @@ public class Hra {
     private Hrac hrac;
     private Svet svet;
 
+
     public Hra(Mistnost momentalniMistnost,Svet svet) {
         this.exit = false;
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
         this.svet = svet;
-        System.out.println(momentalniMistnost.getNazev());
+        //System.out.println(momentalniMistnost.getNazev());
         hrac = new Hrac("",5,momentalniMistnost,1);
         nastaveniPostav();
         nastaveniPredmetu();

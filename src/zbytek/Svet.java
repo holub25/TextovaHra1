@@ -105,7 +105,6 @@ public class Svet {
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
                     mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Kniha("Denik",mistnosti.get(i),false),4444,false));
                     //mistnosti.get(i).getObjekt().pridaniPredmetu(new Denik("Denik",mistnosti.get(i),false));
-                    mistnosti.get(i).pokusvypis();
                     break;
                 case "zahrada":
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));
@@ -129,6 +128,11 @@ public class Svet {
 
         }
     }
+
+    public void setMistnosti(ArrayList<Mistnost> mistnosti) {
+        this.mistnosti = mistnosti;
+    }
+
     public ArrayList<Mistnost> getMistnosti() {
         return mistnosti;
     }

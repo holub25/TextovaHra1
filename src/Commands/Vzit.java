@@ -27,7 +27,6 @@ public class Vzit implements Command{
                  if(hrac.getInventory().kontrolaVelikosti()){
                      hrac.getInventory().pridaniPredmetu(aktualniMistnost.getPredmetyVMistnosti().get(i));
                      aktualniMistnost.odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
-                     aktualniMistnost.pokusvypis();
                      return "Sebral jsi "+vstup;
                  }
                  return "Váš inventory je plný";
