@@ -14,7 +14,11 @@ public class Cti implements Command{
         this.hra = hra;
     }
 
-
+    /**
+     * Metoda rozpozna zda se kniha nachází přímo v místnosti nebo v objektu. Zobrazí 1. stránku knihy.
+     * @param vstup je název knihy ,kterou chce hráč číst.
+     * @return Knihu kterou hráč chce číst (jestli tedy byla nalezena).
+     */
     @Override
     public String prikaz(String vstup) {
         for(int i = 0;i<hra.getMomentalniMistnost().getPredmetyVMistnosti().size();i++){
@@ -25,6 +29,13 @@ public class Cti implements Command{
         Objekt objekt = hra.getMomentalniMistnost().getObjekt();
         return objektyKniha(objekt,vstup);
     }
+
+    /**
+     * Zobrazí knihy z objektů.
+     * @param objekt je objekt z místnosti ve ketré se hráč nachází.
+     * @param vstup je název knihy.
+     * @return Buď vrátí nalezenou knihu nebo vypíše že kniha byla nenalezena.
+     */
 
     public String objektyKniha(Objekt objekt,String vstup){
         if(objekt instanceof KnihovnaObj knihovna){
@@ -49,6 +60,11 @@ public class Cti implements Command{
         }
         return "Kniha nenalezena";
     }
+
+    /**
+     * Tato metoda otevírá hráči v určité fázi pokračování pro dokončení hry.
+     * @param predmet je kniha kterou hráč musí otevřít pro pokračování.
+     */
     public void otevreniInformaci(Predmet predmet){
         if(predmet.getNazev().equalsIgnoreCase("denik")&&hra.getHrac().getFazeHrace()==4){
             hra.getHrac().zvyseniFazeHrac();

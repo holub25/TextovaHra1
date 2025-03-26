@@ -31,6 +31,11 @@ class VyhoditTest {
         hra.getHrac().getInventory().getPredmety().add(lopata);
     }
 
+    /**
+     * Otestuje zda jde vyhodit předmět.
+     * @throws Exception
+     */
+
     @Test
     void prikazVyhoditPredmet() throws Exception {
         String odpoved = vyhodit.prikaz("Lopata");
@@ -39,6 +44,10 @@ class VyhoditTest {
         assertTrue(hala.getPredmetyVMistnosti().contains(lopata));
     }
 
+    /**
+     * Otestuje zda nejde vyhodit předmět.
+     * @throws Exception
+     */
     @Test
     void prikazVyhoditPredmetSpatny() throws Exception {
         String odpoved = vyhodit.prikaz("Klice");

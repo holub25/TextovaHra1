@@ -20,6 +20,13 @@ public class Mluv implements Command{
         System.out.println();
     }
 
+    /**
+     * Umožní hráči pokládat postavám otázky a získat od nich odpovědi.
+     * @param vstup je název postavy se kterou chce hráč mluvit.
+     * @return vrátí odpověď postavy nebo možnou chybu.
+     * @throws Exception kvůli chybě načítání souborů.
+     */
+
     @Override
     public String prikaz(String vstup) throws Exception {
         FileReader fileReader = new FileReader("Scenar");
@@ -41,7 +48,14 @@ public class Mluv implements Command{
         fileReader.close();
         return "Postava nebo otazka nenalezena";
     }
+
     //(faze()==Integer.parseInt(rozdeleni[1])||faze()==Integer.parseInt(rozdeleni[1])+1||faze()==Integer.parseInt(rozdeleni[1])-1)
+
+    /**
+     * Hráč si zde zvolí na jakou otázku by se chtěl zeptat.
+     * @return Vrátí id dané otazky.
+     * @throws IOException kvůli možné chybě načítání souborů.
+     */
     public int zvoleniOtazky() throws IOException {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> list = nahraniOtazek();
@@ -75,9 +89,18 @@ public class Mluv implements Command{
         otazky.clear();
         return id;
     }
+
+    /**
+     * Metoda vrátí fázi postavy z místnosti ve které se nachází hráč.
+     * @return Fáze dané postavy.
+     */
     public int faze(){
         return hra.getMomentalniMistnost().getPostava().getFaze();
     }
+
+    /**
+     * Metoda zvýší fázi všem postavam.
+     */
     public void zvyseniFaze(){
         for (int i = 0;i<hra.getSvet().getMistnosti().size();i++){
             if(hra.getSvet().getMistnosti().get(i).getPostava()!=null){
@@ -86,7 +109,13 @@ public class Mluv implements Command{
         }
     }
 
-    public void zjisteni(String jmeno,int cisloOtazky) throws Exception {
+    /**
+     * Tato metoda zvyšuje podle zjištěných informacích fázi hráče a odemykají se hráči se hráči další otázky.
+     * @param jmeno je jméno postavy se kterou hráč komunikuje.
+     * @param cisloOtazky je číslo které zadá hráč.
+     */
+
+    public void zjisteni(String jmeno,int cisloOtazky){
         specialniAkce(jmeno);
         if(jmeno.equalsIgnoreCase("Elenora")&&hra.getHrac().getFazeHrace()==1){
             zvyseniFaze();
@@ -105,6 +134,11 @@ public class Mluv implements Command{
 
         }
     }
+
+    /**
+     * Zvedá první fáze postav.
+     * @param jmeno je jméno postavy se kterou hráč komunikuje.
+     */
     public void zjisteniPozdniFaze(String jmeno){
         switch (jmeno.toLowerCase()){
             case "jack":
@@ -121,6 +155,12 @@ public class Mluv implements Command{
                 break;
         }
     }
+
+    /**
+     * Metoda která zvyšuje fáze u jiných postav než se kterými hráč komunikuje.
+     * Kontroluje zda fáze u postav je dost vyskoá pro zvýšení fáze.
+     * @param jmeno je jméno postavy se kterou hráč mluví.
+     */
     public void specialniAkce(String jmeno){
         for(int i = 0;i<hra.getSvet().getMistnosti().size();i++){
             if(hra.getSvet().getMistnosti().get(i).getPostava() == null){
@@ -149,6 +189,12 @@ public class Mluv implements Command{
             }
         }
     }
+
+    /**
+     * Metoda nahraje všechny dostupné otázky pro hráče.
+     * @return Vrátí arrayList s otázkami.
+     * @throws IOException kontroluje chyby při načítání ze souboru.
+     */
     public ArrayList<String> nahraniOtazek() throws IOException {
         FileReader fileReader = new FileReader("Otazky");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -166,6 +212,11 @@ public class Mluv implements Command{
         fileReader.close();
         return list;
     }
+
+    /**
+     * Metoda která kontroluje zda je otázka pro všechny postavy nebo pouze pro určité postavy.
+     * @param line je řádek ze souboru na kterém je daná otázka.
+     */
     public void jednotliveOtazky(String line){
         if(line.split(";")[0].equalsIgnoreCase(hra.getMomentalniMistnost().getPostava().getJmeno())&&Integer.parseInt(line.split(";")[3])<=hra.getMomentalniMistnost().getPostava().getFaze()){
             otazky.add(line.split(";")[4]);

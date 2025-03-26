@@ -9,6 +9,12 @@ public class Vyhodit implements Command{
         this.hra = hra;
     }
 
+    /**
+     * Metoda která vyhodí předmět z inventáře.
+     * @param vstup název předmětu který chce hráč vyhodit.
+     * @return vrátí zda byl předmět vyhozen nebo ne.
+     * @throws Exception
+     */
     @Override
     public String prikaz(String vstup) throws Exception {
         for(int i = 0;i<hra.getHrac().getInventory().getPredmety().size();i++){

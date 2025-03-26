@@ -14,6 +14,12 @@ public class Pouzit implements Command {
         this.hra = hra;
     }
 
+    /**
+     * Umožní hráči použít daný předmět v místnosti, když je to možné.
+     * @param vstup název předmětu který chce hráč použít.
+     * @return vypíše akci použitého předmětu nebo možnou chybu.
+     * @throws IOException
+     */
     @Override
     public String prikaz(String vstup) throws IOException {
         for(int i = 0;i<hra.getMomentalniMistnost().getPouzitelnePredmety().size();i++){
@@ -40,6 +46,13 @@ public class Pouzit implements Command {
         return "Předmět zde nemůžete použít";
     }
 
+    /**
+     * Metoda která zachytí předměty které se dají použít.
+     * @param vstup název předmětu
+     * @param i index předmětu v inventáři.
+     * @return navrátí akci použitého předmětu.
+     * @throws IOException
+     */
     public String pouzitelnePredmety(String vstup,int i) throws IOException {
         String odpoved = "";
         Predmet predmet = hra.getHrac().getInventory().getPredmety().get(i);

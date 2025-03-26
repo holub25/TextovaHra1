@@ -10,6 +10,11 @@ public class OtevritInv implements Command{
         this.hra = hra;
     }
 
+    /**
+     * Tato metoda hráči vypíše všchny předměty z inventáře.
+     * @param vstup zde není třeba.
+     * @return výpis hráčova inventáře.
+     */
     @Override
     public String prikaz(String vstup) {
         return ""+hra.getHrac().getInventory().toString();

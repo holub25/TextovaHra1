@@ -16,6 +16,12 @@ public class Jdi implements Command {
         this.hra = hra;
         this.svet = svet;
     }
+
+    /**
+     * Tato metoda hráči umožňuje cestovat z místnosti do místnosti a kontroluje zda jsou místnosti propojené.
+     * @param nazev je název místnosti do které chce hráč vstoupit.
+     * @return navrátí potvrzení o přechodu do jiné místnosti nebo vypíše danou chybu.
+     */
     @Override
     public String prikaz(String nazev) {
         Mistnost aktualniMistnost = hra.getMomentalniMistnost();

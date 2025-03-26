@@ -9,6 +9,12 @@ public class Zpet implements Command{
         this.hra = hra;
     }
 
+    /**
+     * Tato metoda hráči zruší stav prozkoumávání nebo čtení.
+     * @param vstup není třeba zde.
+     * @return potvrdí konec prozkoumávání a čtení.
+     */
+
     @Override
     public String prikaz(String vstup) {
         hra.getHrac().setPruzkum(false);

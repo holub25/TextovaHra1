@@ -9,6 +9,12 @@ public class Strana implements Command{
         this.hra = hra;
     }
 
+    /**
+     * Tato metoda pouze přetočí stránku knihy.
+     * @param vstup je buď + nebo -.
+     * @return vrátí danou stránku podle vstupu.
+     */
+
     @Override
     public String prikaz(String vstup) {
         return hra.getHrac().getCtenaKniha().zobrazeniStrany(vstup,hra.getHrac());

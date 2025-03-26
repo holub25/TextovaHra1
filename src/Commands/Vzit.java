@@ -15,6 +15,11 @@ public class Vzit implements Command{
         this.hrac = hrac;
     }
 
+    /**
+     * Metoda která hráči umožní sebrat předmět buď přímo z místnosti nebo z objektu.
+     * @param vstup název předmětu který chce hráč sebrat.
+     * @return potvrdí zda hráč předmět sebral či ne.
+     */
     @Override
     public String prikaz(String vstup) {
          Mistnost aktualniMistnost = hra.getMomentalniMistnost();

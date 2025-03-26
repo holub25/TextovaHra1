@@ -14,6 +14,13 @@ public class Prozkoumat implements Command{
         this.hra = hra;
     }
 
+    /**
+     * Umožní hráči przkoumat objekty v daných místnostech.
+     * @param vstup objekt který chce hráč prozkoumat.
+     * @return popi objektu.
+     * @throws IOException kvůli možné chybě při načítání ze souboru.
+     */
+
     @Override
     public String prikaz(String vstup) throws IOException {
         FileReader fileReader = new FileReader("PopisObjekty");
@@ -31,6 +38,12 @@ public class Prozkoumat implements Command{
         }
         return "Objekt nenalezen";
     }
+
+    /**
+     * U některých objektů je třeba splnit aktivitu k jejich przkoumání.
+     * @param vstup název objektu.
+     * @return vrací zda je možné objekt prozkoumat či ne.
+     */
     public boolean objektoveAktivity(String vstup){
         switch (vstup.toLowerCase()){
             case "trezor":
@@ -60,6 +73,11 @@ public class Prozkoumat implements Command{
         }
         return false;
     }
+
+    /**
+     * Metoda která spouští akce když hráč prozkoumává daný objekt v určitou fázi.
+     * @param vstup název objektu.
+     */
     public void objektNalez(String vstup){
         for(int i = 0;i<hra.getSvet().getMistnosti().size();i++){
             if(vstup.equalsIgnoreCase("Dira")){
