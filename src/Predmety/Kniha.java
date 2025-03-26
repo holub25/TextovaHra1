@@ -18,6 +18,12 @@ public class Kniha extends Predmet{
         this.strany = new HashMap<>();
         this.nazev = nazev;
     }
+
+    /**
+     * Metoda která ze souboru nahraje jednotlivé strany do knihy.
+     * @param nazev je název knihy podle které se nahrávají strany.
+     * @throws IOException kontroluje možnou chybu při načítání ze souboru.
+     */
     public void nahraniStran(String nazev) throws IOException {
         FileReader fileReader = new FileReader("Knihy");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -32,6 +38,13 @@ public class Kniha extends Predmet{
     }
 
     private int stranka = 0;
+
+    /**
+     * Tato metoda přepíná mezi jednotlivími stranami v knize podle vstupu.
+     * @param vstup je buď + nebo -.
+     * @param hrac je postava hráče.
+     * @return Vrací obsah jednotlivé strany.
+     */
     public String zobrazeniStrany(String vstup, Hrac hrac){
         if(vstup.equals("+")){
             stranka++;

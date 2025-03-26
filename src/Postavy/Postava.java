@@ -15,6 +15,9 @@ public abstract class Postava {
         this.text = nahraniTextu();
     }
 
+    /**
+     * Zvětší fázi postavy o 1 bod.
+     */
     public void zmenaFaze(){
         this.faze = faze+1;
     }

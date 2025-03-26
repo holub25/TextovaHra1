@@ -17,6 +17,11 @@ public class Lopata extends Predmet{
     public void setHra(Hra hra) {
         this.hra = hra;
     }
+
+    /**
+     * Metoda pro použití lopaty v konkrétní fázi.
+     * @return Vrací potvrzení zda lopata byla použita nebo nebyla.
+     */
     public String pouzitiLopata(){
         if (hra.getMomentalniMistnost().getPostava().getFaze()>=5) {
             if(hra.getMomentalniMistnost().getObjekt() instanceof Dira dira){

@@ -19,6 +19,11 @@ public class Trezor extends Objekt{
         nahraniDenik();
     }
 
+    /**
+     * Metoda která slouží pro otevření trezoru. Hráč zde musí zadat správný kód.
+     * @return Vrací zda je trezor otevřen nebo ne.
+     */
+
     public boolean otevreniTrezoru(){
         boolean reseni = false;
         Scanner sc = new Scanner(System.in);
@@ -47,6 +52,11 @@ public class Trezor extends Objekt{
             return false;
         }
     }
+
+    /**
+     * Nahraje stránky deníku.
+     * @throws IOException
+     */
     public void nahraniDenik() throws IOException {
         for(int i = 0;i<predmetyVObjektu.size();i++){
             if(predmetyVObjektu.get(i) instanceof Kniha kniha){

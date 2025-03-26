@@ -17,6 +17,9 @@ public class Ben extends Postava{
         this.hra = hra;
     }
 
+    /**
+     * Metoda která dá hráči klíč, když se hráč zeptá bena na konkrétní otázku.
+     */
     public void predaniKlice(){
         if(hra.getHrac().getInventory().getPredmety().size()==0){
             hra.getHrac().getInventory().pridaniPredmetu(new Klice("Klice",null,true));

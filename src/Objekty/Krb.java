@@ -20,6 +20,10 @@ public class Krb extends Objekt{
         this.hra = hra;
     }
 
+    /**
+     * Metoda která potvrdí že hráč může důkladněji prozkoumat krb.
+     * @return
+     */
     public boolean pruzkum(){
         if(hra.fazePostavy("Morgan")<4){
             System.out.println("Nic moc tu není");

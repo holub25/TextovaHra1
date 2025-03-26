@@ -19,6 +19,14 @@ public class Rozeznavatel extends Objekt{
         this.svet = svet;
     }
 
+    /**
+     * Metoda která hráči pomůže rozpoznat látku daného předmětu. Generuje také příklad.
+     * @param latka název předmětu.
+     * @param hrac je Postava hráče.
+     * @return Vrátí co za látku je daný předmět
+     * @throws IOException kontroluje chybu při načítání souboru.
+     */
+
     public String rozpoznatLatku(String latka,Hrac hrac) throws IOException {
         Scanner sc = new Scanner(System.in);
         Random rd = new Random();

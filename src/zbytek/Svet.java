@@ -20,6 +20,13 @@ public class Svet {
         nacteniMapy();
         nahraniObsahu();
     }
+
+    /**
+     * Každé místnosti přidá sousedy.
+     * @param radek je řádek ze souboru odkud se načítaj sousedi.
+     * @param nazev je název místnosti ke které se sousedi přidávají.
+     * @return vrátí list sousedů.
+     */
     public ArrayList<String> rozdeleniSousedu(String radek,String nazev){
         String[] sousedi = radek.split(";");
         ArrayList<String> list = new ArrayList<>();
@@ -30,6 +37,10 @@ public class Svet {
         }
         return list;
     }
+
+    /**
+     * Načte z mapy všechny místnosti a přidá je do arrayListu.
+     */
 
     public void nacteniMapy(){
         try {
@@ -72,6 +83,11 @@ public class Svet {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Mteoda která všem místnostem doplní ještě jejich obsah.
+     * @throws IOException
+     */
     public void nahraniObsahu() throws IOException {
         for(int i = 0;i<mistnosti.size();i++){
             switch (mistnosti.get(i).getNazev().toLowerCase()){

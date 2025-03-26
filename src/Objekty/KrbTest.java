@@ -37,12 +37,17 @@ class KrbTest {
         svet.setMistnosti(mistnosti);
     }
 
+    /**
+     * Metoda která otestuje zda důkladnější průzkum krbu funguje.
+     */
     @Test
     void pruzkumUspech() {
         morgan.setFaze(5);
         assertTrue(krb.pruzkum());
     }
-
+    /**
+     * Metoda která otestuje zda důkladnější průzkum krbu nefunguje.
+     */
     @Test
     void pruzkumNeuspech() {
         assertFalse(krb.pruzkum());

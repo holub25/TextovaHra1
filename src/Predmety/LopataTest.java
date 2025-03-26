@@ -37,6 +37,9 @@ class LopataTest {
 
     }
 
+    /**
+     * Testuje zda funguje použití lopaty.
+     */
     @Test
     void pouzitiLopata() {
         String result = lopata.pouzitiLopata();
@@ -44,6 +47,9 @@ class LopataTest {
         assertTrue(dira.isVykopana());
     }
 
+    /**
+     * Testuje zda nefunguje použití lopaty ve špatné fázi.
+     */
     @Test
     void pouzitiLopataSpatneFaze() {
         postava.setFaze(3);

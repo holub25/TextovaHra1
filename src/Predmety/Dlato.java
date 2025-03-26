@@ -17,6 +17,10 @@ public class Dlato extends Predmet{
         this.hra = hra;
     }
 
+    /**
+     * Metoda pro použití dláta v dané místnosti.
+     * @return Potvrdí zda hráč získal omítku nebo ne.
+     */
     public String pouzitDlata(){
         for(int b = 0;b<hra.getHrac().getInventory().getPredmety().size();b++){
             if(hra.getHrac().getInventory().getPredmety().get(b).getNazev().equalsIgnoreCase("Omitka")){

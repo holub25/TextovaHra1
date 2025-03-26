@@ -14,6 +14,12 @@ public class KnihovnaObj extends Objekt{
         super(nazev, polohaObjektu,predmet);
         knihy = new ArrayList<>();
     }
+
+    /**
+     * Přidá do knihovny jednotlivé knihy.
+     * @param kniha je kniha která se má přidat do arrayListu.
+     * @throws IOException
+     */
     public void pridaniKnihy(Kniha kniha) throws IOException {
         kniha.nahraniStran(kniha.getNazev());
         knihy.add(kniha);

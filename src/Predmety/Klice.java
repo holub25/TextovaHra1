@@ -16,6 +16,12 @@ public class Klice extends Predmet {
     public Klice(String nazev, Mistnost poloha, boolean sebrana) {
         super(nazev, poloha, sebrana);
     }
+
+    /**
+     * Metoda která zajišťuje hádanku s klíči. Hráč zde musí správně přeložit polské slovo.
+     * @return Vrací zda hráč hádnaku uhodl nebo zda ne.
+     * @throws IOException kontroluje možnou chybu při načítání ze souboru.
+     */
     public boolean hadankaKlic() throws IOException {
         ArrayList<String> radky = new ArrayList<>();
         Scanner sc = new Scanner(System.in);

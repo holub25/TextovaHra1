@@ -32,6 +32,11 @@ public class Hra {
         nastaveniObjektu();
     }
 
+    /**
+     * Metoda která přidá všechny commandy do hry.
+     * @param svet je svět ve kterém se hra odehrává.
+     */
+
     public void inicializace(Svet svet){
         prikazy.put("jdi",new Jdi(this,svet));
         prikazy.put("konec",new Konec());
@@ -51,13 +56,16 @@ public class Hra {
         return svet;
     }
 
-    public String konzole() throws Exception {
+    /**
+     * Metoda která hráči umožňuje zadávat jednotlivé příkazy.
+     * @throws Exception
+     */
+    public void konzole() throws Exception {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
             if(soucetFazi()==34){
                 obvineni();
-                return "";
             }
             else if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz()) && (!hrac.isCte() || prikazy.get(prikaz.split(" ")[0]).cteni())){
                 if(prikaz.split(" ").length>1){
@@ -76,21 +84,27 @@ public class Hra {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "";
 
     }
+
+    /**
+     * Metoda která zapne celkovou hru.
+     * @param svet je svět ve kterém se hra odehrává.
+     */
     public void start(Svet svet){
         inicializace(svet);
         System.out.println("VÍTEJ");
-        //System.out.println(hrac.nastaveniJmena());
         try{
             do {
                 konzole();
             }while (!exit);
         }catch (Exception e){
-            //System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * Přidá konkrétním postavám potřebné hodnoty.
+     */
     public void nastaveniPostav(){
         for (int i = 0;i<svet.getMistnosti().size();i++){
             if(svet.getMistnosti().get(i).getPostava() instanceof Ben ben){
@@ -98,6 +112,10 @@ public class Hra {
             }
         }
     }
+
+    /**
+     * Přidá konkrétním objektům potřebné hodnoty.
+     */
     public void nastaveniObjektu(){
         for(int i = 0;i<svet.getMistnosti().size();i++){
             if(svet.getMistnosti().get(i).getObjekt() instanceof Krb krb){
@@ -105,6 +123,10 @@ public class Hra {
             }
         }
     }
+
+    /**
+     * Přidá konkrétním předmětům potřebné hodnoty.
+     */
     public void nastaveniPredmetu(){
         for(int i = 0;i<svet.getMistnosti().size();i++){
             for(int b = 0;b<svet.getMistnosti().get(i).getPredmetyVMistnosti().size();b++){
@@ -116,10 +138,16 @@ public class Hra {
             }
         }
     }
+
+    /**
+     * Tato metoda zvýší fázi pro konkrétní postavu na zadanou hodnotu.
+     * @param jmeno je jméno konkrétní postavy.
+     * @param faze je fáze na které se má postava změnit.
+     */
     public void zvednoutFazeKonPost(String jmeno,int faze){
         for(int i = 0;i<svet.getMistnosti().size();i++){
             if(svet.getMistnosti().get(i).getPostava()==null){
-                System.out.println("KONTROL funguje");
+                //System.out.println("KONTROL funguje");
             }
             else if(svet.getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
                 if(faze>svet.getMistnosti().get(i).getPostava().getFaze()){
@@ -130,6 +158,12 @@ public class Hra {
             }
         }
     }
+
+    /**
+     * Vrátí fázi konkrétní postavy.
+     * @param jmeno je jméno postavy od které se má vypsat fáze.
+     * @return Vrátí fázi postavy.
+     */
     public int fazePostavy(String jmeno){
         for(int i = 0;i<svet.getMistnosti().size();i++){
             if(svet.getMistnosti().get(i).getPostava()==null){
@@ -141,6 +175,11 @@ public class Hra {
         }
         return 0;
     }
+
+    /**
+     * Sečte všechny fáze postav.
+     * @return Vrátí celkový součet.
+     */
     public int soucetFazi(){
         int soucet = 0;
         for(int i = 0;i<svet.getMistnosti().size();i++){
@@ -152,6 +191,11 @@ public class Hra {
         }
         return soucet;
     }
+
+    /**
+     * Zde hráč obviní postavu o které si myslí že je vrah.
+     * @return Vrátí zda hráč vyhrál nebo ne.
+     */
     public String obvineni(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Již máte všechny důkázy k odhalení vraha. Napište jméno\n>> ");

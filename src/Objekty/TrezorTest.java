@@ -21,6 +21,10 @@ class TrezorTest {
         trezor = new Trezor("trezor",sklep,null,1234,false);
     }
 
+    /**
+     * Otestuje zda metoda pro odemknutí trezoru je funkční.
+     */
+
     @Test
     void otevreniTrezoru() {
         String kod = "1234";
@@ -28,7 +32,9 @@ class TrezorTest {
         System.setIn(vstup);
         assertTrue(trezor.otevreniTrezoru());
     }
-
+    /**
+     * Otestuje zda metoda pro odemknutí trezoru je nefunkční.
+     */
     @Test
     void otevreniTrezoruSpatnyKod() {
         String kod = "8888\nzpet";

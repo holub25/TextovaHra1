@@ -23,15 +23,35 @@ public abstract class Mistnost {
         this.pouzitelnePredmety = new ArrayList<>();
         setSousedniMistnosti(sousedi);
     }
+
+    /**
+     * Přidá předmět do místnosti.
+     * @param predmet konkrétni předmět,
+     */
     public void pridatPredmet(Predmet predmet){
         predmetyVMistnosti.add(predmet);
     }
+
+    /**
+     * Nastaví postavu v místnosti.
+     * @param postava postava která se ma dát do místnosti.
+     */
     public void pridatPostavu(Postava postava){
         this.postava = postava;
     }
+
+    /**
+     * Přidá knokrétní objekt do místnosti.
+     * @param objekt je objekt který se má přidat.
+     */
     public void pridatObjekt(Objekt objekt){
         this.objekt = objekt;
     }
+
+    /**
+     * Odebere předmět z místnosti.
+     * @param predmet je předmět který se má odebrat.
+     */
     public void odebratPredmet(Predmet predmet){
         predmetyVMistnosti.remove(predmet);
     }
@@ -40,6 +60,11 @@ public abstract class Mistnost {
             System.out.println(predmetyVMistnosti.get(i));
         }
     }*/
+
+    /**
+     * Nastaví který předmět se dá v místnosti použít.
+     * @param nazev je název použitelného předmětu.
+     */
     public void pridatPouzitelnePred(String nazev){
         pouzitelnePredmety.add(nazev);
     }

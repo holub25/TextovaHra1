@@ -39,12 +39,17 @@ class HraTest {
         svet.setMistnosti(mistnosti);
     }
 
+    /**
+     * Testuje zda celkový součet postav je špatný.
+     */
     @Test
     void testSoucetFaziSpatny() {
         int soucet = hra.soucetFazi();
         assertNotEquals(8,soucet);
     }
-
+    /**
+     * Testuje zda celkový součet postav je správný.
+     */
     @Test
     void testSoucetFaziSpravny() {
         int soucet = hra.soucetFazi();

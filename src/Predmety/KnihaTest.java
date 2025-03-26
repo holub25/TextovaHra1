@@ -31,7 +31,9 @@ class KnihaTest {
         kniha.strany.put(3, "Strana 3");
     }
 
-
+    /**
+     * Testuje zda funguje kontrola první strany.
+     */
     @Test
     void prvniStranaTest() {
         kniha.setStranka(1);
@@ -39,6 +41,9 @@ class KnihaTest {
         assertEquals("Jste na první straně", kniha.zobrazeniStrany("-", hrac));
     }
 
+    /**
+     * Testuje zda funguje jednotlivé přepínání mezi stranami.
+     */
     @Test
     void listovaniTest() {
         kniha.setStranka(0);
@@ -47,6 +52,9 @@ class KnihaTest {
         assertEquals("Strana 3", kniha.zobrazeniStrany("+", hrac));
     }
 
+    /**
+     * Testuje zda funguje kontrola poslední strany.
+     */
     @Test
     void posledniStranaTest() {
         kniha.zobrazeniStrany("+", hrac);
@@ -54,6 +62,10 @@ class KnihaTest {
 
         assertEquals("Jste na poslední straně", kniha.zobrazeniStrany("+", hrac));
     }
+
+    /**
+     * Testuje zda funguje kontrola špatného znamínka.
+     */
     @Test
     void testNeplatnyVstup() {
         assertEquals("Muzete zadat pouze +/-", kniha.zobrazeniStrany("x", hrac));

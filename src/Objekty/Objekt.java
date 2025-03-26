@@ -19,6 +19,11 @@ public abstract class Objekt {
         this.predmetyVObjektu.add(predmet);
         this.pouzitelnePredmety = new ArrayList<>();
     }
+
+    /**
+     * Nastaví který předmět se dá v objektu použít.
+     * @param nazev je název použitelného předmětu.
+     */
     public void pridatPozitelnePred(String nazev){
         pouzitelnePredmety.add(nazev);
     }
@@ -51,10 +56,17 @@ public abstract class Objekt {
     public ArrayList<Predmet> getPredmetyVObjektu() {
         return predmetyVObjektu;
     }
-
+    /**
+     * Přidá knokrétní předmět do objektu.
+     * @param predmet je předmět který se má přidat.
+     */
     public void pridaniPredmetu(Predmet predmet){
         predmetyVObjektu.add(predmet);
     }
+    /**
+     * Odebere předmět z objektu.
+     * @param predmet je předmět který se má odebrat.
+     */
     public void odebratPredmet(Predmet predmet){
         predmetyVObjektu.remove(predmet);
     }

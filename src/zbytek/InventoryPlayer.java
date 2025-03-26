@@ -12,6 +12,11 @@ public class InventoryPlayer {
         this.predmety = new ArrayList<>();
         this.velikost = velikost;
     }
+
+    /**
+     * Metoda která zkontroluje zda je inventář již plný nebo ne.
+     * @return vratí zda je plný čí nikoliv.
+     */
     public boolean kontrolaVelikosti(){
         if(predmety.size()==velikost){
             return false;
@@ -19,9 +24,17 @@ public class InventoryPlayer {
         return true;
     }
 
+    /**
+     * Přidá předmět do arrayListu.
+     * @param predmet předmět který má být přidán.
+     */
     public void pridaniPredmetu(Predmet predmet){
         predmety.add(predmet);
     }
+    /**
+     * Odebere předmět z arrayListu.
+     * @param predmet předmět který má být odebrán.
+     */
     public void odebraniPredmetu(Predmet predmet){
         predmety.remove(predmet);
     }
