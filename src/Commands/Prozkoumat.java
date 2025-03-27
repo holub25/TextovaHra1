@@ -36,7 +36,7 @@ public class Prozkoumat implements Command{
                 return line.split(";")[1]+"\n"+hra.getMomentalniMistnost().getObjekt().toString();
             }
         }
-        return "Objekt nenalezen";
+        return "Objekt nenalezen nebo nelze prozkoumat";
     }
 
     /**
@@ -61,8 +61,11 @@ public class Prozkoumat implements Command{
                     return krb.pruzkum();
                 }
             case "dira":
+                System.out.println("JDEEEE");
                 if(hra.getMomentalniMistnost().getObjekt() instanceof Dira dira){
+                    System.out.println("JDEEEE2");
                     if(dira.isVykopana()){
+                        System.out.println("JDEEE3");
                         return true;
                     }
                     return false;

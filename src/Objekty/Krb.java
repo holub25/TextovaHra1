@@ -26,7 +26,6 @@ public class Krb extends Objekt{
      */
     public boolean pruzkum(){
         if(hra.fazePostavy("Morgan")<4){
-            System.out.println("Nic moc tu není");
             return false;
         }else {
             return true;

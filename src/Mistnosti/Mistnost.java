@@ -3,6 +3,7 @@ package Mistnosti;
 
 import Objekty.Objekt;
 import Postavy.Postava;
+import Predmety.Dlato;
 import Predmety.Predmet;
 
 import java.util.ArrayList;
@@ -24,12 +25,21 @@ public abstract class Mistnost {
         setSousedniMistnosti(sousedi);
     }
 
+
     /**
      * Přidá předmět do místnosti.
      * @param predmet konkrétni předmět,
      */
     public void pridatPredmet(Predmet predmet){
         predmetyVMistnosti.add(predmet);
+    }
+    public void pridaniVicePredmetu(String[] predmety,Mistnost mistnost){
+        for(int i = 0;i<predmety.length;i++){
+            Dlato pr = new Dlato("j",null,false);
+            if(pr.zvoleniPredmetu(predmety[i],mistnost)!=null){
+                predmetyVMistnosti.add(pr.zvoleniPredmetu(predmety[i],mistnost));
+            }
+        }
     }
 
     /**
@@ -63,10 +73,12 @@ public abstract class Mistnost {
 
     /**
      * Nastaví který předmět se dá v místnosti použít.
-     * @param nazev je název použitelného předmětu.
+     * @param list je název použitelných předmětu.
      */
-    public void pridatPouzitelnePred(String nazev){
-        pouzitelnePredmety.add(nazev);
+    public void pridatPouzitelnePred(String[] list){
+        for(int i =0;i<list.length;i++){
+            pouzitelnePredmety.add(list[i]);
+        }
     }
 
     public ArrayList<String> getPouzitelnePredmety() {

@@ -12,6 +12,25 @@ public abstract class Predmet {
         this.poloha = poloha;
         this.sebrana = sebrana;
     }
+    public Predmet zvoleniPredmetu(String nazev,Mistnost mistnost){
+        switch (nazev){
+            case "dlato":
+                return new Dlato(nazev,mistnost,false);
+            case "lopata":
+                return new Lopata(nazev,mistnost,false);
+            case "klice":
+                return new Klice(nazev,mistnost,false);
+            case "prasky":
+                return new LahvickaFPrasky(nazev,mistnost,false);
+            case "houby":
+                return new LahvickaHouby(nazev,mistnost,false);
+            case "omitka":
+                return new Omitka(nazev,mistnost,false);
+            case "null":
+                return null;
+        }
+        return null;
+    }
 
     public String getNazev() {
         return nazev;

@@ -2,7 +2,9 @@ package Objekty;
 
 import Mistnosti.Mistnost;
 import Predmety.Predmet;
+import zbytek.Svet;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Objekt {
@@ -43,6 +45,21 @@ public abstract class Objekt {
             return "V "+nazev+" se nachází "+predmetyVObjektu;
         }
 
+    }
+    public Objekt zvoleniObjektu(String nazev, Mistnost mistnost, Svet svet) throws IOException {
+        switch (nazev){
+            case "krb":
+                return new Krb("krb",mistnost,null);
+            case "trezor":
+                return new Trezor("trezor",mistnost,null,4444,false);
+            case "rozeznavatel":
+                return new Rozeznavatel("rozeznavatel",mistnost,null,svet);
+            case "knihovna":
+                return new KnihovnaObj("knihovna",mistnost,null);
+            case "dira":
+                return new Dira("dira",mistnost,null);
+        }
+        return null;
     }
 
     public String getNazev() {

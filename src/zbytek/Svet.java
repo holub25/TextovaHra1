@@ -10,15 +10,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Svet {
 
     private ArrayList<Mistnost> mistnosti;
+    private String[] radek;
 
     public Svet() throws IOException {
         this.mistnosti = new ArrayList<>();
         nacteniMapy();
-        nahraniObsahu();
+        nahraniMistnosti();
     }
 
     /**
@@ -88,14 +90,14 @@ public class Svet {
      * Mteoda která všem místnostem doplní ještě jejich obsah.
      * @throws IOException
      */
-    public void nahraniObsahu() throws IOException {
+    /*public void nahraniObsahu() throws IOException {
         for(int i = 0;i<mistnosti.size();i++){
             switch (mistnosti.get(i).getNazev().toLowerCase()){
                 case "hala":
                     mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),1));
-                    mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),new KusStranky("Stranka",mistnosti.get(i),false)));
-                    mistnosti.get(i).getObjekt().pridaniPredmetu(new KusStranky("Kus stranky",mistnosti.get(i),false));
+                    //mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),new KusStranky("Stranka",mistnosti.get(i),false)));
+                    //mistnosti.get(i).getObjekt().pridaniPredmetu(new KusStranky("Kus stranky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPouzitelnePred("Klice");
                     break;
                 case "kuchyne":
@@ -126,7 +128,7 @@ public class Svet {
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Dira("Dira",mistnosti.get(i),null));
                     mistnosti.get(i).pridatPouzitelnePred("Lopata");
-                    mistnosti.get(i).pridatPredmet(new Klice("Klice",mistnosti.get(i),false));
+                    //mistnosti.get(i).pridatPredmet(new Klice("Klice",mistnosti.get(i),false));
                     break;
                 case "knihovna":
                     mistnosti.get(i).pridatPostavu(new Ben("Ben",mistnosti.get(i),1));
@@ -143,6 +145,40 @@ public class Svet {
             }
 
         }
+    }*/
+    public void nahraniMistnosti() throws IOException {
+        FileReader fileReader = new FileReader("ObsahMistnosti");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+        while ((line = bufferedReader.readLine())!=null){
+            String[] radek = line.split(";");
+            ArrayList<String> list = new ArrayList<>(prevod(radek));
+            for(int i = 0;i<mistnosti.size();i++){
+                Ben ben = new Ben("j",null,0);
+                Krb krb = new Krb("j",null,null);
+                //Predmet pr = null;
+                if(mistnosti.get(i).getNazev().equalsIgnoreCase(radek[0])){
+                    mistnosti.get(i).pridatPostavu(ben.zvoleniPostavy(radek[1],mistnosti.get(i)));
+                    mistnosti.get(i).pridatObjekt(krb.zvoleniObjektu(radek[2],mistnosti.get(i),this));
+                    String[] pouzPred = list.get(3).split("_");
+                    String[] predmety = list.get(4).split("-");
+                    mistnosti.get(i).pridaniVicePredmetu(predmety,mistnosti.get(i));
+                    mistnosti.get(i).pridatPouzitelnePred(pouzPred);
+                }
+            }
+        }
+        bufferedReader.close();
+        fileReader.close();
+    }
+    public void nahraniObjektu(){
+
+    }
+    public ArrayList<String> prevod(String[] pole){
+        ArrayList<String> list = new ArrayList<>();
+        for(int i = 0;i<pole.length;i++){
+            list.add(pole[i]);
+        }
+        return list;
     }
 
     public void setMistnosti(ArrayList<Mistnost> mistnosti) {
