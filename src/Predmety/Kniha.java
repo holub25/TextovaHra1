@@ -35,6 +35,8 @@ public class Kniha extends Predmet{
                 strany.put(Integer.parseInt(line.split(";")[1]),radek);
             }
         }
+        bufferedReader.close();
+        fileReader.close();
     }
 
     private int stranka = 0;
@@ -69,7 +71,6 @@ public class Kniha extends Predmet{
         }else {
             return strany.get(stranka);
         }
-
     }
 
     public void setStranka(int stranka) {

@@ -13,7 +13,7 @@ public abstract class Predmet {
         this.sebrana = sebrana;
     }
     public Predmet zvoleniPredmetu(String nazev,Mistnost mistnost){
-        switch (nazev){
+        switch (nazev.toLowerCase()){
             case "dlato":
                 return new Dlato(nazev,mistnost,false);
             case "lopata":
@@ -26,6 +26,8 @@ public abstract class Predmet {
                 return new LahvickaHouby(nazev,mistnost,false);
             case "omitka":
                 return new Omitka(nazev,mistnost,false);
+            case "kniha":
+                return new Kniha(nazev,mistnost,false);
             case "null":
                 return null;
         }

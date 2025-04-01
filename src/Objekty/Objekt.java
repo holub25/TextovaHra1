@@ -1,6 +1,7 @@
 package Objekty;
 
 import Mistnosti.Mistnost;
+import Predmety.Dlato;
 import Predmety.Predmet;
 import zbytek.Svet;
 
@@ -24,10 +25,12 @@ public abstract class Objekt {
 
     /**
      * Nastaví který předmět se dá v objektu použít.
-     * @param nazev je název použitelného předmětu.
+     * @param pouyitelne je název použitelného předmětu.
      */
-    public void pridatPozitelnePred(String nazev){
-        pouzitelnePredmety.add(nazev);
+    public void pridatPozitelnePred(String[] pouyitelne){
+        for(int i = 0;i<pouyitelne.length;i++){
+            pouzitelnePredmety.add(pouyitelne[i]);
+        }
     }
 
 
@@ -86,6 +89,15 @@ public abstract class Objekt {
      */
     public void odebratPredmet(Predmet predmet){
         predmetyVObjektu.remove(predmet);
+    }
+    public void pridatVicePredmetu(String[] predmety,Mistnost mistnost){
+        for(int i = 0;i<predmety.length;i++){
+            Dlato pr = new Dlato("j",null,false);
+            if(pr.zvoleniPredmetu(predmety[i],mistnost)!=null){
+                predmetyVObjektu.add(pr.zvoleniPredmetu(predmety[i],mistnost));
+            }
+        }
+
     }
 
 

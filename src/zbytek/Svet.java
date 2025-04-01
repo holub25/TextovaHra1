@@ -21,6 +21,7 @@ public class Svet {
         this.mistnosti = new ArrayList<>();
         nacteniMapy();
         nahraniMistnosti();
+        nahraniObjektu();
     }
 
     /**
@@ -146,6 +147,11 @@ public class Svet {
 
         }
     }*/
+
+    /**
+     * Nahraje ze souboru informace o místnostech.
+     * @throws IOException aby ochránila načítání ze souboru.
+     */
     public void nahraniMistnosti() throws IOException {
         FileReader fileReader = new FileReader("ObsahMistnosti");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -170,7 +176,38 @@ public class Svet {
         bufferedReader.close();
         fileReader.close();
     }
-    public void nahraniObjektu(){
+
+    /**
+     * Nahraje ze souboru informace o objektech.
+     * @throws IOException aby ochránila načítání ze souboru.
+     */
+    public void nahraniObjektu() throws IOException {
+        FileReader fileReader = new FileReader("ObsahObjekty");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+        while ((line = bufferedReader.readLine())!=null){
+            String[] radek = line.split(";");
+            ArrayList<String> list = new ArrayList<>(prevod(radek));
+            for(int i = 0;i<mistnosti.size();i++){
+                String[] predmety = list.get(1).split("-");
+                String[] pouzitelne = list.get(2).split("_");
+                if(mistnosti.get(i).getObjekt()==null){
+
+                }
+                else if(mistnosti.get(i).getObjekt() instanceof KnihovnaObj knihovnaObj){
+                    for(int b = 0;b<predmety.length;b++){
+                        knihovnaObj.pridaniKnihy(predmety,mistnosti.get(i));
+                    }
+                    mistnosti.get(i).getObjekt().pridatPozitelnePred(pouzitelne);
+                }
+                else if(mistnosti.get(i).getObjekt().getNazev().equalsIgnoreCase(radek[0])){
+                    mistnosti.get(i).getObjekt().pridatVicePredmetu(predmety,mistnosti.get(i));
+                    mistnosti.get(i).getObjekt().pridatPozitelnePred(pouzitelne);
+                }
+
+            }
+
+        }
 
     }
     public ArrayList<String> prevod(String[] pole){
