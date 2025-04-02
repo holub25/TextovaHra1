@@ -155,7 +155,7 @@ public class Hra {
             else if(svet.getMistnosti().get(i).getPostava().getJmeno().equalsIgnoreCase(jmeno)){
                 if(faze>svet.getMistnosti().get(i).getPostava().getFaze()){
                     svet.getMistnosti().get(i).getPostava().setFaze(faze);
-                    System.out.println(svet.getMistnosti().get(i).getPostava().getJmeno()+svet.getMistnosti().get(i).getPostava().getFaze());
+                    //System.out.println(svet.getMistnosti().get(i).getPostava().getJmeno()+svet.getMistnosti().get(i).getPostava().getFaze());
                 }
                 //System.out.println("Faze postavy nova: "+svet.getMistnosti().get(i).getPostava().getFaze()+svet.getMistnosti().get(i).getPostava().getJmeno());
             }

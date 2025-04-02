@@ -17,7 +17,6 @@ public class Mluv implements Command{
     public Mluv(Hra hra) {
         this.hra = hra;
         otazky = new LinkedHashSet<>();
-        System.out.println();
     }
 
     /**

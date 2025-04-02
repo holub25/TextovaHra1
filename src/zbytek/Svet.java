@@ -99,7 +99,6 @@ public class Svet {
                     mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),null));
-                    //mistnosti.get(i).getObjekt().pridaniPredmetu(new KusStranky("Kus stranky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPouzitelnePred("Klice");
                     break;
                 case "kuchyne":
