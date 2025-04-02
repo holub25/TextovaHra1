@@ -136,8 +136,6 @@ public class Svet {
                         knihovna.pridaniKnihy(new Kniha("Kniha1", mistnosti.get(i), false));
                         knihovna.pridaniKnihy(new Kniha("Kniha2", mistnosti.get(i), false));
                         knihovna.pridaniKnihy(new Kniha("Kniha3", mistnosti.get(i), false));
-                        knihovna.pridaniKnihy(new Kniha("Kniha4", mistnosti.get(i), false));
-                        knihovna.pridaniKnihy(new Kniha("Kniha5", mistnosti.get(i), false));
                     }
                     break;
             }
