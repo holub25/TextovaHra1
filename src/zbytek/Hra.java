@@ -7,6 +7,8 @@ import Postavy.Ben;
 import Predmety.Dlato;
 import Predmety.Lopata;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -53,6 +55,16 @@ public class Hra {
         prikazy.put("informace",new Informace(this));
         prikazy.put("pomoc",new Pomoc());
     }
+    public String uvod() throws IOException {
+        FileReader fileReader = new FileReader("Uvod");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+        String text = "";
+        while ((line = bufferedReader.readLine())!=null){
+            text = text + line + "\n";
+        }
+        return text;
+    }
 
     public Svet getSvet() {
         return svet;
@@ -60,9 +72,8 @@ public class Hra {
 
     /**
      * Metoda která hráči umožňuje zadávat jednotlivé příkazy.
-     * @throws Exception
      */
-    public void konzole() throws Exception {
+    public void konzole()  {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
@@ -94,9 +105,10 @@ public class Hra {
      * Metoda která zapne celkovou hru.
      * @param svet je svět ve kterém se hra odehrává.
      */
-    public void start(Svet svet){
+    public void start(Svet svet) throws Exception {
         inicializace(svet);
-        System.out.println("VÍTEJ");
+        System.out.println(uvod());
+        System.out.println(prikazy.get("informace").prikaz(null));
         try{
             do {
                 konzole();

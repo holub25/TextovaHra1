@@ -43,9 +43,6 @@ public class InventoryPlayer {
         return predmety;
     }
 
-    public int getVelikost() {
-        return velikost;
-    }
 
     @Override
     public String toString() {

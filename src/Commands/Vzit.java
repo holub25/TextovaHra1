@@ -37,7 +37,6 @@ public class Vzit implements Command{
              }
          }
          for (int i = 0;i<aktualniMistnost.getObjekt().getPredmetyVObjektu().size();i++){
-             System.out.println("KON");
              if(aktualniMistnost.getPredmetyVMistnosti().size() == 0){
                  return "Objekt je prázdná";
              }

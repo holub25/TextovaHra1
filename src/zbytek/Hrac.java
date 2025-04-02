@@ -61,21 +61,11 @@ public class Hrac {
         return inventory;
     }
 
-    public Mistnost getAktualniMistnost() {
-        return aktualniMistnost;
-    }
 
     public void setJmeno(String jmeno) {
         this.jmeno = jmeno;
     }
 
-    public void setInventory(InventoryPlayer inventory) {
-        this.inventory = inventory;
-    }
-
-    public void setAktualniMistnost(Mistnost aktualniMistnost) {
-        this.aktualniMistnost = aktualniMistnost;
-    }
 
     public boolean isPruzkum() {
         return pruzkum;
@@ -93,12 +83,5 @@ public class Hrac {
         this.prozObjekt = prozObjekt;
     }
 
-    /*public String nastaveniJmena(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Zadej jmeno: ");
-        String jmeno = sc.nextLine();
-        this.jmeno = jmeno;
-        return "Vaše jmeno je: "+jmeno;
-    }*/
 
 }

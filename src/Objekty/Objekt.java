@@ -40,7 +40,6 @@ public abstract class Objekt {
     @Override
     public String toString() {
         if(this instanceof KnihovnaObj knihovnaObj){
-            System.out.println("JDE");
             return "V "+nazev+" se nachází "+knihovnaObj.getKnihy();
         }else {
             return "V "+nazev+" se nachází "+predmetyVObjektu;
@@ -88,14 +87,5 @@ public abstract class Objekt {
     public void odebratPredmet(Predmet predmet){
         predmetyVObjektu.remove(predmet);
     }
-    /*public void pridatVicePredmetu(String[] predmety,Mistnost mistnost){
-        for(int i = 0;i<predmety.length;i++){
-            Dlato pr = new Dlato("j",null,false);
-            if(pr.zvoleniPredmetu(predmety[i],mistnost)!=null){
-                System.out.println("PRIDAVA SE: "+predmety[i]);
-                predmetyVObjektu.add(pr.zvoleniPredmetu(predmety[i],mistnost));
-            }
-        }
 
-    }*/
 }

@@ -15,7 +15,6 @@ import java.util.List;
 public class Svet {
 
     private ArrayList<Mistnost> mistnosti;
-    private String[] radek;
 
     public Svet() throws IOException {
         this.mistnosti = new ArrayList<>();
@@ -122,14 +121,12 @@ public class Svet {
                 case "sklep":
                     mistnosti.get(i).pridatPredmet(new Dlato("Dlato",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPredmet(new Lopata("Lopata",mistnosti.get(i),false));
-                    mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Kniha("Denik",mistnosti.get(i),false),4444,false));
-                    //mistnosti.get(i).getObjekt().pridaniPredmetu(new Denik("Denik",mistnosti.get(i),false));
+                    mistnosti.get(i).pridatObjekt(new Trezor("Trezor",mistnosti.get(i),new Kniha("Denik",mistnosti.get(i),false),1952,false));
                     break;
                 case "zahrada":
                     mistnosti.get(i).pridatPostavu(new Alfred("Alfred",mistnosti.get(i),1));
                     mistnosti.get(i).pridatObjekt(new Dira("Dira",mistnosti.get(i),null));
                     mistnosti.get(i).pridatPouzitelnePred("Lopata");
-                    //mistnosti.get(i).pridatPredmet(new Klice("Klice",mistnosti.get(i),false));
                     break;
                 case "knihovna":
                     mistnosti.get(i).pridatPostavu(new Ben("Ben",mistnosti.get(i),1));
@@ -148,75 +145,7 @@ public class Svet {
         }
     }
 
-    /**
-     * Nahraje ze souboru informace o místnostech.
-     * @throws IOException aby ochránila načítání ze souboru.
-     */
-    /*public void nahraniMistnosti() throws IOException {
-        FileReader fileReader = new FileReader("ObsahMistnosti");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        while ((line = bufferedReader.readLine())!=null){
-            String[] radek = line.split(";");
-            ArrayList<String> list = new ArrayList<>(prevod(radek));
-            for(int i = 0;i<mistnosti.size();i++){
-                Ben ben = new Ben("j",null,0);
-                Krb krb = new Krb("j",null,null);
-                //Predmet pr = null;
-                if(mistnosti.get(i).getNazev().equalsIgnoreCase(radek[0])){
-                    mistnosti.get(i).pridatPostavu(ben.zvoleniPostavy(radek[1],mistnosti.get(i)));
-                    mistnosti.get(i).pridatObjekt(krb.zvoleniObjektu(radek[2],mistnosti.get(i),this));
-                    String[] pouzPred = list.get(3).split("_");
-                    String[] predmety = list.get(4).split("-");
-                    mistnosti.get(i).pridaniVicePredmetu(predmety,mistnosti.get(i));
-                    mistnosti.get(i).pridatPouzitelnePred(pouzPred);
-                }
-            }
-        }
-        bufferedReader.close();
-        fileReader.close();
-    }
 
-
-
-    public void nahraniObjektu() throws IOException {
-        FileReader fileReader = new FileReader("ObsahObjekty");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        while ((line = bufferedReader.readLine())!=null){
-            String[] radek = line.split(";");
-            ArrayList<String> list = new ArrayList<>(prevod(radek));
-            for(int i = 0;i<mistnosti.size();i++){
-                String[] predmety = list.get(1).split("-");
-                String[] pouzitelne = list.get(2).split("_");
-                System.out.println("TREZOOOOOOR: "+predmety[0]);
-                if(mistnosti.get(i).getObjekt()==null){
-
-                }
-                else if(mistnosti.get(i).getObjekt() instanceof KnihovnaObj knihovnaObj){
-                    for(int b = 0;b<predmety.length;b++){
-                        knihovnaObj.pridaniKnihy(predmety,mistnosti.get(i));
-                    }
-                    mistnosti.get(i).getObjekt().pridatPozitelnePred(pouzitelne);
-                }
-                else if(mistnosti.get(i).getObjekt().getNazev().equalsIgnoreCase(radek[0])){
-                    System.out.println("OBJEKT: "+predmety[0]);
-                    mistnosti.get(i).getObjekt().pridatVicePredmetu(predmety,mistnosti.get(i));
-                    mistnosti.get(i).getObjekt().pridatPozitelnePred(pouzitelne);
-                }
-
-            }
-
-        }
-
-    }
-    public ArrayList<String> prevod(String[] pole){
-        ArrayList<String> list = new ArrayList<>();
-        for(int i = 0;i<pole.length;i++){
-            list.add(pole[i]);
-        }
-        return list;
-    }*/
 
     public void setMistnosti(ArrayList<Mistnost> mistnosti) {
         this.mistnosti = mistnosti;

@@ -22,12 +22,6 @@ public class KnihovnaObj extends Objekt{
     public void pridaniKnihy(Kniha kniha) throws IOException {
         knihy.add(kniha);
         nahraniKnih();
-        /*for(int i = 0;i<knizky.length;i++){
-            if(i>0&&knihy.size()<3){
-                knihy.add(new Kniha(knizky[i],mistnost,false));
-            }
-        }
-        nahraniKnih();*/
     }
     public void nahraniKnih() throws IOException {
         for(int i = 0;i<knihy.size();i++){

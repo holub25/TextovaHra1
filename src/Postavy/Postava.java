@@ -15,31 +15,8 @@ public abstract class Postava {
         this.text = nahraniTextu();
     }
 
-    /**
-     * Metoda ktera zvolí jaká postava má být vytvořena.
-     * @param jmeno je jméno postavy
-     * @param mistnost je místnost kde se ma postava nacházet.
-     * @return vrátí danou postavu
-     */
-    public Postava zvoleniPostavy(String jmeno,Mistnost mistnost){
-        switch (jmeno){
-            case "morgan":
-                return new Morgan(jmeno,mistnost,1);
-            case "ben":
-                return new Ben(jmeno,mistnost,1);
-            case "elenora":
-                return new Elenora(jmeno,mistnost,1);
-            case "jack":
-                return new Jack(jmeno,mistnost,1);
-            case "alfred":
-                return new Alfred(jmeno,mistnost,1);
-            case "anna":
-                return new Anna(jmeno,mistnost,1);
-            case "stuart":
-                return new Stuart(jmeno,mistnost,1);
-        }
-        return null;
-    }
+
+
 
     /**
      * Zvětší fázi postavy o 1 bod.

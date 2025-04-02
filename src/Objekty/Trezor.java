@@ -63,8 +63,6 @@ public class Trezor extends Objekt{
      */
     public void nahraniDenik() throws IOException {
         for(int i = 0;i<predmetyVObjektu.size();i++){
-            System.out.println("CISLO"+i);
-
             if(predmetyVObjektu.get(i) instanceof Kniha kniha){
                 kniha.nahraniStran(predmetyVObjektu.get(i).getNazev());
             }

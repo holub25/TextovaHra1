@@ -11,7 +11,6 @@ import java.util.*;
 public class Mluv implements Command{
 
     private Hra hra;
-    private String[] rozdeleni;
     private LinkedHashSet<String>  otazky;
 
     public Mluv(Hra hra) {
