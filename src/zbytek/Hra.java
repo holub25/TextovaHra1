@@ -96,7 +96,7 @@ public class Hra {
                 System.out.println("Příkaz nenalezen, nebo nelze použít");
             }
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Příkaz nenalezen");
         }
 
     }
