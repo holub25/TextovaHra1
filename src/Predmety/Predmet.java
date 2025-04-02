@@ -12,7 +12,7 @@ public abstract class Predmet {
         this.poloha = poloha;
         this.sebrana = sebrana;
     }
-    public Predmet zvoleniPredmetu(String nazev,Mistnost mistnost){
+    /*public Predmet zvoleniPredmetu(String nazev,Mistnost mistnost){
         switch (nazev.toLowerCase()){
             case "dlato":
                 return new Dlato(nazev,mistnost,false);
@@ -26,13 +26,14 @@ public abstract class Predmet {
                 return new LahvickaHouby(nazev,mistnost,false);
             case "omitka":
                 return new Omitka(nazev,mistnost,false);
-            case "kniha":
+            case "kniha", "denik":
+                System.out.println("JE TO TRUEEEEEEEE"+nazev);
                 return new Kniha(nazev,mistnost,false);
             case "null":
                 return null;
         }
         return null;
-    }
+    }*/
 
     public String getNazev() {
         return nazev;

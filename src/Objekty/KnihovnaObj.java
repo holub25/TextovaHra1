@@ -15,22 +15,19 @@ public class KnihovnaObj extends Objekt{
         knihy = new ArrayList<>();
     }
 
-    /**
-     * Přidá do knihovny jednotlivé knihy.
-     * @param knizky je kniha která se má přidat do arrayListu.
-     * @throws IOException
-     */
     /*public void pridaniKnihy(Kniha kniha) throws IOException {
         kniha.nahraniStran(kniha.getNazev());
         knihy.add(kniha);
     }*/
-    public void pridaniKnihy(String[] knizky,Mistnost mistnost) throws IOException {
-        for(int i = 0;i<knizky.length;i++){
+    public void pridaniKnihy(Kniha kniha) throws IOException {
+        knihy.add(kniha);
+        nahraniKnih();
+        /*for(int i = 0;i<knizky.length;i++){
             if(i>0&&knihy.size()<3){
                 knihy.add(new Kniha(knizky[i],mistnost,false));
             }
         }
-        nahraniKnih();
+        nahraniKnih();*/
     }
     public void nahraniKnih() throws IOException {
         for(int i = 0;i<knihy.size();i++){

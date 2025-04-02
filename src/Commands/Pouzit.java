@@ -21,7 +21,7 @@ public class Pouzit implements Command {
      * @throws IOException
      */
     @Override
-    public String prikaz(String vstup) throws IOException {
+    public String prikaz(String vstup) throws Exception {
         for(int i = 0;i<hra.getMomentalniMistnost().getPouzitelnePredmety().size();i++){
             if(hra.getMomentalniMistnost().getPouzitelnePredmety().get(i).equalsIgnoreCase(vstup)){
                 for(int b = 0;b<hra.getHrac().getInventory().getPredmety().size();b++){
@@ -51,9 +51,9 @@ public class Pouzit implements Command {
      * @param vstup název předmětu
      * @param i index předmětu v inventáři.
      * @return navrátí akci použitého předmětu.
-     * @throws IOException
+     * @throws Exception
      */
-    public String pouzitelnePredmety(String vstup,int i) throws IOException {
+    public String pouzitelnePredmety(String vstup,int i) throws Exception {
         String odpoved = "";
         Predmet predmet = hra.getHrac().getInventory().getPredmety().get(i);
         if(vstup.equalsIgnoreCase("klice")){

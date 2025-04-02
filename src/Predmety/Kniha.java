@@ -32,6 +32,7 @@ public class Kniha extends Predmet{
         while ((line = bufferedReader.readLine())!=null){
             if(line.split(";")[0].equalsIgnoreCase(nazev)){
                 radek = line.split(";")[2].replace("\\n","\n");
+                //System.out.println(radek);
                 strany.put(Integer.parseInt(line.split(";")[1]),radek);
             }
         }
@@ -55,7 +56,7 @@ public class Kniha extends Predmet{
         }else {
             return "Muzete zadat pouze +/-";
         }
-        if(stranka == 2&&hrac.getFazeHrace()==6&&hrac.getCtenaKniha().nazev.equalsIgnoreCase("kniha2")){
+        if(stranka == 3&&hrac.getFazeHrace()==6&&hrac.getCtenaKniha().nazev.equalsIgnoreCase("kniha3")){
             hrac.zvyseniFazeHrac();
         }
         /*if(strany.get(stranka)==null){

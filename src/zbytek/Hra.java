@@ -9,6 +9,7 @@ import Predmety.Lopata;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hra {
@@ -25,7 +26,6 @@ public class Hra {
         this.prikazy = new HashMap<>();
         this.momentalniMistnost = momentalniMistnost;
         this.svet = svet;
-        //System.out.println(momentalniMistnost.getNazev());
         hrac = new Hrac("",5,momentalniMistnost,1);
         nastaveniPostav();
         nastaveniPredmetu();
@@ -50,6 +50,8 @@ public class Hra {
         prikazy.put("strana",new Strana(this));
         prikazy.put("pouzit",new Pouzit(this));
         prikazy.put("vyhodit",new Vyhodit(this));
+        prikazy.put("informace",new Informace(this));
+        prikazy.put("pomoc",new Pomoc());
     }
 
     public Svet getSvet() {
@@ -64,8 +66,9 @@ public class Hra {
         try {
             System.out.print(">> ");
             String prikaz = sc.nextLine().toLowerCase();
-            if(soucetFazi()==34){
-                obvineni();
+            if(soucetFazi()==33){
+                System.out.println(obvineni());
+                exit = true;
             }
             else if(prikazy.containsKey(prikaz.split(" ")[0]) && (!hrac.isPruzkum() || prikazy.get(prikaz.split(" ")[0]).povoleniPruz()) && (!hrac.isCte() || prikazy.get(prikaz.split(" ")[0]).cteni())){
                 if(prikaz.split(" ").length>1){
@@ -197,13 +200,17 @@ public class Hra {
      * @return Vrátí zda hráč vyhrál nebo ne.
      */
     public String obvineni(){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Již máte všechny důkázy k odhalení vraha. Napište jméno\n>> ");
-        String odpoved = sc.nextLine();
-        exit = true;
-        if(odpoved.equalsIgnoreCase("Anna")){
-            return "Gratuluji vyhrál jste";
-        }else {
+        try{
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Již máte všechny důkázy k odhalení vraha. Napište jméno\n>> ");
+            String odpoved = sc.nextLine();
+            exit = true;
+            if(odpoved.equalsIgnoreCase("Anna")){
+                return "Gratuluji vyhrál jste";
+            }else {
+                return "Bohuzel jste obvinil špatného";
+            }
+        }catch (InputMismatchException e){
             return "Bohuzel jste obvinil špatného";
         }
     }

@@ -48,13 +48,12 @@ public class Klice extends Predmet {
             if(hracOdpoved.equalsIgnoreCase(slovoCz)){
                 odpoved = true;
                 System.out.println("Spravná odpověď");
-                return false;
+                //return false;
             } else if (hracOdpoved.equalsIgnoreCase("zpet")) {
                 System.out.println("Nenašel jste správný klíč");
                 return true;
             } else {
                 System.out.println("Spatna odpoved");
-                return false;
             }
         }
         return false;

@@ -24,7 +24,6 @@ public class Vzit implements Command{
     public String prikaz(String vstup) {
          Mistnost aktualniMistnost = hra.getMomentalniMistnost();
          for(int i = 0;i<aktualniMistnost.getPredmetyVMistnosti().size();i++){
-             System.out.println("KON");
              if(aktualniMistnost.getPredmetyVMistnosti().size() == 0){
                  return "Mistnost je prázdná";
              }
@@ -43,7 +42,10 @@ public class Vzit implements Command{
                  return "Objekt je prázdná";
              }
              else if(aktualniMistnost.getObjekt().getPredmetyVObjektu().get(i).getNazev().equalsIgnoreCase(vstup)){
-                 if(hrac.getInventory().kontrolaVelikosti()){
+                 if(aktualniMistnost.getObjekt().getPredmetyVObjektu().get(i) instanceof Kniha kniha){
+                     return "Knihu brát nebudu";
+                 }
+                 else if(hrac.getInventory().kontrolaVelikosti()){
                      hrac.getInventory().pridaniPredmetu(aktualniMistnost.getObjekt().getPredmetyVObjektu().get(i));
                      aktualniMistnost.getObjekt().odebratPredmet(aktualniMistnost.getPredmetyVMistnosti().get(i));
                      return "Sebral jsi "+vstup;

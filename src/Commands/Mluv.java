@@ -125,7 +125,7 @@ public class Mluv implements Command{
             zvyseniFaze();
         }else if(jmeno.equalsIgnoreCase("Ben")&&cisloOtazky==44&&hra.getHrac().getFazeHrace() == 4){
             if(hra.getMomentalniMistnost().getPostava() instanceof Ben ben){
-                ben.predaniKlice();
+                System.out.println(ben.predaniKlice());
             }
         }
         else if(cisloOtazky==77&&hra.getHrac().getFazeHrace()==7){

@@ -33,14 +33,14 @@ public abstract class Mistnost {
     public void pridatPredmet(Predmet predmet){
         predmetyVMistnosti.add(predmet);
     }
-    public void pridaniVicePredmetu(String[] predmety,Mistnost mistnost){
+    /*public void pridaniVicePredmetu(String[] predmety,Mistnost mistnost){
         for(int i = 0;i<predmety.length;i++){
             Dlato pr = new Dlato("j",null,false);
             if(pr.zvoleniPredmetu(predmety[i],mistnost)!=null){
                 predmetyVMistnosti.add(pr.zvoleniPredmetu(predmety[i],mistnost));
             }
         }
-    }
+    }*/
 
     /**
      * Nastaví postavu v místnosti.
@@ -73,12 +73,10 @@ public abstract class Mistnost {
 
     /**
      * Nastaví který předmět se dá v místnosti použít.
-     * @param list je název použitelných předmětu.
+     * @param nazev je název použitelných předmětu.
      */
-    public void pridatPouzitelnePred(String[] list){
-        for(int i =0;i<list.length;i++){
-            pouzitelnePredmety.add(list[i]);
-        }
+    public void pridatPouzitelnePred(String nazev){
+        pouzitelnePredmety.add(nazev);
     }
 
     public ArrayList<String> getPouzitelnePredmety() {

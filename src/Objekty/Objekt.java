@@ -25,12 +25,10 @@ public abstract class Objekt {
 
     /**
      * Nastaví který předmět se dá v objektu použít.
-     * @param pouyitelne je název použitelného předmětu.
+     * @param nazev je název použitelného předmětu.
      */
-    public void pridatPozitelnePred(String[] pouyitelne){
-        for(int i = 0;i<pouyitelne.length;i++){
-            pouzitelnePredmety.add(pouyitelne[i]);
-        }
+    public void pridatPozitelnePred(String nazev){
+        pouzitelnePredmety.add(nazev);
     }
 
 
@@ -49,7 +47,7 @@ public abstract class Objekt {
         }
 
     }
-    public Objekt zvoleniObjektu(String nazev, Mistnost mistnost, Svet svet) throws IOException {
+    /*public Objekt zvoleniObjektu(String nazev, Mistnost mistnost, Svet svet) throws IOException {
         switch (nazev){
             case "krb":
                 return new Krb("krb",mistnost,null);
@@ -63,7 +61,7 @@ public abstract class Objekt {
                 return new Dira("dira",mistnost,null);
         }
         return null;
-    }
+    }*/
 
     public String getNazev() {
         return nazev;
@@ -90,15 +88,14 @@ public abstract class Objekt {
     public void odebratPredmet(Predmet predmet){
         predmetyVObjektu.remove(predmet);
     }
-    public void pridatVicePredmetu(String[] predmety,Mistnost mistnost){
+    /*public void pridatVicePredmetu(String[] predmety,Mistnost mistnost){
         for(int i = 0;i<predmety.length;i++){
             Dlato pr = new Dlato("j",null,false);
             if(pr.zvoleniPredmetu(predmety[i],mistnost)!=null){
+                System.out.println("PRIDAVA SE: "+predmety[i]);
                 predmetyVObjektu.add(pr.zvoleniPredmetu(predmety[i],mistnost));
             }
         }
 
-    }
-
-
+    }*/
 }

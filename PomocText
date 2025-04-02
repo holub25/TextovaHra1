@@ -1,0 +1,13 @@
+Jdi <MÍSTNOST> = Přejdete do dané místnosti.
+Cti <KNIHA> = Začnete číst danou knihu.
+Mluv <POSTAVA> = Začnete mluvit s danou postavou.
+Vzit <PŘEDMĚT> = Hráč sebere zadaný předmět z místnosti nebo z objektu.
+Inventory = Zobrazí se váš inventář.
+Informace = Vypíší se informace o místnosti ve které jste.
+Pouzit <PŘEDMĚT> = Použije předmět v místnosti nebo v objektu, když je to možné.
+Prozkoumat <OBJEKT> = Hráč začne prozkoumávat daný objekt.
+Zpět = Hráč přestane prozkoumávat nebo číst a může opět používat ostatní příkazy.
+Strana <+/-> = Hráč přetočí stránku knihy podle znaménka + nebo -.
+Vyhodit <PŘEDMĚT> = Hráč vyhodí předmět z inventáře.
+Konec = Ukončí hru.
+Pomoc = Vypíše hráči potřebné informace k hraní hry.

@@ -68,7 +68,7 @@ public class Cti implements Command{
     public void otevreniInformaci(Predmet predmet){
         if(predmet.getNazev().equalsIgnoreCase("denik")&&hra.getHrac().getFazeHrace()==4){
             hra.getHrac().zvyseniFazeHrac();
-        }else if(predmet.getNazev().equalsIgnoreCase("kniha2")&&hra.getHrac().getFazeHrace()==6){
+        }else if(predmet.getNazev().equalsIgnoreCase("kniha3")&&hra.getHrac().getFazeHrace()==6){
             hra.getHrac().zvyseniFazeHrac();
         }
     }

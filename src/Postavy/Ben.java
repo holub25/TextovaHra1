@@ -20,17 +20,18 @@ public class Ben extends Postava{
     /**
      * Metoda která dá hráči klíč, když se hráč zeptá bena na konkrétní otázku.
      */
-    public void predaniKlice(){
+    public String predaniKlice(){
         if(hra.getHrac().getInventory().getPredmety().size()==0){
             hra.getHrac().getInventory().pridaniPredmetu(new Klice("Klice",null,true));
+            return "Získal jsi klíče";
         }else {
             for(int i = 0;i<hra.getHrac().getInventory().getPredmety().size();i++){
                 if(hra.getHrac().getInventory().getPredmety().get(i).getNazev().equalsIgnoreCase("Klice")){
-                    System.out.println("Klíče již máš");
-                }else {
-                    hra.getHrac().getInventory().pridaniPredmetu(new Klice("Klice",null,true));
+                    return "Klíče již máš";
                 }
             }
+            hra.getHrac().getInventory().pridaniPredmetu(new Klice("Klice",null,true));
+            return "Získal jsi klíče";
         }
     }
 }

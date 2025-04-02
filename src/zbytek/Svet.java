@@ -20,8 +20,9 @@ public class Svet {
     public Svet() throws IOException {
         this.mistnosti = new ArrayList<>();
         nacteniMapy();
-        nahraniMistnosti();
-        nahraniObjektu();
+        nahraniObsahu();
+        //nahraniMistnosti();
+        //nahraniObjektu();
     }
 
     /**
@@ -91,13 +92,13 @@ public class Svet {
      * Mteoda která všem místnostem doplní ještě jejich obsah.
      * @throws IOException
      */
-    /*public void nahraniObsahu() throws IOException {
+    public void nahraniObsahu() throws IOException {
         for(int i = 0;i<mistnosti.size();i++){
             switch (mistnosti.get(i).getNazev().toLowerCase()){
                 case "hala":
                     mistnosti.get(i).pridatPredmet(new LahvickaFPrasky("Prasky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPostavu(new Morgan("Morgan",mistnosti.get(i),1));
-                    //mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),new KusStranky("Stranka",mistnosti.get(i),false)));
+                    mistnosti.get(i).pridatObjekt(new Krb("Krb",mistnosti.get(i),null));
                     //mistnosti.get(i).getObjekt().pridaniPredmetu(new KusStranky("Kus stranky",mistnosti.get(i),false));
                     mistnosti.get(i).pridatPouzitelnePred("Klice");
                     break;
@@ -146,13 +147,13 @@ public class Svet {
             }
 
         }
-    }*/
+    }
 
     /**
      * Nahraje ze souboru informace o místnostech.
      * @throws IOException aby ochránila načítání ze souboru.
      */
-    public void nahraniMistnosti() throws IOException {
+    /*public void nahraniMistnosti() throws IOException {
         FileReader fileReader = new FileReader("ObsahMistnosti");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
@@ -177,10 +178,8 @@ public class Svet {
         fileReader.close();
     }
 
-    /**
-     * Nahraje ze souboru informace o objektech.
-     * @throws IOException aby ochránila načítání ze souboru.
-     */
+
+
     public void nahraniObjektu() throws IOException {
         FileReader fileReader = new FileReader("ObsahObjekty");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -191,6 +190,7 @@ public class Svet {
             for(int i = 0;i<mistnosti.size();i++){
                 String[] predmety = list.get(1).split("-");
                 String[] pouzitelne = list.get(2).split("_");
+                System.out.println("TREZOOOOOOR: "+predmety[0]);
                 if(mistnosti.get(i).getObjekt()==null){
 
                 }
@@ -201,6 +201,7 @@ public class Svet {
                     mistnosti.get(i).getObjekt().pridatPozitelnePred(pouzitelne);
                 }
                 else if(mistnosti.get(i).getObjekt().getNazev().equalsIgnoreCase(radek[0])){
+                    System.out.println("OBJEKT: "+predmety[0]);
                     mistnosti.get(i).getObjekt().pridatVicePredmetu(predmety,mistnosti.get(i));
                     mistnosti.get(i).getObjekt().pridatPozitelnePred(pouzitelne);
                 }
@@ -216,7 +217,7 @@ public class Svet {
             list.add(pole[i]);
         }
         return list;
-    }
+    }*/
 
     public void setMistnosti(ArrayList<Mistnost> mistnosti) {
         this.mistnosti = mistnosti;

@@ -31,22 +31,26 @@ public class Trezor extends Objekt{
             return true;
         }else {
             while (!reseni){
-                System.out.print("Zadejte 4místný kód k trezoru:"+"\n>>");
-                String odpoved = sc.nextLine();
-                if(odpoved.equalsIgnoreCase("Zpet")){
-                    System.out.println("Nepodařilo se vám trezor otevřít");
-                    return false;
-                }
-                int ciselnaOdpoved = Integer.parseInt(odpoved);
-                if (ciselnaOdpoved == kod) {
-                    //reseni = true;
-                    otevren = true;
-                    System.out.println("Zadal jste správný kód");
-                    return true;
-                } else if (odpoved.length() != 4) {
-                    System.out.println("Můžete zadat pouze 4místny kód");
-                }else {
-                    System.out.println("Špatný kód");
+                try {
+                    System.out.print("Zadejte 4místný kód k trezoru:"+"\n>>");
+                    String odpoved = sc.nextLine();
+                    if(odpoved.equalsIgnoreCase("Zpet")){
+                        System.out.println("Nepodařilo se vám trezor otevřít");
+                        return false;
+                    }
+                    int ciselnaOdpoved = Integer.parseInt(odpoved);
+                    if (ciselnaOdpoved == kod) {
+                        //reseni = true;
+                        otevren = true;
+                        System.out.println("Zadal jste správný kód");
+                        return true;
+                    } else if (odpoved.length() != 4) {
+                        System.out.println("Můžete zadat pouze 4místny kód");
+                    }else {
+                        System.out.println("Špatný kód");
+                    }
+                }catch (NumberFormatException e){
+                    System.out.println("Zadavejte pouze čísla");
                 }
             }
             return false;
@@ -59,6 +63,8 @@ public class Trezor extends Objekt{
      */
     public void nahraniDenik() throws IOException {
         for(int i = 0;i<predmetyVObjektu.size();i++){
+            System.out.println("CISLO"+i);
+
             if(predmetyVObjektu.get(i) instanceof Kniha kniha){
                 kniha.nahraniStran(predmetyVObjektu.get(i).getNazev());
             }
